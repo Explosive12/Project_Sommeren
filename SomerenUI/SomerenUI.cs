@@ -6,7 +6,7 @@ using System;
 
 namespace SomerenUI
 {
-    
+
     public partial class SomerenUI : Form
     {
         const string DateFormat = "yyyy-MM-dd HH:mm";
@@ -21,7 +21,7 @@ namespace SomerenUI
             pnlStudents.Hide();
             pnlActivities.Hide();
             pnlRooms.Hide();
-
+            pnlLecturer.Hide();
 
             // show dashboard
             pnlDashboard.Show();
@@ -124,6 +124,8 @@ namespace SomerenUI
             //Hide all other pannels
             pnlDashboard.Hide();
             pnlStudents.Hide();
+            pnlLecturer.Hide();
+            pnlActivities.Hide();
 
             // Hide all other Listviews?
 
@@ -192,6 +194,8 @@ namespace SomerenUI
             // hide all other panels
             pnlDashboard.Hide();
             pnlStudents.Hide();
+            pnlActivities.Hide();
+            pnlRooms.Hide();
 
             // show lecturer
             pnlLecturer.Show();
