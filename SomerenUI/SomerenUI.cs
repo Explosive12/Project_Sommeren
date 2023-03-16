@@ -214,7 +214,7 @@ namespace SomerenUI
         private void DisplayLecturers(List<Lecturer> lecturers)
         {
             // clear the listview before filling it
-            listViewLecturers.Clear();
+            listViewLecturers.Items.Clear();
 
             foreach (Lecturer lectuer in lecturers)
             {
