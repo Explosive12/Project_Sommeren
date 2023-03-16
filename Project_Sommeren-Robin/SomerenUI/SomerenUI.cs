@@ -26,6 +26,7 @@ namespace SomerenUI
         {
             // hide all other panels
             pnlDashboard.Hide();
+            PnlLecturer.Hide();
 
             // show students
             pnlStudents.Show();
@@ -61,6 +62,45 @@ namespace SomerenUI
                 listViewStudents.Items.Add(li);
             }
         }
+        private List<Lecturer> GetLecturers()
+        {
+            LecturerService lecturerService = new LecturerService();
+            List<Lecturer> lecturers = lecturerService.GetLecturers();
+            return lecturers;
+        }
+        private void ShowLecturerPanel()
+        {
+            // hide all other panels
+            pnlDashboard.Hide();
+            pnlStudents.Hide();
+
+            // show lecturer
+            PnlLecturer.Show();
+
+            try
+            {
+                // get and display all students
+                List<Lecturer> lecturers = GetLecturers();
+                DisplayLecturers(lecturers);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the lecturers: " + e.Message);
+            }
+        }
+        private void DisplayLecturers(List<Lecturer> lecturers)
+        {
+            // clear the listview before filling it
+            listViewLecturers.Clear();
+
+            foreach (Lecturer lectuer in lecturers)
+            {
+                ListViewItem li = new ListViewItem(lectuer.Id.ToString());
+                li.Tag = lectuer;   // link lecturer object to listview item
+                li.SubItems.Add(lectuer.Name.ToString());
+                listViewLecturers.Items.Add(li);
+            }
+        }
 
         private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
@@ -75,6 +115,11 @@ namespace SomerenUI
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowStudentsPanel();
+        }
+
+        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowLecturerPanel();
         }
     }
 }
