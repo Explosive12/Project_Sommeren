@@ -20,6 +20,9 @@ namespace SomerenUI
             // hide all other panels
             pnlStudents.Hide();
             pnlActivities.Hide();
+            pnlRooms.Hide();
+
+
             // show dashboard
             pnlDashboard.Show();
         }
@@ -30,6 +33,7 @@ namespace SomerenUI
             pnlDashboard.Hide();
             pnlLecturer.Hide();
             pnlActivities.Hide();
+            pnlRooms.Hide();
 
             // show students
             pnlStudents.Show();
@@ -99,6 +103,67 @@ namespace SomerenUI
             ActivityService acitivtyService = new ActivityService();
             List<Activity> activities = acitivtyService.GetActivity();
             return activities;
+        }
+
+
+        // Rooms Section
+        private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowRoomsPannel();
+        }
+
+        private List<Room> GetRooms()
+        {
+            RoomService roomService = new RoomService();
+            List<Room> allRooms = roomService.GetRooms();
+            return allRooms;
+        }
+
+        private void ShowRoomsPannel()
+        {
+            //Hide all other pannels
+            pnlDashboard.Hide();
+            pnlStudents.Hide();
+
+            // Hide all other Listviews?
+
+
+            //Show rooms
+            pnlRooms.Show();
+
+            try
+            {
+                // get and display all rooms
+                List<Room> rooms = GetRooms();
+                DisplayRooms(rooms);
+            }
+            catch (Exception message)
+            {
+                MessageBox.Show(message.Message);
+            }
+        }
+
+        private void DisplayRooms(List<Room> rooms)
+        {
+            // clear the listview before filling it
+            listViewRooms.Items.Clear();
+
+            foreach (Room room in rooms)
+            {
+                ListViewItem listItem = new(room.RoomNumber.ToString());
+                listItem.SubItems.Add(room.Capacity.ToString());
+
+                if (room.Type == false)
+                {
+                    listItem.SubItems.Add("Yes");
+                }
+                else
+                {
+                    listItem.SubItems.Add("No");
+
+                }
+                listViewRooms.Items.Add(listItem);
+            }
         }
 
         private void DisplayActivity(List<Activity> activities)
