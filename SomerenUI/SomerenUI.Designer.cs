@@ -295,7 +295,6 @@
             this.ActivityLabel.Size = new System.Drawing.Size(134, 32);
             this.ActivityLabel.TabIndex = 0;
             this.ActivityLabel.Text = "Activiteiten";
-            this.ActivityLabel.Click += new System.EventHandler(this.label2_Click);
             this.listViewStudents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IdHeader,
             this.NameStudentHeader});
@@ -409,7 +408,6 @@
         private System.Windows.Forms.ColumnHeader IdHeader;
         private System.Windows.Forms.ColumnHeader NameStudentHeader;
         private System.Windows.Forms.Panel pnlLecturer;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ListView listViewLecturers;
         private System.Windows.Forms.ColumnHeader DocentIDHeader;
         private System.Windows.Forms.ColumnHeader DocentNameHeader;
