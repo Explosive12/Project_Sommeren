@@ -26,7 +26,7 @@ namespace SomerenUI
         {
             // hide all other panels
             pnlDashboard.Hide();
-            PnlLecturer.Hide();
+            pnlLecturer.Hide();
 
             // show students
             pnlStudents.Show();
@@ -75,7 +75,7 @@ namespace SomerenUI
             pnlStudents.Hide();
 
             // show lecturer
-            PnlLecturer.Show();
+            pnlLecturer.Show();
 
             try
             {
