@@ -63,6 +63,9 @@
             this.Aantalbedden = new System.Windows.Forms.ColumnHeader();
             this.DocentORStudent = new System.Windows.Forms.ColumnHeader();
             this.RoomLabel = new System.Windows.Forms.Label();
+            this.idColumnHeader = new System.Windows.Forms.ColumnHeader();
+            this.nameColumnHeader = new System.Windows.Forms.ColumnHeader();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
             this.PnlLecturer.SuspendLayout();
@@ -278,6 +281,37 @@
             // 
             this.NameStudentHeader.Text = "Name";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(920, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(149, 164);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // listViewStudents
+            // 
+            this.listViewStudents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.idColumnHeader,
+            this.nameColumnHeader});
+            this.listViewStudents.Location = new System.Drawing.Point(18, 56);
+            this.listViewStudents.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listViewStudents.Name = "listViewStudents";
+            this.listViewStudents.Size = new System.Drawing.Size(875, 408);
+            this.listViewStudents.TabIndex = 1;
+            this.listViewStudents.UseCompatibleStateImageBehavior = false;
+            this.listViewStudents.View = System.Windows.Forms.View.Details;
+            // 
+            // idColumnHeader
+            // 
+            this.idColumnHeader.Text = "Id";
+            // 
+            // nameColumnHeader
+            // 
+            this.nameColumnHeader.Text = "Name";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -402,12 +436,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1374, 842);
+            // SomerenUI
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1099, 673);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnlRooms);
             this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlStudents);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "SomerenUI";
             this.Text = "SomerenApp";
             this.menuStrip1.ResumeLayout(false);
@@ -462,5 +502,7 @@
         private System.Windows.Forms.ColumnHeader DocentORStudent;
         private System.Windows.Forms.ColumnHeader idcolumnHeader;
         private System.Windows.Forms.ColumnHeader NamecolumnHeader;
+        private System.Windows.Forms.ColumnHeader idColumnHeader;
+        private System.Windows.Forms.ColumnHeader nameColumnHeader;
     }
 }
