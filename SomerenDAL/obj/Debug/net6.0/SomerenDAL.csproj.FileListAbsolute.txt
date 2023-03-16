@@ -1,0 +1,15 @@
+C:\Users\Robin\OneDrive\Bureaublad\progarmmeren opdrachten\Project_Sommeren-Robin\Project_Sommeren-Robin\SomerenDAL\bin\Debug\net6.0\SomerenDAL.deps.json
+C:\Users\Robin\OneDrive\Bureaublad\progarmmeren opdrachten\Project_Sommeren-Robin\Project_Sommeren-Robin\SomerenDAL\bin\Debug\net6.0\SomerenDAL.dll
+C:\Users\Robin\OneDrive\Bureaublad\progarmmeren opdrachten\Project_Sommeren-Robin\Project_Sommeren-Robin\SomerenDAL\bin\Debug\net6.0\SomerenDAL.pdb
+C:\Users\Robin\OneDrive\Bureaublad\progarmmeren opdrachten\Project_Sommeren-Robin\Project_Sommeren-Robin\SomerenDAL\bin\Debug\net6.0\SomerenModel.dll
+C:\Users\Robin\OneDrive\Bureaublad\progarmmeren opdrachten\Project_Sommeren-Robin\Project_Sommeren-Robin\SomerenDAL\bin\Debug\net6.0\SomerenModel.pdb
+C:\Users\Robin\OneDrive\Bureaublad\progarmmeren opdrachten\Project_Sommeren-Robin\Project_Sommeren-Robin\SomerenDAL\obj\Debug\net6.0\SomerenDAL.csproj.AssemblyReference.cache
+C:\Users\Robin\OneDrive\Bureaublad\progarmmeren opdrachten\Project_Sommeren-Robin\Project_Sommeren-Robin\SomerenDAL\obj\Debug\net6.0\SomerenDAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Robin\OneDrive\Bureaublad\progarmmeren opdrachten\Project_Sommeren-Robin\Project_Sommeren-Robin\SomerenDAL\obj\Debug\net6.0\SomerenDAL.AssemblyInfoInputs.cache
+C:\Users\Robin\OneDrive\Bureaublad\progarmmeren opdrachten\Project_Sommeren-Robin\Project_Sommeren-Robin\SomerenDAL\obj\Debug\net6.0\SomerenDAL.AssemblyInfo.cs
+C:\Users\Robin\OneDrive\Bureaublad\progarmmeren opdrachten\Project_Sommeren-Robin\Project_Sommeren-Robin\SomerenDAL\obj\Debug\net6.0\SomerenDAL.csproj.CoreCompileInputs.cache
+C:\Users\Robin\OneDrive\Bureaublad\progarmmeren opdrachten\Project_Sommeren-Robin\Project_Sommeren-Robin\SomerenDAL\obj\Debug\net6.0\SomerenDAL.csproj.CopyComplete
+C:\Users\Robin\OneDrive\Bureaublad\progarmmeren opdrachten\Project_Sommeren-Robin\Project_Sommeren-Robin\SomerenDAL\obj\Debug\net6.0\SomerenDAL.dll
+C:\Users\Robin\OneDrive\Bureaublad\progarmmeren opdrachten\Project_Sommeren-Robin\Project_Sommeren-Robin\SomerenDAL\obj\Debug\net6.0\refint\SomerenDAL.dll
+C:\Users\Robin\OneDrive\Bureaublad\progarmmeren opdrachten\Project_Sommeren-Robin\Project_Sommeren-Robin\SomerenDAL\obj\Debug\net6.0\SomerenDAL.pdb
+C:\Users\Robin\OneDrive\Bureaublad\progarmmeren opdrachten\Project_Sommeren-Robin\Project_Sommeren-Robin\SomerenDAL\obj\Debug\net6.0\ref\SomerenDAL.dll
