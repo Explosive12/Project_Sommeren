@@ -180,6 +180,7 @@ namespace SomerenUI
         {
             ShowLecturerPanel();
         private void listViewRooms_SelectedIndexChanged(object sender, EventArgs e)
+        private void listViewStudents_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
