@@ -50,6 +50,7 @@
             this.pnlStudents = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listViewStudents = new System.Windows.Forms.ListView();
+<<<<<<< Updated upstream
             this.IdHeader = new System.Windows.Forms.ColumnHeader();
             this.NameStudentHeader = new System.Windows.Forms.ColumnHeader();
             this.label1 = new System.Windows.Forms.Label();
@@ -68,6 +69,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+=======
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.label1 = new System.Windows.Forms.Label();
+>>>>>>> Stashed changes
             this.pnlActivities = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.ActivityListView = new System.Windows.Forms.ListView();
@@ -76,27 +82,29 @@
             this.StartTijdcolumnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.EindTijdcolumnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.ActivityLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.listViewStudents = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
             this.PnlLecturer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlStudents.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlActivities.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+<<<<<<< Updated upstream
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlRooms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+=======
+>>>>>>> Stashed changes
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+<<<<<<< Updated upstream
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+=======
+>>>>>>> Stashed changes
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dashboardToolStripMenuItem,
             this.studentsToolStripMenuItem,
@@ -107,8 +115,11 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
             this.menuStrip1.Size = new System.Drawing.Size(1099, 30);
+<<<<<<< Updated upstream
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
             this.menuStrip1.Size = new System.Drawing.Size(1374, 35);
+=======
+>>>>>>> Stashed changes
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -119,37 +130,52 @@
             this.exitToolStripMenuItem});
             this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
             this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
+<<<<<<< Updated upstream
             this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(118, 29);
+=======
+>>>>>>> Stashed changes
             this.dashboardToolStripMenuItem.Text = "Application";
             // 
             // dashboardToolStripMenuItem1
             // 
             this.dashboardToolStripMenuItem1.Name = "dashboardToolStripMenuItem1";
             this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(165, 26);
+<<<<<<< Updated upstream
             this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(202, 34);
             this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(131, 22);
+=======
+>>>>>>> Stashed changes
             this.dashboardToolStripMenuItem1.Text = "Dashboard";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+<<<<<<< Updated upstream
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(202, 34);
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+=======
+>>>>>>> Stashed changes
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // studentsToolStripMenuItem
             // 
             this.studentsToolStripMenuItem.Name = "studentsToolStripMenuItem";
             this.studentsToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+<<<<<<< Updated upstream
             this.studentsToolStripMenuItem.Size = new System.Drawing.Size(97, 29);
+=======
+>>>>>>> Stashed changes
             this.studentsToolStripMenuItem.Text = "Students";
             // 
             // lecturersToolStripMenuItem
             // 
             this.lecturersToolStripMenuItem.Name = "lecturersToolStripMenuItem";
             this.lecturersToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+<<<<<<< Updated upstream
             this.lecturersToolStripMenuItem.Size = new System.Drawing.Size(98, 29);
+=======
+>>>>>>> Stashed changes
             this.lecturersToolStripMenuItem.Text = "Lecturers";
             this.lecturersToolStripMenuItem.Click += new System.EventHandler(this.lecturersToolStripMenuItem_Click);
             // 
@@ -157,7 +183,10 @@
             // 
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
             this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
+<<<<<<< Updated upstream
             this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(98, 29);
+=======
+>>>>>>> Stashed changes
             this.activitiesToolStripMenuItem.Text = "Activities";
             this.activitiesToolStripMenuItem.Click += new System.EventHandler(this.activitiesToolStripMenuItem_Click);
             // 
@@ -165,7 +194,10 @@
             // 
             this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
             this.roomsToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
+<<<<<<< Updated upstream
             this.roomsToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
+=======
+>>>>>>> Stashed changes
             this.roomsToolStripMenuItem.Text = "Rooms";
             // 
             // pnlDashboard
@@ -175,10 +207,13 @@
             this.pnlDashboard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlDashboard.Name = "pnlDashboard";
             this.pnlDashboard.Size = new System.Drawing.Size(1072, 621);
+<<<<<<< Updated upstream
             this.pnlDashboard.Location = new System.Drawing.Point(17, 45);
             this.pnlDashboard.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlDashboard.Name = "pnlDashboard";
             this.pnlDashboard.Size = new System.Drawing.Size(1340, 777);
+=======
+>>>>>>> Stashed changes
             this.pnlDashboard.TabIndex = 1;
             // 
             // lblDashboard
@@ -187,10 +222,13 @@
             this.lblDashboard.Location = new System.Drawing.Point(15, 17);
             this.lblDashboard.Name = "lblDashboard";
             this.lblDashboard.Size = new System.Drawing.Size(262, 20);
+<<<<<<< Updated upstream
             this.lblDashboard.Location = new System.Drawing.Point(19, 22);
             this.lblDashboard.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDashboard.Name = "lblDashboard";
             this.lblDashboard.Size = new System.Drawing.Size(313, 25);
+=======
+>>>>>>> Stashed changes
             this.lblDashboard.TabIndex = 0;
             this.lblDashboard.Text = "Welcome to the Someren Application!";
             // 
@@ -250,8 +288,8 @@
             // 
             // pnlStudents
             // 
-            this.pnlStudents.Controls.Add(this.pnlActivities);
             this.pnlStudents.Controls.Add(this.pictureBox1);
+            this.pnlStudents.Controls.Add(this.pnlActivities);
             this.pnlStudents.Controls.Add(this.listViewStudents);
             this.pnlStudents.Controls.Add(this.label1);
             this.pnlStudents.Location = new System.Drawing.Point(14, 36);
@@ -268,22 +306,58 @@
             this.pnlStudents.Visible = false;
             // 
             // pictureBox1
+<<<<<<< Updated upstream
+=======
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(920, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(149, 164);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // listViewStudents
+            // 
+            this.listViewStudents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.listViewStudents.Location = new System.Drawing.Point(18, 56);
+            this.listViewStudents.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listViewStudents.Name = "listViewStudents";
+            this.listViewStudents.Size = new System.Drawing.Size(875, 408);
+            this.listViewStudents.TabIndex = 1;
+            this.listViewStudents.UseCompatibleStateImageBehavior = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(15, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(134, 41);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Students";
+            // 
+>>>>>>> Stashed changes
             // pnlActivities
             // 
             this.pnlActivities.Controls.Add(this.pictureBox2);
             this.pnlActivities.Controls.Add(this.ActivityListView);
             this.pnlActivities.Controls.Add(this.ActivityLabel);
             this.pnlActivities.Location = new System.Drawing.Point(0, 0);
+            this.pnlActivities.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlActivities.Name = "pnlActivities";
-            this.pnlActivities.Size = new System.Drawing.Size(946, 474);
+            this.pnlActivities.Size = new System.Drawing.Size(1081, 632);
             this.pnlActivities.TabIndex = 3;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(805, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(920, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(130, 123);
+            this.pictureBox2.Size = new System.Drawing.Size(149, 164);
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
@@ -294,9 +368,10 @@
             this.OmschrijvingcolumnHeader4,
             this.StartTijdcolumnHeader3,
             this.EindTijdcolumnHeader4});
-            this.ActivityListView.Location = new System.Drawing.Point(16, 42);
+            this.ActivityListView.Location = new System.Drawing.Point(18, 56);
+            this.ActivityListView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ActivityListView.Name = "ActivityListView";
-            this.ActivityListView.Size = new System.Drawing.Size(766, 307);
+            this.ActivityListView.Size = new System.Drawing.Size(875, 408);
             this.ActivityListView.TabIndex = 1;
             this.ActivityListView.UseCompatibleStateImageBehavior = false;
             this.ActivityListView.View = System.Windows.Forms.View.Details;
@@ -328,13 +403,14 @@
             // 
             this.ActivityLabel.AutoSize = true;
             this.ActivityLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ActivityLabel.Location = new System.Drawing.Point(16, 7);
+            this.ActivityLabel.Location = new System.Drawing.Point(18, 9);
             this.ActivityLabel.Name = "ActivityLabel";
-            this.ActivityLabel.Size = new System.Drawing.Size(134, 32);
+            this.ActivityLabel.Size = new System.Drawing.Size(165, 41);
             this.ActivityLabel.TabIndex = 0;
             this.ActivityLabel.Text = "Activiteiten";
             this.ActivityLabel.Click += new System.EventHandler(this.label2_Click);
             // 
+<<<<<<< Updated upstream
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -442,17 +518,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Students";
             // 
+=======
+>>>>>>> Stashed changes
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1099, 673);
+<<<<<<< Updated upstream
             this.Controls.Add(this.PnlLecturer);
+=======
+>>>>>>> Stashed changes
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlStudents);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+<<<<<<< Updated upstream
             this.idcolumnHeader,
             this.NamecolumnHeader});
             this.listViewStudents.Location = new System.Drawing.Point(23, 70);
@@ -568,6 +650,8 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+=======
+>>>>>>> Stashed changes
             this.Name = "SomerenUI";
             this.Text = "SomerenApp";
             this.menuStrip1.ResumeLayout(false);
@@ -579,13 +663,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlStudents.ResumeLayout(false);
             this.pnlStudents.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlActivities.ResumeLayout(false);
             this.pnlActivities.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+<<<<<<< Updated upstream
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlRooms.ResumeLayout(false);
             this.pnlRooms.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+=======
+>>>>>>> Stashed changes
             this.ResumeLayout(false);
             this.PerformLayout();
 
