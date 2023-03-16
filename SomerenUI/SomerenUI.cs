@@ -76,5 +76,10 @@ namespace SomerenUI
         {
             ShowStudentsPanel();
         }
+
+        private void listViewStudents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
