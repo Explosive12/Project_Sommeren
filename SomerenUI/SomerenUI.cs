@@ -56,13 +56,17 @@ namespace SomerenUI
         private void DisplayStudents(List<Student> students)
         {
             // clear the listview before filling it
-            listViewStudents.Clear();
+            listViewStudents.Items.Clear();
 
             foreach (Student student in students)
             {
-                ListViewItem li = new ListViewItem(student.Name);
+                ListViewItem li = new ListViewItem(student.Id.ToString());
                 li.Tag = student;   // link student object to listview item
+                li.SubItems.Add(student.Name);
                 listViewStudents.Items.Add(li);
+
+                //li = new ListViewItem(student.Id.ToString());
+                //listViewStudents.Items.Add(li);
             }
         }
 

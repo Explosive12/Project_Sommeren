@@ -60,6 +60,9 @@
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.IdHeader = new System.Windows.Forms.ColumnHeader();
             this.NameStudentHeader = new System.Windows.Forms.ColumnHeader();
+            this.listViewStudents = new System.Windows.Forms.ListView();
+            this.idColumnHeader = new System.Windows.Forms.ColumnHeader();
+            this.nameColumnHeader = new System.Windows.Forms.ColumnHeader();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -316,6 +319,13 @@
             // 
             // label1
             // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(920, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(149, 164);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(19, 11);
@@ -331,18 +341,30 @@
             this.columnHeader1,
             this.columnHeader2});
             this.listViewStudents.Location = new System.Drawing.Point(16, 42);
+            
+            this.listViewStudents.Location = new System.Drawing.Point(18, 56);
+            this.listViewStudents.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listViewStudents.Name = "listViewStudents";
-            this.listViewStudents.Size = new System.Drawing.Size(766, 307);
+            this.listViewStudents.Size = new System.Drawing.Size(875, 408);
             this.listViewStudents.TabIndex = 1;
             this.listViewStudents.UseCompatibleStateImageBehavior = false;
+            this.listViewStudents.View = System.Windows.Forms.View.Details;
+            // 
+            // idColumnHeader
+            // 
+            this.idColumnHeader.Text = "Id";
+            // 
+            // nameColumnHeader
+            // 
+            this.nameColumnHeader.Text = "Name";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(13, 7);
+            this.label1.Location = new System.Drawing.Point(15, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 32);
+            this.label1.Size = new System.Drawing.Size(134, 41);
             this.label1.TabIndex = 0;
             this.label1.Text = "Students";
             // 
@@ -412,5 +434,7 @@
         private System.Windows.Forms.ColumnHeader DocentIDHeader;
         private System.Windows.Forms.ColumnHeader DocentNameHeader;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ColumnHeader idColumnHeader;
+        private System.Windows.Forms.ColumnHeader nameColumnHeader;
     }
 }
