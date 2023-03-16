@@ -6,8 +6,10 @@ using System;
 
 namespace SomerenUI
 {
+    
     public partial class SomerenUI : Form
     {
+        const string DateFormat = "yyyy-MM-dd HH:mm";
         public SomerenUI()
         {
             InitializeComponent();
@@ -17,7 +19,7 @@ namespace SomerenUI
         {
             // hide all other panels
             pnlStudents.Hide();
-
+            pnlActivities.Hide();
             // show dashboard
             pnlDashboard.Show();
         }
@@ -27,6 +29,7 @@ namespace SomerenUI
             // hide all other panels
             pnlDashboard.Hide();
             pnlLecturer.Hide();
+            pnlActivities.Hide();
 
             // show students
             pnlStudents.Show();
@@ -60,6 +63,53 @@ namespace SomerenUI
                 ListViewItem li = new ListViewItem(student.Name);
                 li.Tag = student;   // link student object to listview item
                 listViewStudents.Items.Add(li);
+            }
+        }
+
+
+        /* Hier beginnen de activiteiten=============================================================*/
+
+
+        private void ShowDashBoardActivities()
+        {
+            // hide all other panels
+            pnlDashboard.Hide();
+
+            // show activity
+            pnlActivities.Show();
+
+            try
+            {
+                // get and display all activity
+                List<Activity> activities = GetActivities();
+                DisplayActivity(activities);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the activities: " + e.Message);
+            }
+        }
+
+        private List<Activity> GetActivities()
+        {
+            ActivityService acitivtyService = new ActivityService();
+            List<Activity> activities = acitivtyService.GetActivity();
+            return activities;
+        }
+
+        private void DisplayActivity(List<Activity> activities)
+        {
+            // clear the listview before filling it
+            ActivityListView.Items.Clear();
+
+            foreach (Activity activity in activities)
+            {
+                ListViewItem li = new ListViewItem(activity.ActiviteitId.ToString());
+                li.Tag = activity;   // link student object to listview item
+                li.SubItems.Add(activity.Omschrijving);
+                li.SubItems.Add(activity.StartTijd.ToString(DateFormat));
+                li.SubItems.Add(activity.EindTijd.ToString(DateFormat));
+                ActivityListView.Items.Add(li);
             }
         }
         private List<Lecturer> GetLecturers()
@@ -116,6 +166,12 @@ namespace SomerenUI
         {
             ShowStudentsPanel();
         }
+
+        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowDashBoardActivities();
+        }
+
 
         private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
         {
