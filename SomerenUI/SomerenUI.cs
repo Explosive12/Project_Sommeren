@@ -26,6 +26,8 @@ namespace SomerenUI
             // show dashboard
             pnlDashboard.Show();
         }
+        
+        // students beginnen hier
 
         private void ShowStudentsPanel()
         {
@@ -75,7 +77,7 @@ namespace SomerenUI
         }
 
 
-        /* Hier beginnen de activiteiten=============================================================*/
+        // Hier beginnen de activiteiten
 
 
         private void ShowDashBoardActivities()
@@ -167,6 +169,8 @@ namespace SomerenUI
                 listViewRooms.Items.Add(listItem);
             }
         }
+        
+        //nog een activity
 
         private void DisplayActivity(List<Activity> activities)
         {
@@ -183,6 +187,9 @@ namespace SomerenUI
                 ActivityListView.Items.Add(li);
             }
         }
+        
+        // Lecturers beginnen hier
+        
         private List<Lecturer> GetLecturers()
         {
             LecturerService lecturerService = new LecturerService();
@@ -224,6 +231,8 @@ namespace SomerenUI
                 listViewLecturers.Items.Add(li);
             }
         }
+        
+        // button prompts beginnen hier
 
         private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
