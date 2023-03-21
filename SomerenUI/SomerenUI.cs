@@ -259,5 +259,10 @@ namespace SomerenUI
         {
             ShowLecturerPanel();
         }
+
+        private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
