@@ -308,14 +308,27 @@ namespace SomerenUI
             ShowLecturerPanel();
         }
 
-        private void activitiesToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
 
-        }
 
         private void drinkSuppliesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowDashBoardDrinks();
         }
+
+       /* private void listViewDrinkSupplies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewDrinkSupplies.Selecteditems.Count == 0)
+            {
+                return;
+            }
+            listViewDrinkSupplies lvitem = listViewDrinkSupplies.SelectedItems[0];
+            Drinks selectedDrink = (Drinks)lvItem.Tag;
+
+            txtId.text = selectedDrink.Dranknr.ToString(); // deze kan je bij de properties op ReadOnly zetten.
+            txtId.text = selectedDrink.Naam;
+            txtId.text = selectedDrink.Prijs();
+
+        }*/
     }
+    
 }

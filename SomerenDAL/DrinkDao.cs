@@ -2,6 +2,8 @@
 using System.Data.SqlClient;
 using System.Data;
 using SomerenModel;
+using System.Data.Common;
+using System;
 
 namespace SomerenDAL
 {
@@ -33,6 +35,8 @@ namespace SomerenDAL
             }
             return drinks;
         }
+
+      
 
     }
 }
