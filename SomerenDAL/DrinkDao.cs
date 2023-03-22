@@ -64,13 +64,8 @@ namespace SomerenDAL
 
             command.Connection = OpenConnection();
             command.ExecuteNonQuery();
-            
-
-
-
 
         }
-
 
     }
 }
