@@ -7,8 +7,10 @@ using System.Data.SqlClient;
 
 namespace SomerenUI
 {
+
     public partial class SomerenUI : Form
     {
+        const string DateFormat = "yyyy-MM-dd HH:mm";
         public SomerenUI()
         {
             InitializeComponent();
