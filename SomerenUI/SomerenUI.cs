@@ -290,40 +290,8 @@ namespace SomerenUI
                 listViewDrinkSupplies.Items.Add(li);
             }
         }
-        private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
-        {
-            ShowDashboardPanel();
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, System.EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowStudentsPanel();
-        }
-
-        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowDashBoardActivities();
-        }
-
-
-        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowLecturerPanel();
-        }
-
-
-
-        private void drinkSuppliesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowDashBoardDrinks();
-        }
-
-
+        
+        
 
         private void listViewDrinkSupplies_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -358,6 +326,42 @@ namespace SomerenUI
             }
             DisplayDrinks(GetDrinks());
         }
+        
+        
+        private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
+        {
+            ShowDashboardPanel();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowStudentsPanel();
+        }
+
+        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowDashBoardActivities();
+        }
+
+
+        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowLecturerPanel();
+        }
+
+
+
+        private void drinkSuppliesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowDashBoardDrinks();
+        }
+
+
     }
     
 
