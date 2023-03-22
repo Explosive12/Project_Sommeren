@@ -22,5 +22,10 @@ namespace SomerenService
             List<Drinks> drinks = drinkdb.GetAllDrinkSupplies();
             return drinks;
         }
+
+        public void Update(int dranknr, string naam, int voorraad)
+        {
+            drinkdb.Update(dranknr, naam, voorraad);
+        }
     }
 }

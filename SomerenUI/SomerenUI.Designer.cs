@@ -70,6 +70,13 @@
             this.EindTijdcolumnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.ActivityLabel = new System.Windows.Forms.Label();
             this.pnlDrinkSupplies = new System.Windows.Forms.Panel();
+            this.VoorraadDrinkLabel = new System.Windows.Forms.Label();
+            this.DrankNaamLabel = new System.Windows.Forms.Label();
+            this.labelDrankNummer = new System.Windows.Forms.Label();
+            this.DranknrDrinkSupplies = new System.Windows.Forms.TextBox();
+            this.UpdateDrinkSupplies = new System.Windows.Forms.Button();
+            this.VoorraadDrinkSupplies = new System.Windows.Forms.TextBox();
+            this.NaamDrinkSupplies = new System.Windows.Forms.TextBox();
             this.pictureBoxDrinkSupplies = new System.Windows.Forms.PictureBox();
             this.listViewDrinkSupplies = new System.Windows.Forms.ListView();
             this.columnHeader1Dranknr = new System.Windows.Forms.ColumnHeader();
@@ -135,7 +142,6 @@
             this.studentsToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.studentsToolStripMenuItem.Text = "Students";
             this.studentsToolStripMenuItem.Click += new System.EventHandler(this.studentsToolStripMenuItem_Click);
-
             // 
             // lecturersToolStripMenuItem
             // 
@@ -143,8 +149,6 @@
             this.lecturersToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.lecturersToolStripMenuItem.Text = "Lecturers";
             this.lecturersToolStripMenuItem.Click += new System.EventHandler(this.lecturersToolStripMenuItem_Click);
-
-            
             // 
             // activitiesToolStripMenuItem
             // 
@@ -152,14 +156,13 @@
             this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.activitiesToolStripMenuItem.Text = "Activities";
             this.activitiesToolStripMenuItem.Click += new System.EventHandler(this.activitiesToolStripMenuItem_Click);
-
+            // 
             // roomsToolStripMenuItem
             // 
             this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
             this.roomsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.roomsToolStripMenuItem.Text = "Rooms";
             this.roomsToolStripMenuItem.Click += new System.EventHandler(this.lecturersToolStripMenuItem_Click);
-
             // 
             // drinkSuppliesToolStripMenuItem
             // 
@@ -426,6 +429,13 @@
             // 
             // pnlDrinkSupplies
             // 
+            this.pnlDrinkSupplies.Controls.Add(this.VoorraadDrinkLabel);
+            this.pnlDrinkSupplies.Controls.Add(this.DrankNaamLabel);
+            this.pnlDrinkSupplies.Controls.Add(this.labelDrankNummer);
+            this.pnlDrinkSupplies.Controls.Add(this.DranknrDrinkSupplies);
+            this.pnlDrinkSupplies.Controls.Add(this.UpdateDrinkSupplies);
+            this.pnlDrinkSupplies.Controls.Add(this.VoorraadDrinkSupplies);
+            this.pnlDrinkSupplies.Controls.Add(this.NaamDrinkSupplies);
             this.pnlDrinkSupplies.Controls.Add(this.pictureBoxDrinkSupplies);
             this.pnlDrinkSupplies.Controls.Add(this.listViewDrinkSupplies);
             this.pnlDrinkSupplies.Controls.Add(this.Drink_Supplies);
@@ -434,6 +444,65 @@
             this.pnlDrinkSupplies.Size = new System.Drawing.Size(953, 464);
             this.pnlDrinkSupplies.TabIndex = 5;
             this.pnlDrinkSupplies.Visible = false;
+            // 
+            // VoorraadDrinkLabel
+            // 
+            this.VoorraadDrinkLabel.AutoSize = true;
+            this.VoorraadDrinkLabel.Location = new System.Drawing.Point(290, 378);
+            this.VoorraadDrinkLabel.Name = "VoorraadDrinkLabel";
+            this.VoorraadDrinkLabel.Size = new System.Drawing.Size(60, 15);
+            this.VoorraadDrinkLabel.TabIndex = 9;
+            this.VoorraadDrinkLabel.Text = "Voorraad: ";
+            // 
+            // DrankNaamLabel
+            // 
+            this.DrankNaamLabel.AutoSize = true;
+            this.DrankNaamLabel.Location = new System.Drawing.Point(141, 379);
+            this.DrankNaamLabel.Name = "DrankNaamLabel";
+            this.DrankNaamLabel.Size = new System.Drawing.Size(45, 15);
+            this.DrankNaamLabel.TabIndex = 8;
+            this.DrankNaamLabel.Text = "Naam: ";
+            // 
+            // labelDrankNummer
+            // 
+            this.labelDrankNummer.AutoSize = true;
+            this.labelDrankNummer.Location = new System.Drawing.Point(19, 379);
+            this.labelDrankNummer.Name = "labelDrankNummer";
+            this.labelDrankNummer.Size = new System.Drawing.Size(92, 15);
+            this.labelDrankNummer.TabIndex = 7;
+            this.labelDrankNummer.Text = "Drank Nummer:";
+            // 
+            // DranknrDrinkSupplies
+            // 
+            this.DranknrDrinkSupplies.Location = new System.Drawing.Point(18, 397);
+            this.DranknrDrinkSupplies.Name = "DranknrDrinkSupplies";
+            this.DranknrDrinkSupplies.ReadOnly = true;
+            this.DranknrDrinkSupplies.Size = new System.Drawing.Size(100, 23);
+            this.DranknrDrinkSupplies.TabIndex = 6;
+            // 
+            // UpdateDrinkSupplies
+            // 
+            this.UpdateDrinkSupplies.Location = new System.Drawing.Point(459, 396);
+            this.UpdateDrinkSupplies.Name = "UpdateDrinkSupplies";
+            this.UpdateDrinkSupplies.Size = new System.Drawing.Size(159, 23);
+            this.UpdateDrinkSupplies.TabIndex = 5;
+            this.UpdateDrinkSupplies.Text = "Update";
+            this.UpdateDrinkSupplies.UseVisualStyleBackColor = true;
+            this.UpdateDrinkSupplies.Click += new System.EventHandler(this.UpdateDrinkSupplies_Click);
+            // 
+            // VoorraadDrinkSupplies
+            // 
+            this.VoorraadDrinkSupplies.Location = new System.Drawing.Point(290, 396);
+            this.VoorraadDrinkSupplies.Name = "VoorraadDrinkSupplies";
+            this.VoorraadDrinkSupplies.Size = new System.Drawing.Size(100, 23);
+            this.VoorraadDrinkSupplies.TabIndex = 4;
+            // 
+            // NaamDrinkSupplies
+            // 
+            this.NaamDrinkSupplies.Location = new System.Drawing.Point(141, 396);
+            this.NaamDrinkSupplies.Name = "NaamDrinkSupplies";
+            this.NaamDrinkSupplies.Size = new System.Drawing.Size(100, 23);
+            this.NaamDrinkSupplies.TabIndex = 3;
             // 
             // pictureBoxDrinkSupplies
             // 
@@ -453,6 +522,7 @@
             this.columnHeader3Prijs,
             this.columnHeader4Voorraad,
             this.columnHeader1Aantal_verkocht});
+            this.listViewDrinkSupplies.FullRowSelect = true;
             this.listViewDrinkSupplies.Location = new System.Drawing.Point(13, 38);
             this.listViewDrinkSupplies.Margin = new System.Windows.Forms.Padding(2);
             this.listViewDrinkSupplies.Name = "listViewDrinkSupplies";
@@ -460,8 +530,8 @@
             this.listViewDrinkSupplies.TabIndex = 1;
             this.listViewDrinkSupplies.UseCompatibleStateImageBehavior = false;
             this.listViewDrinkSupplies.View = System.Windows.Forms.View.Details;
-/*            this.listViewDrinkSupplies.SelectedIndexChanged += new System.EventHandler(this.listViewDrinkSupplies_SelectedIndexChanged);
-*/            // 
+            this.listViewDrinkSupplies.SelectedIndexChanged += new System.EventHandler(this.listViewDrinkSupplies_SelectedIndexChanged);
+            // 
             // columnHeader1Dranknr
             // 
             this.columnHeader1Dranknr.Text = "Dranknr";
@@ -593,5 +663,12 @@
         private System.Windows.Forms.ColumnHeader columnHeader4Voorraad;
         private System.Windows.Forms.ColumnHeader columnHeader1Aantal_verkocht;
         private System.Windows.Forms.Label Drink_Supplies;
+        private System.Windows.Forms.Button UpdateDrinkSupplies;
+        private System.Windows.Forms.TextBox VoorraadDrinkSupplies;
+        private System.Windows.Forms.TextBox NaamDrinkSupplies;
+        private System.Windows.Forms.TextBox DranknrDrinkSupplies;
+        private System.Windows.Forms.Label labelDrankNummer;
+        private System.Windows.Forms.Label VoorraadDrinkLabel;
+        private System.Windows.Forms.Label DrankNaamLabel;
     }
 }
