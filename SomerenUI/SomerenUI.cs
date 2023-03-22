@@ -27,7 +27,7 @@ namespace SomerenUI
             // show dashboard
             pnlDashboard.Show();
         }
-        
+
         // students beginnen hier
 
         private void ShowStudentsPanel()
@@ -38,6 +38,7 @@ namespace SomerenUI
             pnlActivities.Hide();
             pnlRooms.Hide();
             pnlDrinkSupplies.Hide();
+            pnlCashRegister.Hide();
 
             // show students
             pnlStudents.Show();
@@ -90,6 +91,7 @@ namespace SomerenUI
             pnlLecturer.Hide();
             pnlRooms.Hide();
             pnlDrinkSupplies.Hide();
+            pnlCashRegister.Hide();
 
             // show activity
             pnlActivities.Show();
@@ -135,6 +137,7 @@ namespace SomerenUI
             pnlLecturer.Hide();
             pnlActivities.Hide();
             pnlDrinkSupplies.Hide();
+            pnlCashRegister.Hide();
 
             // Hide all other Listviews?
 
@@ -176,7 +179,7 @@ namespace SomerenUI
                 listViewRooms.Items.Add(listItem);
             }
         }
-        
+
         //nog een activity
 
         private void DisplayActivity(List<Activity> activities)
@@ -194,9 +197,9 @@ namespace SomerenUI
                 ActivityListView.Items.Add(li);
             }
         }
-        
+
         // Lecturers beginnen hier
-        
+
         private List<Lecturer> GetLecturers()
         {
             LecturerService lecturerService = new LecturerService();
@@ -210,6 +213,7 @@ namespace SomerenUI
             pnlStudents.Hide();
             pnlActivities.Hide();
             pnlRooms.Hide();
+            pnlCashRegister.Hide();
             pnlDrinkSupplies.Hide();
 
             // show lecturer
@@ -217,7 +221,7 @@ namespace SomerenUI
 
             try
             {
-                // get and display all students
+                // get and display all lecturers
                 List<Lecturer> lecturers = GetLecturers();
                 DisplayLecturers(lecturers);
             }
@@ -240,6 +244,79 @@ namespace SomerenUI
             }
         }
 
+        //Cash Register
+        private List<Drinks> GetDrinks()
+        {
+            DrinkService drinkService = new DrinkService();
+            List<Drinks> allDrinks = drinkService.GetDrinks();
+            return allDrinks;
+        }
+
+        private void ShowCashRegisterPanel()
+        {
+            // hide all other panels
+            pnlDashboard.Hide();
+            pnlStudents.Hide();
+            pnlActivities.Hide();
+            pnlDrinkSupplies.Hide();
+            pnlRooms.Hide();
+            pnlLecturer.Hide();
+
+            // show lecturer
+            pnlCashRegister.Show();
+
+            try
+            {
+                // get and display all lecturers
+                List<Student> students = GetStudents();
+                DisplayCashRegisterStudents(students);
+
+                // get and display all drinks 
+                List<Drinks> drinks = GetDrinks();
+                DisplayCashRegisterDrinks(drinks);
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the students/drinks for cash register: " + e.Message);
+            }
+        }
+
+        private void DisplayCashRegisterStudents(List<Student> students)
+        {
+            // clear the listview before filling it
+            listViewStudentsCashRegister.Items.Clear();
+            cashRegisterStudentComboBox.Items.Clear();
+
+            foreach (Student student in students)
+            {
+                ListViewItem li = new ListViewItem(student.Id.ToString());
+                li.Tag = student;   // link lecturer object to listview item
+                li.SubItems.Add(student.Name.ToString());
+                listViewStudentsCashRegister.Items.Add(li);
+                cashRegisterStudentComboBox.Items.Add($"{student.Id}. {student.Name}");
+            }
+        }
+
+        private void DisplayCashRegisterDrinks(List<Drinks> drinks)
+        {
+            // clear the listview before filling it
+            listViewDrankCashRegister.Items.Clear();
+            cashRegisterDrinksComboBox.Items.Clear();
+
+            foreach (Drinks drink in drinks)
+            {
+                ListViewItem li = new ListViewItem(drink.Dranknr.ToString());
+                li.Tag = drink;   // link lecturer object to listview item
+                li.SubItems.Add(drink.Naam.ToString());
+                li.SubItems.Add(drink.Prijs.ToString());
+                li.SubItems.Add(drink.Voorraad.ToString());
+                li.SubItems.Add(drink.Aantal_Verkocht.ToString());
+                listViewDrankCashRegister.Items.Add(li);
+                cashRegisterDrinksComboBox.Items.Add($"{drink.Dranknr}. {drink.Naam} - Prijs: {drink.Prijs} - Voorraad: {drink.Voorraad}");
+            }
+        }
+
         // button prompts beginnen hier
         /* Drankjes =========================================================================================== */
 
@@ -250,6 +327,7 @@ namespace SomerenUI
             pnlLecturer.Hide();
             pnlStudents.Hide();
             pnlActivities.Hide();
+            pnlCashRegister.Hide();
             pnlRooms.Hide();
 
             // show activity
@@ -265,13 +343,6 @@ namespace SomerenUI
             {
                 MessageBox.Show("Something went wrong while loading the Drinks: " + e.Message);
             }
-        }
-
-        private List<Drinks> GetDrinks()
-        {
-            DrinkService drinkService = new DrinkService();
-            List<Drinks> drinks = drinkService.GetDrinks();
-            return drinks;
         }
 
         private void DisplayDrinks(List<Drinks> drinks)
@@ -324,7 +395,7 @@ namespace SomerenUI
             }
             DisplayDrinks(GetDrinks());
         }
-        
+
         private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
             ShowDashboardPanel();
@@ -358,10 +429,9 @@ namespace SomerenUI
             ShowDashBoardDrinks();
         }
 
-
-
-       
+        private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowCashRegisterPanel();
+        }
     }
-    
-
 }
