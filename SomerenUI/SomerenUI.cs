@@ -231,9 +231,57 @@ namespace SomerenUI
                 listViewLecturers.Items.Add(li);
             }
         }
-        
-        // button prompts beginnen hier
 
+        // button prompts beginnen hier
+        /* Drankjes =========================================================================================== */
+
+        private void ShowDashBoardDrinks()
+        {
+            // hide all other panels
+            pnlDashboard.Hide();
+            pnlLecturer.Hide();
+            pnlStudents.Hide();
+            pnlActivities.Hide();
+            pnlRooms.Hide();
+
+            // show activity
+            pnlDrinkSupplies.Show();
+
+            try
+            {
+                // get and display all activity
+                List<Drinks> drinks = GetDrinks();
+                DisplayDrinks(drinks);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the Drinks: " + e.Message);
+            }
+        }
+
+        private List<Drinks> GetDrinks()
+        {
+            DrinkService drinkService = new DrinkService();
+            List<Drinks> drinks = drinkService.GetDrinks();
+            return drinks;
+        }
+
+        private void DisplayDrinks(List<Drinks> drinks)
+        {
+            // clear the listview before filling it
+            listViewDrinkSupplies.Items.Clear();
+
+            foreach (Drinks drink in drinks)
+            {
+                ListViewItem li = new ListViewItem(drink.Dranknr.ToString());
+                li.Tag = drink;   // link student object to listview item
+                li.SubItems.Add(drink.Naam);
+                li.SubItems.Add(drink.Prijs.ToString());
+                li.SubItems.Add(drink.Voorraad.ToString());
+                li.SubItems.Add(drink.Aantal_Verkocht.ToString());
+                listViewDrinkSupplies.Items.Add(li);
+            }
+        }
         private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
             ShowDashboardPanel();
@@ -258,6 +306,16 @@ namespace SomerenUI
         private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowLecturerPanel();
+        }
+
+        private void activitiesToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void drinkSuppliesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowDashBoardDrinks();
         }
     }
 }
