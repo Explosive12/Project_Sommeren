@@ -85,6 +85,10 @@ namespace SomerenUI
         {
             // hide all other panels
             pnlDashboard.Hide();
+            pnlLecturer.Hide();
+            pnlStudents.Hide();
+            pnlRooms.Hide();
+            pnlCashRegister.Hide();
 
             // show activity
             pnlActivities.Show();
@@ -236,6 +240,13 @@ namespace SomerenUI
         }
 
         //Cash Register
+        private List<Drinks> GetDrinks()
+        {
+            DrinkService drinkService = new DrinkService();
+            List<Drinks> allDrinks = drinkService.GetDrinks();
+            return allDrinks;
+        }
+
         private void ShowCashRegisterPanel()
         {
             // hide all other panels
@@ -253,10 +264,15 @@ namespace SomerenUI
                 // get and display all lecturers
                 List<Student> students = GetStudents();
                 DisplayCashRegisterStudents(students);
+
+                // get and display all drinks 
+                List<Drinks> drinks = GetDrinks();
+                DisplayCashRegisterDrinks(drinks);
+                
             }
             catch (Exception e)
             {
-                MessageBox.Show("Something went wrong while loading the students for cash register: " + e.Message);
+                MessageBox.Show("Something went wrong while loading the students/drinks for cash register: " + e.Message);
             }
         }
 
@@ -271,6 +287,25 @@ namespace SomerenUI
                 li.Tag = student;   // link lecturer object to listview item
                 li.SubItems.Add(student.Name.ToString());
                 listViewStudentsCashRegister.Items.Add(li);
+                cashRegisterStudentComboBox.Items.Add($"{student.Id}. {student.Name}");
+            }
+        }
+
+        private void DisplayCashRegisterDrinks(List<Drinks> drinks)
+        {
+            // clear the listview before filling it
+            listViewDrankCashRegister.Items.Clear();
+
+            foreach (Drinks drink in drinks)
+            {
+                ListViewItem li = new ListViewItem(drink.Dranknr.ToString());
+                li.Tag = drink;   // link lecturer object to listview item
+                li.SubItems.Add(drink.Naam.ToString());
+                li.SubItems.Add(drink.Prijs.ToString());
+                li.SubItems.Add(drink.Voorraad.ToString());
+                li.SubItems.Add(drink.Aantal_Verkocht.ToString());
+                listViewDrankCashRegister.Items.Add(li);
+                cashRegisterDrinksComboBox.Items.Add($"{drink.Dranknr}. {drink.Naam} - Prijs: {drink.Prijs} - Voorraad: {drink.Voorraad}");
             }
         }
 

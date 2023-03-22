@@ -70,6 +70,15 @@
             this.EindTijdcolumnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.ActivityLabel = new System.Windows.Forms.Label();
             this.pnlCashRegister = new System.Windows.Forms.Panel();
+            this.cashRegisterSubmitOrderButton = new System.Windows.Forms.Button();
+            this.cashRegisterDrinksComboBox = new System.Windows.Forms.ComboBox();
+            this.cashRegisterStudentComboBox = new System.Windows.Forms.ComboBox();
+            this.listViewDrankCashRegister = new System.Windows.Forms.ListView();
+            this.cashRegisterDrankColumnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.cashRegisterDrankColumnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.cashRegisterDrankColumnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.cashRegisterDrankColumnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.cashRegisterDrankColumnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.listViewStudentsCashRegister = new System.Windows.Forms.ListView();
             this.cashRegisterStudentColumnHeader1 = new System.Windows.Forms.ColumnHeader();
@@ -428,6 +437,10 @@
             // 
             // pnlCashRegister
             // 
+            this.pnlCashRegister.Controls.Add(this.cashRegisterSubmitOrderButton);
+            this.pnlCashRegister.Controls.Add(this.cashRegisterDrinksComboBox);
+            this.pnlCashRegister.Controls.Add(this.cashRegisterStudentComboBox);
+            this.pnlCashRegister.Controls.Add(this.listViewDrankCashRegister);
             this.pnlCashRegister.Controls.Add(this.pictureBox4);
             this.pnlCashRegister.Controls.Add(this.listViewStudentsCashRegister);
             this.pnlCashRegister.Controls.Add(this.cashRegisterLabel);
@@ -437,6 +450,73 @@
             this.pnlCashRegister.Size = new System.Drawing.Size(1089, 622);
             this.pnlCashRegister.TabIndex = 5;
             this.pnlCashRegister.Visible = false;
+            // 
+            // cashRegisterSubmitOrderButton
+            // 
+            this.cashRegisterSubmitOrderButton.Location = new System.Drawing.Point(15, 426);
+            this.cashRegisterSubmitOrderButton.Name = "cashRegisterSubmitOrderButton";
+            this.cashRegisterSubmitOrderButton.Size = new System.Drawing.Size(132, 58);
+            this.cashRegisterSubmitOrderButton.TabIndex = 6;
+            this.cashRegisterSubmitOrderButton.Text = "Submit Order";
+            this.cashRegisterSubmitOrderButton.UseVisualStyleBackColor = true;
+            // 
+            // cashRegisterDrinksComboBox
+            // 
+            this.cashRegisterDrinksComboBox.FormattingEnabled = true;
+            this.cashRegisterDrinksComboBox.Location = new System.Drawing.Point(411, 370);
+            this.cashRegisterDrinksComboBox.Name = "cashRegisterDrinksComboBox";
+            this.cashRegisterDrinksComboBox.Size = new System.Drawing.Size(444, 28);
+            this.cashRegisterDrinksComboBox.TabIndex = 5;
+            this.cashRegisterDrinksComboBox.Text = "Choose Drink";
+            // 
+            // cashRegisterStudentComboBox
+            // 
+            this.cashRegisterStudentComboBox.FormattingEnabled = true;
+            this.cashRegisterStudentComboBox.Location = new System.Drawing.Point(15, 370);
+            this.cashRegisterStudentComboBox.Name = "cashRegisterStudentComboBox";
+            this.cashRegisterStudentComboBox.Size = new System.Drawing.Size(350, 28);
+            this.cashRegisterStudentComboBox.TabIndex = 4;
+            this.cashRegisterStudentComboBox.Text = "Choose Student";
+            // 
+            // listViewDrankCashRegister
+            // 
+            this.listViewDrankCashRegister.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.cashRegisterDrankColumnHeader1,
+            this.cashRegisterDrankColumnHeader2,
+            this.cashRegisterDrankColumnHeader3,
+            this.cashRegisterDrankColumnHeader4,
+            this.cashRegisterDrankColumnHeader5});
+            this.listViewDrankCashRegister.Location = new System.Drawing.Point(411, 51);
+            this.listViewDrankCashRegister.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.listViewDrankCashRegister.Name = "listViewDrankCashRegister";
+            this.listViewDrankCashRegister.Size = new System.Drawing.Size(444, 272);
+            this.listViewDrankCashRegister.TabIndex = 3;
+            this.listViewDrankCashRegister.UseCompatibleStateImageBehavior = false;
+            this.listViewDrankCashRegister.View = System.Windows.Forms.View.Details;
+            // 
+            // cashRegisterDrankColumnHeader1
+            // 
+            this.cashRegisterDrankColumnHeader1.Text = "Dranknr";
+            this.cashRegisterDrankColumnHeader1.Width = 80;
+            // 
+            // cashRegisterDrankColumnHeader2
+            // 
+            this.cashRegisterDrankColumnHeader2.Text = "Naam";
+            this.cashRegisterDrankColumnHeader2.Width = 100;
+            // 
+            // cashRegisterDrankColumnHeader3
+            // 
+            this.cashRegisterDrankColumnHeader3.Text = "Prijs";
+            // 
+            // cashRegisterDrankColumnHeader4
+            // 
+            this.cashRegisterDrankColumnHeader4.Text = "Voorraad";
+            this.cashRegisterDrankColumnHeader4.Width = 80;
+            // 
+            // cashRegisterDrankColumnHeader5
+            // 
+            this.cashRegisterDrankColumnHeader5.Text = "Aantal_Verkocht";
+            this.cashRegisterDrankColumnHeader5.Width = 120;
             // 
             // pictureBox4
             // 
@@ -546,7 +626,7 @@
         private System.Windows.Forms.ListView listViewActivity;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewDrankCashRegister;
         private System.Windows.Forms.ColumnHeader IdHeader;
         private System.Windows.Forms.ColumnHeader NameStudentHeader;
         private System.Windows.Forms.Panel pnlLecturer;
@@ -571,5 +651,13 @@
         private System.Windows.Forms.ColumnHeader cashRegisterStudentColumnHeader1;
         private System.Windows.Forms.ColumnHeader cashRegisterStudentColumnHeader2;
         private System.Windows.Forms.Label cashRegisterLabel;
+        private System.Windows.Forms.ColumnHeader cashRegisterDrankColumnHeader1;
+        private System.Windows.Forms.ColumnHeader cashRegisterDrankColumnHeader2;
+        private System.Windows.Forms.ColumnHeader cashRegisterDrankColumnHeader3;
+        private System.Windows.Forms.ColumnHeader cashRegisterDrankColumnHeader4;
+        private System.Windows.Forms.ColumnHeader cashRegisterDrankColumnHeader5;
+        private System.Windows.Forms.Button cashRegisterSubmitOrderButton;
+        private System.Windows.Forms.ComboBox cashRegisterDrinksComboBox;
+        private System.Windows.Forms.ComboBox cashRegisterStudentComboBox;
     }
 }
