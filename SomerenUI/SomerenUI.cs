@@ -3,6 +3,7 @@ using SomerenModel;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System;
+using System.Data.SqlClient;
 
 namespace SomerenUI
 {
@@ -17,15 +18,24 @@ namespace SomerenUI
         {
             // hide all other panels
             pnlStudents.Hide();
+            pnlActivities.Hide();
+            pnlRooms.Hide();
+            pnlLecturer.Hide();
 
             // show dashboard
             pnlDashboard.Show();
         }
+        
+        // students beginnen hier
 
         private void ShowStudentsPanel()
         {
             // hide all other panels
             pnlDashboard.Hide();
+            pnlLecturer.Hide();
+            pnlActivities.Hide();
+            pnlRooms.Hide();
+            pnlDrinkSupplies.Hide();
 
             // show students
             pnlStudents.Show();
@@ -66,6 +76,218 @@ namespace SomerenUI
             }
         }
 
+
+        // Hier beginnen de activiteiten
+
+
+        private void ShowDashBoardActivities()
+        {
+            // hide all other panels
+            pnlDashboard.Hide();
+            pnlStudents.Hide();
+            pnlLecturer.Hide();
+            pnlRooms.Hide();
+            pnlDrinkSupplies.Hide();
+
+            // show activity
+            pnlActivities.Show();
+
+            try
+            {
+                // get and display all activity
+                List<Activity> activities = GetActivities();
+                DisplayActivity(activities);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the activities: " + e.Message);
+            }
+        }
+
+        private List<Activity> GetActivities()
+        {
+            ActivityService acitivtyService = new ActivityService();
+            List<Activity> activities = acitivtyService.GetActivity();
+            return activities;
+        }
+
+
+        // Rooms Section
+        private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowRoomsPannel();
+        }
+
+        private List<Room> GetRooms()
+        {
+            RoomService roomService = new RoomService();
+            List<Room> allRooms = roomService.GetRooms();
+            return allRooms;
+        }
+
+        private void ShowRoomsPannel()
+        {
+            //Hide all other pannels
+            pnlDashboard.Hide();
+            pnlStudents.Hide();
+            pnlLecturer.Hide();
+            pnlActivities.Hide();
+            pnlDrinkSupplies.Hide();
+
+            // Hide all other Listviews?
+
+
+            //Show rooms
+            pnlRooms.Show();
+
+            try
+            {
+                // get and display all rooms
+                List<Room> rooms = GetRooms();
+                DisplayRooms(rooms);
+            }
+            catch (Exception message)
+            {
+                MessageBox.Show(message.Message);
+            }
+        }
+
+        private void DisplayRooms(List<Room> rooms)
+        {
+            // clear the listview before filling it
+            listViewRooms.Items.Clear();
+
+            foreach (Room room in rooms)
+            {
+                ListViewItem listItem = new(room.RoomNumber.ToString());
+                listItem.SubItems.Add(room.Capacity.ToString());
+
+                if (room.Type == false)
+                {
+                    listItem.SubItems.Add("Yes");
+                }
+                else
+                {
+                    listItem.SubItems.Add("No");
+
+                }
+                listViewRooms.Items.Add(listItem);
+            }
+        }
+        
+        //nog een activity
+
+        private void DisplayActivity(List<Activity> activities)
+        {
+            // clear the listview before filling it
+            ActivityListView.Items.Clear();
+
+            foreach (Activity activity in activities)
+            {
+                ListViewItem li = new ListViewItem(activity.ActiviteitId.ToString());
+                li.Tag = activity;   // link student object to listview item
+                li.SubItems.Add(activity.Omschrijving);
+                li.SubItems.Add(activity.StartTijd.ToString(DateFormat));
+                li.SubItems.Add(activity.EindTijd.ToString(DateFormat));
+                ActivityListView.Items.Add(li);
+            }
+        }
+        
+        // Lecturers beginnen hier
+        
+        private List<Lecturer> GetLecturers()
+        {
+            LecturerService lecturerService = new LecturerService();
+            List<Lecturer> lecturers = lecturerService.GetLecturers();
+            return lecturers;
+        }
+        private void ShowLecturerPanel()
+        {
+            // hide all other panels
+            pnlDashboard.Hide();
+            pnlStudents.Hide();
+            pnlActivities.Hide();
+            pnlRooms.Hide();
+            pnlDrinkSupplies.Hide();
+
+            // show lecturer
+            pnlLecturer.Show();
+
+            try
+            {
+                // get and display all students
+                List<Lecturer> lecturers = GetLecturers();
+                DisplayLecturers(lecturers);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the lecturers: " + e.Message);
+            }
+        }
+        private void DisplayLecturers(List<Lecturer> lecturers)
+        {
+            // clear the listview before filling it
+            listViewLecturers.Items.Clear();
+
+            foreach (Lecturer lectuer in lecturers)
+            {
+                ListViewItem li = new ListViewItem(lectuer.Id.ToString());
+                li.Tag = lectuer;   // link lecturer object to listview item
+                li.SubItems.Add(lectuer.Name.ToString());
+                listViewLecturers.Items.Add(li);
+            }
+        }
+
+        // button prompts beginnen hier
+        /* Drankjes =========================================================================================== */
+
+        private void ShowDashBoardDrinks()
+        {
+            // hide all other panels
+            pnlDashboard.Hide();
+            pnlLecturer.Hide();
+            pnlStudents.Hide();
+            pnlActivities.Hide();
+            pnlRooms.Hide();
+
+            // show activity
+            pnlDrinkSupplies.Show();
+
+            try
+            {
+                // get and display all activity
+                List<Drinks> drinks = GetDrinks();
+                DisplayDrinks(drinks);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the Drinks: " + e.Message);
+            }
+        }
+
+        private List<Drinks> GetDrinks()
+        {
+            DrinkService drinkService = new DrinkService();
+            List<Drinks> drinks = drinkService.GetDrinks();
+            return drinks;
+        }
+
+        private void DisplayDrinks(List<Drinks> drinks)
+        {
+            // clear the listview before filling it
+            listViewDrinkSupplies.Items.Clear();
+
+            foreach (Drinks drink in drinks)
+            {
+                ListViewItem li = new ListViewItem(drink.Dranknr.ToString());
+                li.Tag = drink;   // link student object to listview item
+                li.SubItems.Add(drink.Naam);
+                li.SubItems.Add(drink.Prijs.ToString());
+                li.SubItems.Add(drink.Voorraad.ToString());
+                li.SubItems.Add(drink.Aantal_Verkocht.ToString());
+                listViewDrinkSupplies.Items.Add(li);
+            }
+        }
         private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
             ShowDashboardPanel();
@@ -80,5 +302,61 @@ namespace SomerenUI
         {
             ShowStudentsPanel();
         }
+
+        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowDashBoardActivities();
+        }
+
+
+        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowLecturerPanel();
+        }
+
+
+
+        private void drinkSuppliesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowDashBoardDrinks();
+        }
+
+
+
+        private void listViewDrinkSupplies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewDrinkSupplies.SelectedItems.Count == 0)
+            {
+                return;
+            }
+            /*listViewDrinkSupplies.FullRowSelect = true;*/
+            ListViewItem selectedListViewItem = listViewDrinkSupplies.SelectedItems[0];
+            Drinks selectedDrink = (Drinks)selectedListViewItem.Tag;
+
+            DranknrDrinkSupplies.Text = selectedDrink.Dranknr.ToString();
+            NaamDrinkSupplies.Text = selectedDrink.Naam;
+            VoorraadDrinkSupplies.Text = selectedDrink.Voorraad.ToString();
+        }
+
+        private void UpdateDrinkSupplies_Click(object sender, EventArgs e)
+        {
+
+            ListViewItem selectedListViewItem = listViewDrinkSupplies.SelectedItems[0];
+            Drinks selectedDrink = (Drinks)selectedListViewItem.Tag;
+
+            try
+            {
+                DrinkService drinkService = new DrinkService();
+                drinkService.Update(int.Parse(DranknrDrinkSupplies.Text), NaamDrinkSupplies.Text, int.Parse(VoorraadDrinkSupplies.Text));
+            }
+            catch(SqlException ex)
+            {
+                MessageBox.Show("Something went wrong!" + ex.Message);
+
+            }
+            DisplayDrinks(GetDrinks());
+        }
     }
+    
+
 }

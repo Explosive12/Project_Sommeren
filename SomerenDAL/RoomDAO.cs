@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Data;
 using SomerenModel;
+using System;
 
 namespace SomerenDAL
 {
@@ -10,7 +11,7 @@ namespace SomerenDAL
 
         public List<Room> GetAllRooms()
         {
-            string sqlQuery = "SELECT KamerID, Kamernummer, Aantal_Bedden FROM Kamer";
+            string sqlQuery = "SELECT KamerID, Kamernummer, Aantal_Bedden, Kamertype FROM Kamer";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             return ReadTables(ExecuteSelectQuery(sqlQuery, sqlParameters));
