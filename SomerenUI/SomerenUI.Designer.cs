@@ -162,7 +162,7 @@
             this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
             this.roomsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.roomsToolStripMenuItem.Text = "Rooms";
-            this.roomsToolStripMenuItem.Click += new System.EventHandler(this.lecturersToolStripMenuItem_Click);
+            this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
             // 
             // drinkSuppliesToolStripMenuItem
             // 

@@ -290,6 +290,41 @@ namespace SomerenUI
                 listViewDrinkSupplies.Items.Add(li);
             }
         }
+
+        private void listViewDrinkSupplies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewDrinkSupplies.SelectedItems.Count == 0)
+            {
+                return;
+            }
+            /*listViewDrinkSupplies.FullRowSelect = true;*/
+            ListViewItem selectedListViewItem = listViewDrinkSupplies.SelectedItems[0];
+            Drinks selectedDrink = (Drinks)selectedListViewItem.Tag;
+
+            DranknrDrinkSupplies.Text = selectedDrink.Dranknr.ToString();
+            NaamDrinkSupplies.Text = selectedDrink.Naam;
+            VoorraadDrinkSupplies.Text = selectedDrink.Voorraad.ToString();
+        }
+
+        private void UpdateDrinkSupplies_Click(object sender, EventArgs e)
+        {
+
+            ListViewItem selectedListViewItem = listViewDrinkSupplies.SelectedItems[0];
+            Drinks selectedDrink = (Drinks)selectedListViewItem.Tag;
+
+            try
+            {
+                DrinkService drinkService = new DrinkService();
+                drinkService.Update(int.Parse(DranknrDrinkSupplies.Text), NaamDrinkSupplies.Text, int.Parse(VoorraadDrinkSupplies.Text));
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Something went wrong!" + ex.Message);
+
+            }
+            DisplayDrinks(GetDrinks());
+        }
+        
         private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
             ShowDashboardPanel();
@@ -325,39 +360,7 @@ namespace SomerenUI
 
 
 
-        private void listViewDrinkSupplies_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listViewDrinkSupplies.SelectedItems.Count == 0)
-            {
-                return;
-            }
-            /*listViewDrinkSupplies.FullRowSelect = true;*/
-            ListViewItem selectedListViewItem = listViewDrinkSupplies.SelectedItems[0];
-            Drinks selectedDrink = (Drinks)selectedListViewItem.Tag;
-
-            DranknrDrinkSupplies.Text = selectedDrink.Dranknr.ToString();
-            NaamDrinkSupplies.Text = selectedDrink.Naam;
-            VoorraadDrinkSupplies.Text = selectedDrink.Voorraad.ToString();
-        }
-
-        private void UpdateDrinkSupplies_Click(object sender, EventArgs e)
-        {
-
-            ListViewItem selectedListViewItem = listViewDrinkSupplies.SelectedItems[0];
-            Drinks selectedDrink = (Drinks)selectedListViewItem.Tag;
-
-            try
-            {
-                DrinkService drinkService = new DrinkService();
-                drinkService.Update(int.Parse(DranknrDrinkSupplies.Text), NaamDrinkSupplies.Text, int.Parse(VoorraadDrinkSupplies.Text));
-            }
-            catch(SqlException ex)
-            {
-                MessageBox.Show("Something went wrong!" + ex.Message);
-
-            }
-            DisplayDrinks(GetDrinks());
-        }
+       
     }
     
 
