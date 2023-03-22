@@ -5,6 +5,7 @@ using System.Data;
 
 namespace SomerenDAL
 {
+    //hi
     public abstract class BaseDao
     {
         private SqlDataAdapter adapter;
