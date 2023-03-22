@@ -69,6 +69,12 @@
             this.StartTijdcolumnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.EindTijdcolumnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.ActivityLabel = new System.Windows.Forms.Label();
+            this.pnlCashRegister = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.listViewStudentsCashRegister = new System.Windows.Forms.ListView();
+            this.cashRegisterStudentColumnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.cashRegisterStudentColumnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.cashRegisterLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
             this.pnlStudents.SuspendLayout();
@@ -79,6 +85,8 @@
             this.pnlLecturer.SuspendLayout();
             this.pnlActivities.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.pnlCashRegister.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -111,13 +119,13 @@
             // dashboardToolStripMenuItem1
             // 
             this.dashboardToolStripMenuItem1.Name = "dashboardToolStripMenuItem1";
-            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(165, 26);
             this.dashboardToolStripMenuItem1.Text = "Dashboard";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -418,12 +426,68 @@
             this.ActivityLabel.TabIndex = 0;
             this.ActivityLabel.Text = "Activiteiten";
             // 
+            // pnlCashRegister
+            // 
+            this.pnlCashRegister.Controls.Add(this.pictureBox4);
+            this.pnlCashRegister.Controls.Add(this.listViewStudentsCashRegister);
+            this.pnlCashRegister.Controls.Add(this.cashRegisterLabel);
+            this.pnlCashRegister.Location = new System.Drawing.Point(0, 36);
+            this.pnlCashRegister.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlCashRegister.Name = "pnlCashRegister";
+            this.pnlCashRegister.Size = new System.Drawing.Size(1089, 622);
+            this.pnlCashRegister.TabIndex = 5;
+            this.pnlCashRegister.Visible = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(944, 48);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(145, 157);
+            this.pictureBox4.TabIndex = 2;
+            this.pictureBox4.TabStop = false;
+            // 
+            // listViewStudentsCashRegister
+            // 
+            this.listViewStudentsCashRegister.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.cashRegisterStudentColumnHeader1,
+            this.cashRegisterStudentColumnHeader2});
+            this.listViewStudentsCashRegister.Location = new System.Drawing.Point(15, 51);
+            this.listViewStudentsCashRegister.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.listViewStudentsCashRegister.Name = "listViewStudentsCashRegister";
+            this.listViewStudentsCashRegister.Size = new System.Drawing.Size(350, 272);
+            this.listViewStudentsCashRegister.TabIndex = 1;
+            this.listViewStudentsCashRegister.UseCompatibleStateImageBehavior = false;
+            this.listViewStudentsCashRegister.View = System.Windows.Forms.View.Details;
+            // 
+            // cashRegisterStudentColumnHeader1
+            // 
+            this.cashRegisterStudentColumnHeader1.Text = "StudentId";
+            this.cashRegisterStudentColumnHeader1.Width = 80;
+            // 
+            // cashRegisterStudentColumnHeader2
+            // 
+            this.cashRegisterStudentColumnHeader2.Text = "Name";
+            this.cashRegisterStudentColumnHeader2.Width = 100;
+            // 
+            // cashRegisterLabel
+            // 
+            this.cashRegisterLabel.AutoSize = true;
+            this.cashRegisterLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cashRegisterLabel.Location = new System.Drawing.Point(13, 5);
+            this.cashRegisterLabel.Name = "cashRegisterLabel";
+            this.cashRegisterLabel.Size = new System.Drawing.Size(197, 41);
+            this.cashRegisterLabel.TabIndex = 0;
+            this.cashRegisterLabel.Text = "Cash Register";
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1099, 673);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pnlCashRegister);
             this.Controls.Add(this.pnlStudents);
             this.Controls.Add(this.pnlActivities);
             this.Controls.Add(this.pnlRooms);
@@ -449,6 +513,9 @@
             this.pnlActivities.ResumeLayout(false);
             this.pnlActivities.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.pnlCashRegister.ResumeLayout(false);
+            this.pnlCashRegister.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -498,5 +565,11 @@
         private System.Windows.Forms.Label ActivityLabel;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.ToolStripMenuItem cashRegisterToolStripMenuItem;
+        private System.Windows.Forms.Panel pnlCashRegister;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.ListView listViewStudentsCashRegister;
+        private System.Windows.Forms.ColumnHeader cashRegisterStudentColumnHeader1;
+        private System.Windows.Forms.ColumnHeader cashRegisterStudentColumnHeader2;
+        private System.Windows.Forms.Label cashRegisterLabel;
     }
 }

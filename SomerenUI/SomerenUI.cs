@@ -36,6 +36,7 @@ namespace SomerenUI
             pnlLecturer.Hide();
             pnlActivities.Hide();
             pnlRooms.Hide();
+            pnlCashRegister.Hide();
 
             // show students
             pnlStudents.Show();
@@ -128,6 +129,7 @@ namespace SomerenUI
             pnlStudents.Hide();
             pnlLecturer.Hide();
             pnlActivities.Hide();
+            pnlCashRegister.Hide();
 
             // Hide all other Listviews?
 
@@ -203,13 +205,14 @@ namespace SomerenUI
             pnlStudents.Hide();
             pnlActivities.Hide();
             pnlRooms.Hide();
+            pnlCashRegister.Hide();
 
             // show lecturer
             pnlLecturer.Show();
 
             try
             {
-                // get and display all students
+                // get and display all lecturers
                 List<Lecturer> lecturers = GetLecturers();
                 DisplayLecturers(lecturers);
             }
@@ -231,7 +234,46 @@ namespace SomerenUI
                 listViewLecturers.Items.Add(li);
             }
         }
-        
+
+        //Cash Register
+        private void ShowCashRegisterPanel()
+        {
+            // hide all other panels
+            pnlDashboard.Hide();
+            pnlStudents.Hide();
+            pnlActivities.Hide();
+            pnlRooms.Hide();
+            pnlLecturer.Hide();
+
+            // show lecturer
+            pnlCashRegister.Show();
+
+            try
+            {
+                // get and display all lecturers
+                List<Student> students = GetStudents();
+                DisplayCashRegisterStudents(students);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the students for cash register: " + e.Message);
+            }
+        }
+
+        private void DisplayCashRegisterStudents(List<Student> students)
+        {
+            // clear the listview before filling it
+            listViewStudentsCashRegister.Items.Clear();
+
+            foreach (Student student in students)
+            {
+                ListViewItem li = new ListViewItem(student.Id.ToString());
+                li.Tag = student;   // link lecturer object to listview item
+                li.SubItems.Add(student.Name.ToString());
+                listViewStudentsCashRegister.Items.Add(li);
+            }
+        }
+
         // button prompts beginnen hier
 
         private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
@@ -262,7 +304,7 @@ namespace SomerenUI
 
         private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ShowCashRegisterPanel();
         }
     }
 }
