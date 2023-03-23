@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenUI\\SomerenUI.csproj": {}
+    "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenUI\\SomerenUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenDAL\\SomerenDAL.csproj": {
+    "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenDAL\\SomerenDAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenDAL\\SomerenDAL.csproj",
+        "projectUniqueName": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenDAL\\SomerenDAL.csproj",
         "projectName": "SomerenDAL",
-        "projectPath": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenDAL\\SomerenDAL.csproj",
-        "packagesPath": "C:\\Users\\Robin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenDAL\\obj\\",
+        "projectPath": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenDAL\\SomerenDAL.csproj",
+        "packagesPath": "C:\\Users\\Julian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenDAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Robin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Julian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenModel\\SomerenModel.csproj": {
-                "projectPath": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenModel\\SomerenModel.csproj"
+              "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenModel\\SomerenModel.csproj": {
+                "projectPath": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenModel\\SomerenModel.csproj"
               }
             }
           }
@@ -77,20 +78,20 @@
         }
       }
     },
-    "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenModel\\SomerenModel.csproj": {
+    "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenModel\\SomerenModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenModel\\SomerenModel.csproj",
+        "projectUniqueName": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenModel\\SomerenModel.csproj",
         "projectName": "SomerenModel",
-        "projectPath": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenModel\\SomerenModel.csproj",
-        "packagesPath": "C:\\Users\\Robin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenModel\\obj\\",
+        "projectPath": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenModel\\SomerenModel.csproj",
+        "packagesPath": "C:\\Users\\Julian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenModel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Robin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Julian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -99,6 +100,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -136,20 +138,20 @@
         }
       }
     },
-    "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenService\\SomerenService.csproj": {
+    "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenService\\SomerenService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenService\\SomerenService.csproj",
+        "projectUniqueName": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenService\\SomerenService.csproj",
         "projectName": "SomerenService",
-        "projectPath": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenService\\SomerenService.csproj",
-        "packagesPath": "C:\\Users\\Robin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenService\\obj\\",
+        "projectPath": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenService\\SomerenService.csproj",
+        "packagesPath": "C:\\Users\\Julian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Robin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Julian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -158,17 +160,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenDAL\\SomerenDAL.csproj": {
-                "projectPath": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenDAL\\SomerenDAL.csproj"
+              "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenDAL\\SomerenDAL.csproj": {
+                "projectPath": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenDAL\\SomerenDAL.csproj"
               },
-              "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenModel\\SomerenModel.csproj": {
-                "projectPath": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenModel\\SomerenModel.csproj"
+              "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenModel\\SomerenModel.csproj": {
+                "projectPath": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenModel\\SomerenModel.csproj"
               }
             }
           }
@@ -202,20 +205,20 @@
         }
       }
     },
-    "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenUI\\SomerenUI.csproj": {
+    "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenUI\\SomerenUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenUI\\SomerenUI.csproj",
+        "projectUniqueName": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenUI\\SomerenUI.csproj",
         "projectName": "SomerenUI",
-        "projectPath": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenUI\\SomerenUI.csproj",
-        "packagesPath": "C:\\Users\\Robin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenUI\\obj\\",
+        "projectPath": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenUI\\SomerenUI.csproj",
+        "packagesPath": "C:\\Users\\Julian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenUI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Robin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Julian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -224,17 +227,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenModel\\SomerenModel.csproj": {
-                "projectPath": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenModel\\SomerenModel.csproj"
+              "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenModel\\SomerenModel.csproj": {
+                "projectPath": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenModel\\SomerenModel.csproj"
               },
-              "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenService\\SomerenService.csproj": {
-                "projectPath": "C:\\Users\\Robin\\OneDrive\\Bureaublad\\progarmmeren opdrachten\\Project_Sommeren-master (1)\\Project_Sommeren-master\\SomerenService\\SomerenService.csproj"
+              "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenService\\SomerenService.csproj": {
+                "projectPath": "C:\\Users\\Julian\\Documents\\GitHub\\Project_someren\\SomerenService\\SomerenService.csproj"
               }
             }
           }

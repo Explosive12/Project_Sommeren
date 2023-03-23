@@ -70,16 +70,20 @@ namespace SomerenUI
             // clear the listview before filling it
             listViewStudents.Items.Clear();
 
-            foreach (Student student in students)
+            try
             {
-                ListViewItem li = new ListViewItem(student.Id.ToString());
-                li.Tag = student;   // link student object to listview item
-                li.SubItems.Add(student.Name);
-                listViewStudents.Items.Add(li);
+                foreach (Student student in students)
+                {
+                    ListViewItem li = new ListViewItem(student.Id.ToString());
+                    li.Tag = student;   // link student object to listview item
+                    li.SubItems.Add(student.Name);
+                    listViewStudents.Items.Add(li);
 
-                //li = new ListViewItem(student.Id.ToString());
-                //listViewStudents.Items.Add(li);
+                    //li = new ListViewItem(student.Id.ToString());
+                    //listViewStudents.Items.Add(li);
+                }
             }
+
             catch (Exception e)
             {
                 MessageBox.Show("Something went wrong while loading the Students: " + e.Message);
