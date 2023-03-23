@@ -11,19 +11,16 @@ namespace SomerenDAL
 {
     public class OrderDao : BaseDao
     {
-        private SqlConnection dbConnection;
-
         public void Insert(string student, string drankje, decimal prijs, DateTime datum)
         {
-            SqlCommand command = new SqlCommand(
-            "INSERT INTO [Order] (student, drankje, prijs, datum) VALUES (@student, @drankje, @prijs, @datum)");
-            command.Parameters.AddWithValue("@student", student);
-            command.Parameters.AddWithValue("@drankje", drankje);
-            command.Parameters.AddWithValue("@prijs", prijs);
-            command.Parameters.AddWithValue("@datum", datum);
+            SqlParameter[] sqlParameters = new SqlParameter[]{ 
+                new SqlParameter("@student", student), 
+                new SqlParameter( "@drankje", drankje),
+                new SqlParameter( "@prijs", prijs),
+                new SqlParameter( "@datum", datum),
+            };
 
-            command.Connection = OpenConnection();
-            command.ExecuteNonQuery();
+            ExecuteEditQuery("INSERT INTO [Order] (student, drankje, prijs, datum) VALUES (@student, @drankje, @prijs, @datum)", sqlParameters);
         }
     }
 }

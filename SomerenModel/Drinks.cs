@@ -14,7 +14,7 @@ namespace SomerenModel
         public int Voorraad { get; set; }
         public int Aantal_Verkocht { get; set; }
 
-
+        public string DisplayMember { get { return $"{Dranknr}. {Naam} - Prijs: {Prijs} - Voorraad: {Voorraad}"; } }
 
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
@@ -97,6 +98,7 @@
             columnHeader3Prijs = new System.Windows.Forms.ColumnHeader();
             columnHeader4Voorraad = new System.Windows.Forms.ColumnHeader();
             columnHeader1Aantal_verkocht = new System.Windows.Forms.ColumnHeader();
+            ImageListDrinkSupplies = new System.Windows.Forms.ImageList(components);
             Drink_Supplies = new System.Windows.Forms.Label();
             pnlCashRegister = new System.Windows.Forms.Panel();
             cashRegisterSubmitOrderButton = new System.Windows.Forms.Button();
@@ -656,6 +658,7 @@
             listViewDrinkSupplies.Margin = new System.Windows.Forms.Padding(2);
             listViewDrinkSupplies.Name = "listViewDrinkSupplies";
             listViewDrinkSupplies.Size = new System.Drawing.Size(787, 330);
+            listViewDrinkSupplies.SmallImageList = ImageListDrinkSupplies;
             listViewDrinkSupplies.TabIndex = 1;
             listViewDrinkSupplies.UseCompatibleStateImageBehavior = false;
             listViewDrinkSupplies.View = System.Windows.Forms.View.Details;
@@ -689,6 +692,14 @@
             columnHeader1Aantal_verkocht.Text = "Aantal Verkocht";
             columnHeader1Aantal_verkocht.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             columnHeader1Aantal_verkocht.Width = 100;
+            // 
+            // ImageListDrinkSupplies
+            // 
+            ImageListDrinkSupplies.ColorDepth = System.Windows.Forms.ColorDepth.Depth16Bit;
+            ImageListDrinkSupplies.ImageStream = (System.Windows.Forms.ImageListStreamer)resources.GetObject("ImageListDrinkSupplies.ImageStream");
+            ImageListDrinkSupplies.TransparentColor = System.Drawing.Color.Transparent;
+            ImageListDrinkSupplies.Images.SetKeyName(0, "99c7f76ce843d3ad4b38330396851f17.ico");
+            ImageListDrinkSupplies.Images.SetKeyName(1, "8ba9223dbe00db32810bf9103eabe034.ico");
             // 
             // Drink_Supplies
             // 
@@ -735,16 +746,19 @@
             cashRegisterDrinksComboBox.Size = new System.Drawing.Size(389, 23);
             cashRegisterDrinksComboBox.TabIndex = 5;
             cashRegisterDrinksComboBox.Text = "Choose Drink";
+            cashRegisterDrinksComboBox.SelectedIndexChanged += cashRegisterDrinksComboBox_SelectedIndexChanged;
             // 
             // cashRegisterStudentComboBox
             // 
             cashRegisterStudentComboBox.FormattingEnabled = true;
+            cashRegisterStudentComboBox.Items.AddRange(new object[] { "a", "b", "c", "d", "e" });
             cashRegisterStudentComboBox.Location = new System.Drawing.Point(14, 356);
             cashRegisterStudentComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             cashRegisterStudentComboBox.Name = "cashRegisterStudentComboBox";
             cashRegisterStudentComboBox.Size = new System.Drawing.Size(307, 23);
             cashRegisterStudentComboBox.TabIndex = 4;
             cashRegisterStudentComboBox.Text = "Choose Student";
+            cashRegisterStudentComboBox.SelectedIndexChanged += cashRegisterStudentComboBox_SelectedIndexChanged;
             // 
             // listViewDrankCashRegister
             // 
@@ -975,5 +989,6 @@
         private System.Windows.Forms.ToolStripMenuItem RevenueReportButtonn;
         private System.Windows.Forms.Label EindTijdLabel;
         private System.Windows.Forms.Label BeginTijdLabel;
+        private System.Windows.Forms.ImageList ImageListDrinkSupplies;
     }
 }

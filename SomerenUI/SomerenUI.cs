@@ -285,12 +285,12 @@ namespace SomerenUI
             pnlRevenueReport.Hide();
 
 
-            // show lecturer
+            // show Cash Register
             pnlCashRegister.Show();
 
             try
             {
-                // get and display all lecturers
+                // get and display all cash registers
                 List<Student> students = GetStudents();
                 DisplayCashRegisterStudents(students);
 
@@ -317,7 +317,8 @@ namespace SomerenUI
                 li.Tag = student;   // link lecturer object to listview item
                 li.SubItems.Add(student.Name.ToString());
                 listViewStudentsCashRegister.Items.Add(li);
-                cashRegisterStudentComboBox.Items.Add($"{student.Id}. {student.Name}");
+                cashRegisterStudentComboBox.DisplayMember = "DisplayMember";
+                cashRegisterStudentComboBox.Items.Add(student);
             }
         }
 
@@ -336,7 +337,9 @@ namespace SomerenUI
                 li.SubItems.Add(drink.Voorraad.ToString());
                 li.SubItems.Add(drink.Aantal_Verkocht.ToString());
                 listViewDrankCashRegister.Items.Add(li);
-                cashRegisterDrinksComboBox.Items.Add($"{drink.Dranknr}. {drink.Naam} - Prijs: {drink.Prijs} - Voorraad: {drink.Voorraad}");
+                cashRegisterDrinksComboBox.DisplayMember = "DisplayMember";
+                cashRegisterDrinksComboBox.Items.Add(drink);
+                
             }
         }
 
@@ -385,6 +388,18 @@ namespace SomerenUI
                 li.SubItems.Add(drink.Aantal_Verkocht.ToString());
                 listViewDrinkSupplies.Items.Add(li);
             }
+            foreach (ListViewItem voorraadIcoon in listViewDrinkSupplies.Items)
+            {
+                int voorraad = 0;
+                if (int.TryParse(voorraadIcoon.SubItems[3].Text, out voorraad) && voorraad < 10)
+                {
+                    voorraadIcoon.ImageIndex = 1;
+                }
+                else
+                {
+                    voorraadIcoon.ImageIndex = 0;
+                }
+            }
         }
 
         private void listViewDrinkSupplies_SelectedIndexChanged(object sender, EventArgs e)
@@ -406,7 +421,7 @@ namespace SomerenUI
         {
 
             ListViewItem selectedListViewItem = listViewDrinkSupplies.SelectedItems[0];
-            Drinks selectedDrink = (Drinks)selectedListViewItem.Tag;
+            selectedDrink = (Drinks)selectedListViewItem.Tag;
 
             try
             {
@@ -420,6 +435,48 @@ namespace SomerenUI
             }
             DisplayDrinks(GetDrinks());
         }
+        // Cash Register begint here
+
+        public Student selectedStudent;
+        private void listViewStudentsCashRegister_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewStudentsCashRegister.SelectedItems.Count == 0)
+            {
+                return;
+            }
+            ListViewItem selectedListViewStudent = listViewStudentsCashRegister.SelectedItems[0];
+            selectedStudent = (Student)selectedListViewStudent.Tag;
+        }
+
+
+        public Drinks selectedDrink;
+        private void listViewDrankCashRegister_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewDrankCashRegister.SelectedItems.Count == 0)
+            {
+                return;
+            }
+            ListViewItem selectedListViewDrank = listViewDrankCashRegister.SelectedItems[0];
+            selectedDrink = (Drinks)selectedListViewDrank.Tag;
+        }
+
+
+        private void cashRegisterSubmitOrderButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                OrderService orderService = new OrderService();
+
+
+                orderService.Insert(selectedStudent.Name, selectedDrink.Naam, selectedDrink.Prijs, DateTime.Now);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Something went wrong!" + ex.Message);
+            }
+        }
+
 
         //Revenue report begint hier
 
@@ -518,21 +575,16 @@ namespace SomerenUI
         {
             ShowRevenuePanel();
         }
-        
-        // fields so this works
-        private Student selectedStudent;
-        private Drinks selectedDrink;
-        private void cashRegisterSubmitOrderButton_Click(object sender, EventArgs e)
+
+        private void cashRegisterStudentComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                OrderService orderService = new OrderService();
-                orderService.Insert(selectedStudent.Name, selectedDrink.Naam, selectedDrink.Prijs, DateTime.Now);
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Something went wrong!" + ex.Message);
-            }
+            selectedStudent = (Student)cashRegisterStudentComboBox.SelectedItem;
+        }
+
+        private void cashRegisterDrinksComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedDrink = (Drinks)cashRegisterDrinksComboBox.SelectedItem;
+
         }
     }
 }
