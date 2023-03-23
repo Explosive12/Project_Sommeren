@@ -26,6 +26,8 @@ namespace SomerenUI
             pnlLecturer.Hide();
             pnlDrinkSupplies.Hide();
             pnlCashRegister.Hide();
+            pnlRevenueReport.Hide();
+
 
             // show dashboard
             pnlDashboard.Show();
@@ -42,6 +44,8 @@ namespace SomerenUI
             pnlRooms.Hide();
             pnlDrinkSupplies.Hide();
             pnlCashRegister.Hide();
+            pnlRevenueReport.Hide();
+
 
             // show students
             pnlStudents.Show();
@@ -103,6 +107,8 @@ namespace SomerenUI
             pnlRooms.Hide();
             pnlDrinkSupplies.Hide();
             pnlCashRegister.Hide();
+            pnlRevenueReport.Hide();
+
 
             // show activity
             pnlActivities.Show();
@@ -149,6 +155,8 @@ namespace SomerenUI
             pnlActivities.Hide();
             pnlDrinkSupplies.Hide();
             pnlCashRegister.Hide();
+            pnlRevenueReport.Hide();
+
 
             // Hide all other Listviews?
 
@@ -226,6 +234,8 @@ namespace SomerenUI
             pnlRooms.Hide();
             pnlCashRegister.Hide();
             pnlDrinkSupplies.Hide();
+            pnlRevenueReport.Hide();
+
 
             // show lecturer
             pnlLecturer.Show();
@@ -272,6 +282,8 @@ namespace SomerenUI
             pnlDrinkSupplies.Hide();
             pnlRooms.Hide();
             pnlLecturer.Hide();
+            pnlRevenueReport.Hide();
+
 
             // show lecturer
             pnlCashRegister.Show();
@@ -340,6 +352,8 @@ namespace SomerenUI
             pnlActivities.Hide();
             pnlCashRegister.Hide();
             pnlRooms.Hide();
+            pnlRevenueReport.Hide();
+
 
             // show activity
             pnlDrinkSupplies.Show();
@@ -440,11 +454,11 @@ namespace SomerenUI
                 endDate = monthCalendar1.SelectionStart;
                 if (endDate < startDate)
                 {
-                    startTimetxt.Text = $"Start date: {endDate.ToString(DateFormat2)}";
+                    startTimetxt.Text = $" {endDate.ToString(DateFormat2)}";
                     start = false;
                     return;
                 }
-                endTimetxt.Text = $"End date: {endDate.ToString(DateFormat2)}";
+                endTimetxt.Text = $" {endDate.ToString(DateFormat2)}";
                 start = false;
             }
             else
@@ -452,11 +466,11 @@ namespace SomerenUI
                 startDate = monthCalendar1.SelectionStart;
                 if (startDate > endDate)
                 {
-                    endTimetxt.Text = $"End date: {startDate.ToString(DateFormat2)}";
+                    endTimetxt.Text = $" {startDate.ToString(DateFormat2)}";
                     start = true;
                     return;
                 }
-                startTimetxt.Text = $"Start date: {startDate.ToString(DateFormat2)}";
+                startTimetxt.Text = $" {startDate.ToString(DateFormat2)}";
                 start = true;
             }
         }

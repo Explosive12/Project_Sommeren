@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             menuStrip1 = new System.Windows.Forms.MenuStrip();
             dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,6 +74,8 @@
             EindTijdcolumnHeader4 = new System.Windows.Forms.ColumnHeader();
             ActivityLabel = new System.Windows.Forms.Label();
             pnlRevenueReport = new System.Windows.Forms.Panel();
+            EindTijdLabel = new System.Windows.Forms.Label();
+            BeginTijdLabel = new System.Windows.Forms.Label();
             pictureBox5 = new System.Windows.Forms.PictureBox();
             endTimetxt = new System.Windows.Forms.TextBox();
             startTimetxt = new System.Windows.Forms.TextBox();
@@ -114,8 +116,6 @@
             salesColumHeader = new System.Windows.Forms.ColumnHeader();
             TurnoverColumHeader = new System.Windows.Forms.ColumnHeader();
             nCustomerColumHeader = new System.Windows.Forms.ColumnHeader();
-            BeginTijdLabel = new System.Windows.Forms.Label();
-            EindTijdLabel = new System.Windows.Forms.Label();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
             pnlStudents.SuspendLayout();
@@ -327,7 +327,7 @@
             // listViewRooms
             // 
             listViewRooms.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { KamerNummer, Aantalbedden, DocentORStudent });
-            listViewRooms.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem3, listViewItem4 });
+            listViewRooms.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1, listViewItem2 });
             listViewRooms.Location = new System.Drawing.Point(16, 36);
             listViewRooms.Margin = new System.Windows.Forms.Padding(2);
             listViewRooms.Name = "listViewRooms";
@@ -487,18 +487,36 @@
             pnlRevenueReport.TabIndex = 5;
             pnlRevenueReport.Visible = false;
             // 
+            // EindTijdLabel
+            // 
+            EindTijdLabel.AutoSize = true;
+            EindTijdLabel.Location = new System.Drawing.Point(13, 305);
+            EindTijdLabel.Name = "EindTijdLabel";
+            EindTijdLabel.Size = new System.Drawing.Size(33, 15);
+            EindTijdLabel.TabIndex = 9;
+            EindTijdLabel.Text = "Eind:";
+            // 
+            // BeginTijdLabel
+            // 
+            BeginTijdLabel.AutoSize = true;
+            BeginTijdLabel.Location = new System.Drawing.Point(13, 261);
+            BeginTijdLabel.Name = "BeginTijdLabel";
+            BeginTijdLabel.Size = new System.Drawing.Size(40, 15);
+            BeginTijdLabel.TabIndex = 8;
+            BeginTijdLabel.Text = "Begin:";
+            // 
             // pictureBox5
             // 
             pictureBox5.Image = (System.Drawing.Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new System.Drawing.Point(767, 40);
+            pictureBox5.Location = new System.Drawing.Point(767, 9);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new System.Drawing.Size(126, 121);
+            pictureBox5.Size = new System.Drawing.Size(150, 140);
             pictureBox5.TabIndex = 6;
             pictureBox5.TabStop = false;
             // 
             // endTimetxt
             // 
-            endTimetxt.Location = new System.Drawing.Point(380, 182);
+            endTimetxt.Location = new System.Drawing.Point(71, 302);
             endTimetxt.Name = "endTimetxt";
             endTimetxt.ReadOnly = true;
             endTimetxt.Size = new System.Drawing.Size(182, 23);
@@ -506,7 +524,7 @@
             // 
             // startTimetxt
             // 
-            startTimetxt.Location = new System.Drawing.Point(380, 101);
+            startTimetxt.Location = new System.Drawing.Point(71, 258);
             startTimetxt.Name = "startTimetxt";
             startTimetxt.ReadOnly = true;
             startTimetxt.Size = new System.Drawing.Size(182, 23);
@@ -514,7 +532,7 @@
             // 
             // monthCalendar1
             // 
-            monthCalendar1.Location = new System.Drawing.Point(13, 88);
+            monthCalendar1.Location = new System.Drawing.Point(13, 70);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 3;
             monthCalendar1.DateChanged += monthCalendar1_DateChanged;
@@ -817,24 +835,6 @@
             // 
             nCustomerColumHeader.Text = "nCustomer";
             nCustomerColumHeader.Width = 90;
-            // 
-            // BeginTijdLabel
-            // 
-            BeginTijdLabel.AutoSize = true;
-            BeginTijdLabel.Location = new System.Drawing.Point(288, 104);
-            BeginTijdLabel.Name = "BeginTijdLabel";
-            BeginTijdLabel.Size = new System.Drawing.Size(40, 15);
-            BeginTijdLabel.TabIndex = 8;
-            BeginTijdLabel.Text = "Begin:";
-            // 
-            // EindTijdLabel
-            // 
-            EindTijdLabel.AutoSize = true;
-            EindTijdLabel.Location = new System.Drawing.Point(288, 190);
-            EindTijdLabel.Name = "EindTijdLabel";
-            EindTijdLabel.Size = new System.Drawing.Size(33, 15);
-            EindTijdLabel.TabIndex = 9;
-            EindTijdLabel.Text = "Eind:";
             // 
             // SomerenUI
             // 
