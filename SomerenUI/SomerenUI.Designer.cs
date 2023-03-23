@@ -29,8 +29,8 @@ namespace SomerenUI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +41,7 @@ namespace SomerenUI
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drinkSuppliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cashRegisterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revenueReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlDashboard = new System.Windows.Forms.Panel();
             this.lblDashboard = new System.Windows.Forms.Label();
             this.pnlStudents = new System.Windows.Forms.Panel();
@@ -102,7 +103,7 @@ namespace SomerenUI
             this.pnlRevenueReport = new System.Windows.Forms.Panel();
             this.endTimetxt = new System.Windows.Forms.TextBox();
             this.startTimetxt = new System.Windows.Forms.TextBox();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.RevenuePictureBox = new System.Windows.Forms.PictureBox();
             this.listViewRevenueReport = new System.Windows.Forms.ListView();
             this.salesColumHeader = new System.Windows.Forms.ColumnHeader();
@@ -110,7 +111,6 @@ namespace SomerenUI
             this.nCustomerColumHeader = new System.Windows.Forms.ColumnHeader();
             this.RevenueLabel = new System.Windows.Forms.Label();
             this.revenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.revenueReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
             this.pnlStudents.SuspendLayout();
@@ -212,6 +212,13 @@ namespace SomerenUI
             this.cashRegisterToolStripMenuItem.Size = new System.Drawing.Size(134, 29);
             this.cashRegisterToolStripMenuItem.Text = "Cash Register";
             this.cashRegisterToolStripMenuItem.Click += new System.EventHandler(this.cashRegisterToolStripMenuItem_Click);
+            // 
+            // revenueReportToolStripMenuItem
+            // 
+            this.revenueReportToolStripMenuItem.Name = "revenueReportToolStripMenuItem";
+            this.revenueReportToolStripMenuItem.Size = new System.Drawing.Size(152, 29);
+            this.revenueReportToolStripMenuItem.Text = "Revenue Report";
+            this.revenueReportToolStripMenuItem.Click += new System.EventHandler(this.revenueReportToolStripMenuItem_Click);
             // 
             // pnlDashboard
             // 
@@ -324,8 +331,8 @@ namespace SomerenUI
             this.Aantalbedden,
             this.DocentORStudent});
             this.listViewRooms.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3,
-            listViewItem4});
+            listViewItem1,
+            listViewItem2});
             this.listViewRooms.Location = new System.Drawing.Point(22, 60);
             this.listViewRooms.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.listViewRooms.Name = "listViewRooms";
@@ -491,7 +498,7 @@ namespace SomerenUI
             this.pnlDrinkSupplies.Controls.Add(this.listViewDrinkSupplies);
             this.pnlDrinkSupplies.Controls.Add(this.Drink_Supplies);
             this.pnlDrinkSupplies.Location = new System.Drawing.Point(6, 36);
-            this.pnlDrinkSupplies.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDrinkSupplies.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDrinkSupplies.Name = "pnlDrinkSupplies";
             this.pnlDrinkSupplies.Size = new System.Drawing.Size(1356, 786);
             this.pnlDrinkSupplies.TabIndex = 5;
@@ -530,7 +537,7 @@ namespace SomerenUI
             // DranknrDrinkSupplies
             // 
             this.DranknrDrinkSupplies.Location = new System.Drawing.Point(21, 729);
-            this.DranknrDrinkSupplies.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DranknrDrinkSupplies.Margin = new System.Windows.Forms.Padding(4);
             this.DranknrDrinkSupplies.Name = "DranknrDrinkSupplies";
             this.DranknrDrinkSupplies.ReadOnly = true;
             this.DranknrDrinkSupplies.Size = new System.Drawing.Size(124, 31);
@@ -539,7 +546,7 @@ namespace SomerenUI
             // UpdateDrinkSupplies
             // 
             this.UpdateDrinkSupplies.Location = new System.Drawing.Point(1141, 694);
-            this.UpdateDrinkSupplies.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UpdateDrinkSupplies.Margin = new System.Windows.Forms.Padding(4);
             this.UpdateDrinkSupplies.Name = "UpdateDrinkSupplies";
             this.UpdateDrinkSupplies.Size = new System.Drawing.Size(199, 70);
             this.UpdateDrinkSupplies.TabIndex = 5;
@@ -550,7 +557,7 @@ namespace SomerenUI
             // VoorraadDrinkSupplies
             // 
             this.VoorraadDrinkSupplies.Location = new System.Drawing.Point(364, 729);
-            this.VoorraadDrinkSupplies.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.VoorraadDrinkSupplies.Margin = new System.Windows.Forms.Padding(4);
             this.VoorraadDrinkSupplies.Name = "VoorraadDrinkSupplies";
             this.VoorraadDrinkSupplies.Size = new System.Drawing.Size(124, 31);
             this.VoorraadDrinkSupplies.TabIndex = 4;
@@ -558,7 +565,7 @@ namespace SomerenUI
             // NaamDrinkSupplies
             // 
             this.NaamDrinkSupplies.Location = new System.Drawing.Point(196, 729);
-            this.NaamDrinkSupplies.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NaamDrinkSupplies.Margin = new System.Windows.Forms.Padding(4);
             this.NaamDrinkSupplies.Name = "NaamDrinkSupplies";
             this.NaamDrinkSupplies.Size = new System.Drawing.Size(124, 31);
             this.NaamDrinkSupplies.TabIndex = 3;
@@ -647,7 +654,7 @@ namespace SomerenUI
             // cashRegisterSubmitOrderButton
             // 
             this.cashRegisterSubmitOrderButton.Location = new System.Drawing.Point(1171, 685);
-            this.cashRegisterSubmitOrderButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cashRegisterSubmitOrderButton.Margin = new System.Windows.Forms.Padding(4);
             this.cashRegisterSubmitOrderButton.Name = "cashRegisterSubmitOrderButton";
             this.cashRegisterSubmitOrderButton.Size = new System.Drawing.Size(166, 74);
             this.cashRegisterSubmitOrderButton.TabIndex = 6;
@@ -745,7 +752,7 @@ namespace SomerenUI
             // 
             this.pnlRevenueReport.Controls.Add(this.endTimetxt);
             this.pnlRevenueReport.Controls.Add(this.startTimetxt);
-            this.pnlRevenueReport.Controls.Add(this.monthCalendar1);
+            this.pnlRevenueReport.Controls.Add(this.monthCalendar);
             this.pnlRevenueReport.Controls.Add(this.RevenuePictureBox);
             this.pnlRevenueReport.Controls.Add(this.listViewRevenueReport);
             this.pnlRevenueReport.Controls.Add(this.RevenueLabel);
@@ -759,7 +766,7 @@ namespace SomerenUI
             // endTimetxt
             // 
             this.endTimetxt.Location = new System.Drawing.Point(750, 159);
-            this.endTimetxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.endTimetxt.Margin = new System.Windows.Forms.Padding(4);
             this.endTimetxt.Name = "endTimetxt";
             this.endTimetxt.ReadOnly = true;
             this.endTimetxt.Size = new System.Drawing.Size(226, 31);
@@ -768,18 +775,19 @@ namespace SomerenUI
             // startTimetxt
             // 
             this.startTimetxt.Location = new System.Drawing.Point(750, 64);
-            this.startTimetxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.startTimetxt.Margin = new System.Windows.Forms.Padding(4);
             this.startTimetxt.Name = "startTimetxt";
             this.startTimetxt.ReadOnly = true;
             this.startTimetxt.Size = new System.Drawing.Size(226, 31);
             this.startTimetxt.TabIndex = 6;
             // 
-            // monthCalendar1
+            // monthCalendar
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(386, 60);
-            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(11, 11, 11, 11);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 3;
+            this.monthCalendar.Location = new System.Drawing.Point(386, 60);
+            this.monthCalendar.Margin = new System.Windows.Forms.Padding(11);
+            this.monthCalendar.Name = "monthCalendar";
+            this.monthCalendar.TabIndex = 3;
+            this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateChanged);
             // 
             // RevenuePictureBox
             // 
@@ -835,13 +843,6 @@ namespace SomerenUI
             this.revenueToolStripMenuItem.Name = "revenueToolStripMenuItem";
             this.revenueToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
             this.revenueToolStripMenuItem.Text = "Revenue report";
-            // 
-            // revenueReportToolStripMenuItem
-            // 
-            this.revenueReportToolStripMenuItem.Name = "revenueReportToolStripMenuItem";
-            this.revenueReportToolStripMenuItem.Size = new System.Drawing.Size(152, 29);
-            this.revenueReportToolStripMenuItem.Text = "Revenue Report";
-            this.revenueReportToolStripMenuItem.Click += new System.EventHandler(this.revenueReportToolStripMenuItem_Click);
             // 
             // SomerenUI
             // 
@@ -971,7 +972,7 @@ namespace SomerenUI
         private System.Windows.Forms.ColumnHeader salesColumHeader;
         private System.Windows.Forms.ColumnHeader TurnoverColumHeader;
         private System.Windows.Forms.Label RevenueLabel;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.TextBox endTimetxt;
         private System.Windows.Forms.TextBox startTimetxt;
         private System.Windows.Forms.ColumnHeader nCustomerColumHeader;
