@@ -118,6 +118,7 @@
             salesColumHeader = new System.Windows.Forms.ColumnHeader();
             TurnoverColumHeader = new System.Windows.Forms.ColumnHeader();
             nCustomerColumHeader = new System.Windows.Forms.ColumnHeader();
+            VATCalculationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
             pnlStudents.SuspendLayout();
@@ -198,7 +199,7 @@
             // 
             // DrinksButton
             // 
-            DrinksButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { DrinkSuppliesButton, CashRegisterButton, RevenueReportButtonn });
+            DrinksButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { DrinkSuppliesButton, CashRegisterButton, RevenueReportButtonn, VATCalculationMenuItem });
             DrinksButton.Name = "DrinksButton";
             DrinksButton.Size = new System.Drawing.Size(52, 20);
             DrinksButton.Text = "Drinks";
@@ -206,21 +207,21 @@
             // DrinkSuppliesButton
             // 
             DrinkSuppliesButton.Name = "DrinkSuppliesButton";
-            DrinkSuppliesButton.Size = new System.Drawing.Size(157, 22);
+            DrinkSuppliesButton.Size = new System.Drawing.Size(180, 22);
             DrinkSuppliesButton.Text = "Drink Supplies";
             DrinkSuppliesButton.Click += DrinkSuppliesButton_Click;
             // 
             // CashRegisterButton
             // 
             CashRegisterButton.Name = "CashRegisterButton";
-            CashRegisterButton.Size = new System.Drawing.Size(157, 22);
+            CashRegisterButton.Size = new System.Drawing.Size(180, 22);
             CashRegisterButton.Text = "Cash Register";
             CashRegisterButton.Click += CashRegisterButton_Click;
             // 
             // RevenueReportButtonn
             // 
             RevenueReportButtonn.Name = "RevenueReportButtonn";
-            RevenueReportButtonn.Size = new System.Drawing.Size(157, 22);
+            RevenueReportButtonn.Size = new System.Drawing.Size(180, 22);
             RevenueReportButtonn.Text = "Revenue Report";
             RevenueReportButtonn.Click += RevenueReportButtonn_Click;
             // 
@@ -851,6 +852,13 @@
             nCustomerColumHeader.Text = "nCustomer";
             nCustomerColumHeader.Width = 90;
             // 
+            // VATCalculationMenuItem
+            // 
+            VATCalculationMenuItem.Name = "VATCalculationMenuItem";
+            VATCalculationMenuItem.Size = new System.Drawing.Size(180, 22);
+            VATCalculationMenuItem.Text = "Calculate VAT";
+            VATCalculationMenuItem.Click += VATCalculationMenuItem_Click;
+            // 
             // SomerenUI
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -990,5 +998,6 @@
         private System.Windows.Forms.Label EindTijdLabel;
         private System.Windows.Forms.Label BeginTijdLabel;
         private System.Windows.Forms.ImageList ImageListDrinkSupplies;
+        private System.Windows.Forms.ToolStripMenuItem VATCalculationMenuItem;
     }
 }

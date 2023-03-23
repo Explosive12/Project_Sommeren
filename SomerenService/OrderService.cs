@@ -18,9 +18,9 @@ namespace SomerenService
         {
             orderDB = new OrderDao();
         }
-        public void Insert(string student, string drankje, decimal prijs, DateTime datum)
+        public void Insert(int studentId, int drinkId, decimal price, DateTime date)
         {
-            orderDB.Insert(student, drankje, prijs, datum);
+            orderDB.Insert(studentId, drinkId, price, date);
         }
     }
 }

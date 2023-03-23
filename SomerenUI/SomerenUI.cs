@@ -339,7 +339,7 @@ namespace SomerenUI
                 listViewDrankCashRegister.Items.Add(li);
                 cashRegisterDrinksComboBox.DisplayMember = "DisplayMember";
                 cashRegisterDrinksComboBox.Items.Add(drink);
-                
+
             }
         }
 
@@ -465,11 +465,9 @@ namespace SomerenUI
         {
             try
             {
-
                 OrderService orderService = new OrderService();
 
-
-                orderService.Insert(selectedStudent.Name, selectedDrink.Naam, selectedDrink.Prijs, DateTime.Now);
+                orderService.Insert(selectedStudent.Id, selectedDrink.Dranknr, selectedDrink.Prijs, DateTime.Now);
             }
             catch (SqlException ex)
             {
@@ -584,6 +582,14 @@ namespace SomerenUI
         private void cashRegisterDrinksComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedDrink = (Drinks)cashRegisterDrinksComboBox.SelectedItem;
+
+        }
+
+        private void VATCalculationMenuItem_Click(object sender, EventArgs e)
+        {
+
+            VATCalculationUI form =  new();
+            form.ShowDialog();
 
         }
     }
