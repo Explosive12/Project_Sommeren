@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             menuStrip1 = new System.Windows.Forms.MenuStrip();
             dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,10 +39,11 @@
             lecturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            drinkSuppliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            cashRegisterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            DrinksButton = new System.Windows.Forms.ToolStripMenuItem();
+            DrinkSuppliesButton = new System.Windows.Forms.ToolStripMenuItem();
+            CashRegisterButton = new System.Windows.Forms.ToolStripMenuItem();
+            RevenueReportButtonn = new System.Windows.Forms.ToolStripMenuItem();
             revenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            
             pnlDashboard = new System.Windows.Forms.Panel();
             lblDashboard = new System.Windows.Forms.Label();
             pnlStudents = new System.Windows.Forms.Panel();
@@ -72,6 +73,13 @@
             StartTijdcolumnHeader3 = new System.Windows.Forms.ColumnHeader();
             EindTijdcolumnHeader4 = new System.Windows.Forms.ColumnHeader();
             ActivityLabel = new System.Windows.Forms.Label();
+            pnlRevenueReport = new System.Windows.Forms.Panel();
+            pictureBox5 = new System.Windows.Forms.PictureBox();
+            endTimetxt = new System.Windows.Forms.TextBox();
+            startTimetxt = new System.Windows.Forms.TextBox();
+            monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            RevenuePictureBox = new System.Windows.Forms.PictureBox();
+            RevenueLabel = new System.Windows.Forms.Label();
             pnlDrinkSupplies = new System.Windows.Forms.Panel();
             VoorraadDrinkLabel = new System.Windows.Forms.Label();
             DrankNaamLabel = new System.Windows.Forms.Label();
@@ -103,16 +111,11 @@
             cashRegisterStudentColumnHeader1 = new System.Windows.Forms.ColumnHeader();
             cashRegisterStudentColumnHeader2 = new System.Windows.Forms.ColumnHeader();
             cashRegisterLabel = new System.Windows.Forms.Label();
-            pnlRevenueReport = new System.Windows.Forms.Panel();
-            endTimetxt = new System.Windows.Forms.TextBox();
-            startTimetxt = new System.Windows.Forms.TextBox();
-            monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            RevenuePictureBox = new System.Windows.Forms.PictureBox();
-            listViewRevenueReport = new System.Windows.Forms.ListView();
             salesColumHeader = new System.Windows.Forms.ColumnHeader();
             TurnoverColumHeader = new System.Windows.Forms.ColumnHeader();
-            RevenueLabel = new System.Windows.Forms.Label();
             nCustomerColumHeader = new System.Windows.Forms.ColumnHeader();
+            BeginTijdLabel = new System.Windows.Forms.Label();
+            EindTijdLabel = new System.Windows.Forms.Label();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
             pnlStudents.SuspendLayout();
@@ -123,18 +126,19 @@
             pnlLecturer.SuspendLayout();
             pnlActivities.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            pnlRevenueReport.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RevenuePictureBox).BeginInit();
             pnlDrinkSupplies.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDrinkSupplies).BeginInit();
             pnlCashRegister.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            pnlRevenueReport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)RevenuePictureBox).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { dashboardToolStripMenuItem, studentsToolStripMenuItem, lecturersToolStripMenuItem, activitiesToolStripMenuItem, roomsToolStripMenuItem, drinkSuppliesToolStripMenuItem, cashRegisterToolStripMenuItem });
+            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { dashboardToolStripMenuItem, studentsToolStripMenuItem, lecturersToolStripMenuItem, activitiesToolStripMenuItem, roomsToolStripMenuItem, DrinksButton });
             menuStrip1.Location = new System.Drawing.Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new System.Drawing.Size(962, 24);
@@ -190,26 +194,38 @@
             roomsToolStripMenuItem.Text = "Rooms";
             roomsToolStripMenuItem.Click += roomsToolStripMenuItem_Click;
             // 
-            // drinkSuppliesToolStripMenuItem
+            // DrinksButton
             // 
-            drinkSuppliesToolStripMenuItem.Name = "drinkSuppliesToolStripMenuItem";
-            drinkSuppliesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            drinkSuppliesToolStripMenuItem.Text = "Drink Supplies";
-            drinkSuppliesToolStripMenuItem.Click += drinkSuppliesToolStripMenuItem_Click;
+            DrinksButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { DrinkSuppliesButton, CashRegisterButton, RevenueReportButtonn });
+            DrinksButton.Name = "DrinksButton";
+            DrinksButton.Size = new System.Drawing.Size(52, 20);
+            DrinksButton.Text = "Drinks";
             // 
-            // cashRegisterToolStripMenuItem
+            // DrinkSuppliesButton
             // 
-            cashRegisterToolStripMenuItem.Name = "cashRegisterToolStripMenuItem";
-            cashRegisterToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            cashRegisterToolStripMenuItem.Text = "Cash Register";
-            cashRegisterToolStripMenuItem.Click += cashRegisterToolStripMenuItem_Click;
+            DrinkSuppliesButton.Name = "DrinkSuppliesButton";
+            DrinkSuppliesButton.Size = new System.Drawing.Size(157, 22);
+            DrinkSuppliesButton.Text = "Drink Supplies";
+            DrinkSuppliesButton.Click += DrinkSuppliesButton_Click;
+            // 
+            // CashRegisterButton
+            // 
+            CashRegisterButton.Name = "CashRegisterButton";
+            CashRegisterButton.Size = new System.Drawing.Size(157, 22);
+            CashRegisterButton.Text = "Cash Register";
+            CashRegisterButton.Click += CashRegisterButton_Click;
+            // 
+            // RevenueReportButtonn
+            // 
+            RevenueReportButtonn.Name = "RevenueReportButtonn";
+            RevenueReportButtonn.Size = new System.Drawing.Size(157, 22);
+            RevenueReportButtonn.Text = "Revenue Report";
+            RevenueReportButtonn.Click += RevenueReportButtonn_Click;
             // 
             // revenueToolStripMenuItem
             // 
             revenueToolStripMenuItem.Name = "revenueToolStripMenuItem";
-            revenueToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
-            revenueToolStripMenuItem.Text = "Revenue report";
-            revenueToolStripMenuItem.Click += revenueToolStripMenuItem_Click;
+            revenueToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
             // pnlDashboard
             // 
@@ -311,7 +327,7 @@
             // listViewRooms
             // 
             listViewRooms.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { KamerNummer, Aantalbedden, DocentORStudent });
-            listViewRooms.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1, listViewItem2 });
+            listViewRooms.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem3, listViewItem4 });
             listViewRooms.Location = new System.Drawing.Point(16, 36);
             listViewRooms.Margin = new System.Windows.Forms.Padding(2);
             listViewRooms.Name = "listViewRooms";
@@ -453,6 +469,74 @@
             ActivityLabel.Size = new System.Drawing.Size(134, 32);
             ActivityLabel.TabIndex = 0;
             ActivityLabel.Text = "Activiteiten";
+            // 
+            // pnlRevenueReport
+            // 
+            pnlRevenueReport.Controls.Add(EindTijdLabel);
+            pnlRevenueReport.Controls.Add(BeginTijdLabel);
+            pnlRevenueReport.Controls.Add(pictureBox5);
+            pnlRevenueReport.Controls.Add(endTimetxt);
+            pnlRevenueReport.Controls.Add(startTimetxt);
+            pnlRevenueReport.Controls.Add(monthCalendar1);
+            pnlRevenueReport.Controls.Add(RevenuePictureBox);
+            pnlRevenueReport.Controls.Add(RevenueLabel);
+            pnlRevenueReport.Location = new System.Drawing.Point(19, 26);
+            pnlRevenueReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            pnlRevenueReport.Name = "pnlRevenueReport";
+            pnlRevenueReport.Size = new System.Drawing.Size(931, 463);
+            pnlRevenueReport.TabIndex = 5;
+            pnlRevenueReport.Visible = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (System.Drawing.Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new System.Drawing.Point(767, 40);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new System.Drawing.Size(126, 121);
+            pictureBox5.TabIndex = 6;
+            pictureBox5.TabStop = false;
+            // 
+            // endTimetxt
+            // 
+            endTimetxt.Location = new System.Drawing.Point(380, 182);
+            endTimetxt.Name = "endTimetxt";
+            endTimetxt.ReadOnly = true;
+            endTimetxt.Size = new System.Drawing.Size(182, 23);
+            endTimetxt.TabIndex = 7;
+            // 
+            // startTimetxt
+            // 
+            startTimetxt.Location = new System.Drawing.Point(380, 101);
+            startTimetxt.Name = "startTimetxt";
+            startTimetxt.ReadOnly = true;
+            startTimetxt.Size = new System.Drawing.Size(182, 23);
+            startTimetxt.TabIndex = 6;
+            // 
+            // monthCalendar1
+            // 
+            monthCalendar1.Location = new System.Drawing.Point(13, 88);
+            monthCalendar1.Name = "monthCalendar1";
+            monthCalendar1.TabIndex = 3;
+            monthCalendar1.DateChanged += monthCalendar1_DateChanged;
+            // 
+            // RevenuePictureBox
+            // 
+            RevenuePictureBox.Location = new System.Drawing.Point(944, 48);
+            RevenuePictureBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            RevenuePictureBox.Name = "RevenuePictureBox";
+            RevenuePictureBox.Size = new System.Drawing.Size(145, 157);
+            RevenuePictureBox.TabIndex = 2;
+            RevenuePictureBox.TabStop = false;
+            // 
+            // RevenueLabel
+            // 
+            RevenueLabel.AutoSize = true;
+            RevenueLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            RevenueLabel.Location = new System.Drawing.Point(13, 5);
+            RevenueLabel.Name = "RevenueLabel";
+            RevenueLabel.Size = new System.Drawing.Size(178, 32);
+            RevenueLabel.TabIndex = 0;
+            RevenueLabel.Text = "Revenue report";
             // 
             // pnlDrinkSupplies
             // 
@@ -688,55 +772,6 @@
             pictureBox4.TabIndex = 2;
             pictureBox4.TabStop = false;
             // 
-            // pnlRevenueReport
-            // 
-            pnlRevenueReport.Controls.Add(endTimetxt);
-            pnlRevenueReport.Controls.Add(startTimetxt);
-            pnlRevenueReport.Controls.Add(monthCalendar1);
-            pnlRevenueReport.Controls.Add(RevenuePictureBox);
-            pnlRevenueReport.Controls.Add(listViewRevenueReport);
-            pnlRevenueReport.Controls.Add(RevenueLabel);
-            pnlRevenueReport.Location = new System.Drawing.Point(5, 26);
-            pnlRevenueReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            pnlRevenueReport.Name = "pnlRevenueReport";
-            pnlRevenueReport.Size = new System.Drawing.Size(1089, 621);
-            pnlRevenueReport.TabIndex = 5;
-            pnlRevenueReport.Visible = false;
-            // 
-            // endTimetxt
-            // 
-            endTimetxt.Location = new System.Drawing.Point(600, 127);
-            endTimetxt.Name = "endTimetxt";
-            endTimetxt.ReadOnly = true;
-            endTimetxt.Size = new System.Drawing.Size(182, 27);
-            endTimetxt.TabIndex = 7;
-            // 
-            // startTimetxt
-            // 
-            startTimetxt.Location = new System.Drawing.Point(600, 51);
-            startTimetxt.Name = "startTimetxt";
-            startTimetxt.ReadOnly = true;
-            startTimetxt.Size = new System.Drawing.Size(182, 27);
-            startTimetxt.TabIndex = 6;
-            // 
-            // monthCalendar1
-            // 
-            monthCalendar1.Location = new System.Drawing.Point(309, 48);
-            monthCalendar1.Name = "monthCalendar1";
-            monthCalendar1.TabIndex = 3;
-            monthCalendar1.DateChanged += monthCalendar1_DateChanged;
-            // 
-            // RevenuePictureBox
-            // 
-            RevenuePictureBox.Image = (System.Drawing.Image)resources.GetObject("RevenuePictureBox.Image");
-            RevenuePictureBox.Location = new System.Drawing.Point(944, 48);
-            RevenuePictureBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            RevenuePictureBox.Name = "RevenuePictureBox";
-            RevenuePictureBox.Size = new System.Drawing.Size(145, 157);
-            RevenuePictureBox.TabIndex = 2;
-            RevenuePictureBox.TabStop = false;
-            // 
-            // 
             // listViewStudentsCashRegister
             // 
             listViewStudentsCashRegister.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { cashRegisterStudentColumnHeader1, cashRegisterStudentColumnHeader2 });
@@ -767,6 +802,7 @@
             cashRegisterLabel.Size = new System.Drawing.Size(157, 32);
             cashRegisterLabel.TabIndex = 0;
             cashRegisterLabel.Text = "Cash Register";
+            // 
             // salesColumHeader
             // 
             salesColumHeader.Text = "Sales";
@@ -777,20 +813,28 @@
             TurnoverColumHeader.Text = "Turnover";
             TurnoverColumHeader.Width = 100;
             // 
-            // RevenueLabel
-            // 
-            RevenueLabel.AutoSize = true;
-            RevenueLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            RevenueLabel.Location = new System.Drawing.Point(13, 5);
-            RevenueLabel.Name = "RevenueLabel";
-            RevenueLabel.Size = new System.Drawing.Size(221, 41);
-            RevenueLabel.TabIndex = 0;
-            RevenueLabel.Text = "Revenue report";
-            // 
             // nCustomerColumHeader
             // 
             nCustomerColumHeader.Text = "nCustomer";
             nCustomerColumHeader.Width = 90;
+            // 
+            // BeginTijdLabel
+            // 
+            BeginTijdLabel.AutoSize = true;
+            BeginTijdLabel.Location = new System.Drawing.Point(288, 104);
+            BeginTijdLabel.Name = "BeginTijdLabel";
+            BeginTijdLabel.Size = new System.Drawing.Size(40, 15);
+            BeginTijdLabel.TabIndex = 8;
+            BeginTijdLabel.Text = "Begin:";
+            // 
+            // EindTijdLabel
+            // 
+            EindTijdLabel.AutoSize = true;
+            EindTijdLabel.Location = new System.Drawing.Point(288, 190);
+            EindTijdLabel.Name = "EindTijdLabel";
+            EindTijdLabel.Size = new System.Drawing.Size(33, 15);
+            EindTijdLabel.TabIndex = 9;
+            EindTijdLabel.Text = "Eind:";
             // 
             // SomerenUI
             // 
@@ -798,14 +842,14 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(962, 505);
             Controls.Add(menuStrip1);
-            Controls.Add(pnlCashRegister);
-            Controls.Add(pnlStudents);
             Controls.Add(pnlRevenueReport);
+            Controls.Add(pnlDashboard);
             Controls.Add(pnlActivities);
             Controls.Add(pnlRooms);
             Controls.Add(pnlLecturer);
-            Controls.Add(pnlDashboard);
             Controls.Add(pnlDrinkSupplies);
+            Controls.Add(pnlCashRegister);
+            Controls.Add(pnlStudents);
             MainMenuStrip = menuStrip1;
             Name = "SomerenUI";
             Text = "SomerenApp";
@@ -825,15 +869,16 @@
             pnlActivities.ResumeLayout(false);
             pnlActivities.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            pnlRevenueReport.ResumeLayout(false);
+            pnlRevenueReport.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RevenuePictureBox).EndInit();
             pnlDrinkSupplies.ResumeLayout(false);
             pnlDrinkSupplies.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDrinkSupplies).EndInit();
             pnlCashRegister.ResumeLayout(false);
             pnlCashRegister.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            pnlRevenueReport.ResumeLayout(false);
-            pnlRevenueReport.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)RevenuePictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -881,7 +926,6 @@
         private System.Windows.Forms.ColumnHeader EindTijdcolumnHeader4;
         private System.Windows.Forms.Label ActivityLabel;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.ToolStripMenuItem drinkSuppliesToolStripMenuItem;
         private System.Windows.Forms.Panel pnlDrinkSupplies;
         private System.Windows.Forms.PictureBox pictureBoxDrinkSupplies;
         private System.Windows.Forms.ListView listViewDrinkSupplies;
@@ -898,7 +942,6 @@
         private System.Windows.Forms.Label labelDrankNummer;
         private System.Windows.Forms.Label VoorraadDrinkLabel;
         private System.Windows.Forms.Label DrankNaamLabel;
-        private System.Windows.Forms.ToolStripMenuItem cashRegisterToolStripMenuItem;
         private System.Windows.Forms.Panel pnlCashRegister;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.ListView listViewStudentsCashRegister;
@@ -917,7 +960,6 @@
         private System.Windows.Forms.ToolStripMenuItem revenueToolStripMenuItem;
         private System.Windows.Forms.Panel pnlRevenueReport;
         private System.Windows.Forms.PictureBox RevenuePictureBox;
-        private System.Windows.Forms.ListView listViewRevenueReport;
         private System.Windows.Forms.ColumnHeader salesColumHeader;
         private System.Windows.Forms.ColumnHeader TurnoverColumHeader;
         private System.Windows.Forms.Label RevenueLabel;
@@ -925,5 +967,12 @@
         private System.Windows.Forms.TextBox endTimetxt;
         private System.Windows.Forms.TextBox startTimetxt;
         private System.Windows.Forms.ColumnHeader nCustomerColumHeader;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.ToolStripMenuItem DrinksButton;
+        private System.Windows.Forms.ToolStripMenuItem DrinkSuppliesButton;
+        private System.Windows.Forms.ToolStripMenuItem CashRegisterButton;
+        private System.Windows.Forms.ToolStripMenuItem RevenueReportButtonn;
+        private System.Windows.Forms.Label EindTijdLabel;
+        private System.Windows.Forms.Label BeginTijdLabel;
     }
 }

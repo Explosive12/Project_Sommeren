@@ -417,6 +417,8 @@ namespace SomerenUI
             pnlActivities.Hide();
             pnlRooms.Hide();
             pnlLecturer.Hide();
+            pnlCashRegister.Hide();
+            pnlDrinkSupplies.Hide();
 
             // show Revenue
             pnlRevenueReport.Show();
@@ -458,8 +460,8 @@ namespace SomerenUI
                 start = true;
             }
         }
-        
-        
+
+
 
         private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
@@ -488,18 +490,17 @@ namespace SomerenUI
         }
 
 
-
-        private void drinkSuppliesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DrinkSuppliesButton_Click(object sender, EventArgs e)
         {
             ShowDashBoardDrinks();
         }
 
-        private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CashRegisterButton_Click(object sender, EventArgs e)
         {
             ShowCashRegisterPanel();
         }
 
-        private void revenueToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RevenueReportButtonn_Click(object sender, EventArgs e)
         {
             ShowRevenuePanel();
         }
