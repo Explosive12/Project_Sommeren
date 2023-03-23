@@ -11,6 +11,7 @@ namespace SomerenUI
     public partial class SomerenUI : Form
     {
         const string DateFormat = "yyyy-MM-dd HH:mm";
+        const string DateFormat2 = "yyyy-MM-dd";
         public SomerenUI()
         {
             InitializeComponent();
@@ -23,6 +24,8 @@ namespace SomerenUI
             pnlActivities.Hide();
             pnlRooms.Hide();
             pnlLecturer.Hide();
+            pnlDrinkSupplies.Hide();
+            pnlCashRegister.Hide();
 
             // show dashboard
             pnlDashboard.Show();
@@ -76,6 +79,10 @@ namespace SomerenUI
 
                 //li = new ListViewItem(student.Id.ToString());
                 //listViewStudents.Items.Add(li);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the Students: " + e.Message);
             }
         }
 
@@ -396,6 +403,60 @@ namespace SomerenUI
             DisplayDrinks(GetDrinks());
         }
 
+        //Revenue report begint hier
+
+        private void ShowRevenuePanel()
+        {
+            // hide all other panels
+            pnlDashboard.Hide();
+            pnlStudents.Hide();
+            pnlActivities.Hide();
+            pnlRooms.Hide();
+            pnlLecturer.Hide();
+
+            // show Revenue
+            pnlRevenueReport.Show();
+
+
+        }
+        bool start = false;
+        DateTime startDate = new DateTime(1, 1, 1);
+        DateTime endDate = new DateTime(2050, 12, 30);
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            if (monthCalendar1.SelectionStart > DateTime.Now)
+            {
+                MessageBox.Show("cant select past current time, silly :3");
+                return;
+            }
+            if (start)
+            {
+                endDate = monthCalendar1.SelectionStart;
+                if (endDate < startDate)
+                {
+                    startTimetxt.Text = $"Start date: {endDate.ToString(DateFormat2)}";
+                    start = false;
+                    return;
+                }
+                endTimetxt.Text = $"End date: {endDate.ToString(DateFormat2)}";
+                start = false;
+            }
+            else
+            {
+                startDate = monthCalendar1.SelectionStart;
+                if (startDate > endDate)
+                {
+                    endTimetxt.Text = $"End date: {startDate.ToString(DateFormat2)}";
+                    start = true;
+                    return;
+                }
+                startTimetxt.Text = $"Start date: {startDate.ToString(DateFormat2)}";
+                start = true;
+            }
+        }
+        
+        
+
         private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
             ShowDashboardPanel();
@@ -432,6 +493,11 @@ namespace SomerenUI
         private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowCashRegisterPanel();
+        }
+
+        private void revenueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowRevenuePanel();
         }
     }
 }
