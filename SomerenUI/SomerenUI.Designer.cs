@@ -1,4 +1,4 @@
-﻿namespace SomerenUI
+namespace SomerenUI
 {
     partial class SomerenUI
     {

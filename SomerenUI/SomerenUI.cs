@@ -256,7 +256,6 @@ namespace SomerenUI
 
         private void ShowCashRegisterPanel()
         {
-            // hide all other panels
             pnlDashboard.Hide();
             pnlStudents.Hide();
             pnlActivities.Hide();
@@ -347,6 +346,53 @@ namespace SomerenUI
             catch (SqlException ex)
             {
                 MessageBox.Show("Something went wrong!" + ex.Message);
+         private void ShowRevenuePanel()
+        {
+            // hide all other panels
+            pnlDashboard.Hide();
+            pnlStudents.Hide();
+            pnlActivities.Hide();
+            pnlRooms.Hide();
+            pnlLecturer.Hide();
+
+            // show Revenue
+            pnlRevenueReport.Show();
+
+
+        }
+        bool start = false;
+        DateTime startDate = new DateTime(1, 1, 1);
+        DateTime endDate = new DateTime(2050, 12, 30);
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            if (monthCalendar1.SelectionStart > DateTime.Now)
+            {
+                MessageBox.Show("cant select past current time, silly :3");
+                return;
+            }
+            if (start)
+            {
+                endDate = monthCalendar1.SelectionStart;
+                if (endDate < startDate)
+                {
+                    startTimetxt.Text = $"Start date: {endDate.ToString(DateFormat2)}";
+                    start = false;
+                    return;
+                }
+                endTimetxt.Text = $"End date: {endDate.ToString(DateFormat2)}";
+                start = false;
+            }
+            else
+            {
+                startDate = monthCalendar1.SelectionStart;
+                if (startDate > endDate)
+                {
+                    endTimetxt.Text = $"End date: {startDate.ToString(DateFormat2)}";
+                    start = true;
+                    return;
+                }
+                startTimetxt.Text = $"Start date: {startDate.ToString(DateFormat2)}";
+                start = true;
             }
         }
 
