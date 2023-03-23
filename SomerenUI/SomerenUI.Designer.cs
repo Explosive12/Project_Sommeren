@@ -113,7 +113,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDrinkSupplies)).BeginInit();
             this.pnlCashRegister.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            pnlRevenueReport = new System.Windows.Forms.Panel();
+            endTimetxt = new System.Windows.Forms.TextBox();
+            startTimetxt = new System.Windows.Forms.TextBox();
+            monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            RevenuePictureBox = new System.Windows.Forms.PictureBox();
+            listViewRevenueReport = new System.Windows.Forms.ListView();
+            salesColumHeader = new System.Windows.Forms.ColumnHeader();
+            TurnoverColumHeader = new System.Windows.Forms.ColumnHeader();
+            RevenueLabel = new System.Windows.Forms.Label();
+            nCustomerColumHeader = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
+            revenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            pnlRevenueReport.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)RevenuePictureBox).BeginInit();
             // 
             // menuStrip1
             // 
@@ -198,6 +211,13 @@
             this.cashRegisterToolStripMenuItem.Text = "Cash Register";
             this.cashRegisterToolStripMenuItem.Click += new System.EventHandler(this.cashRegisterToolStripMenuItem_Click);
             // 
+            // revenueToolStripMenuItem
+            // 
+            revenueToolStripMenuItem.Name = "revenueToolStripMenuItem";
+            revenueToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
+            revenueToolStripMenuItem.Text = "Revenue report";
+            revenueToolStripMenuItem.Click += revenueToolStripMenuItem_Click;
+            // 
             // pnlDashboard
             // 
             this.pnlDashboard.Controls.Add(this.lblDashboard);
@@ -261,13 +281,233 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(13, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 41);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Students";
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(13, 5);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(134, 41);
+            label1.TabIndex = 0;
+            label1.Text = "Students";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (System.Drawing.Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new System.Drawing.Point(911, 56);
+            pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(144, 161);
+            pictureBox2.TabIndex = 2;
+            pictureBox2.TabStop = false;
+            // 
+            // pnlRooms
+            // 
+            pnlRooms.Controls.Add(SomerenRoomsPicture);
+            pnlRooms.Controls.Add(listViewRooms);
+            pnlRooms.Controls.Add(RoomLabel);
+            pnlRooms.Location = new System.Drawing.Point(9, 29);
+            pnlRooms.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            pnlRooms.Name = "pnlRooms";
+            pnlRooms.Size = new System.Drawing.Size(1078, 629);
+            pnlRooms.TabIndex = 3;
+            // 
+            // SomerenRoomsPicture
+            // 
+            SomerenRoomsPicture.Image = (System.Drawing.Image)resources.GetObject("SomerenRoomsPicture.Image");
+            SomerenRoomsPicture.Location = new System.Drawing.Point(915, 47);
+            SomerenRoomsPicture.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            SomerenRoomsPicture.Name = "SomerenRoomsPicture";
+            SomerenRoomsPicture.Size = new System.Drawing.Size(145, 157);
+            SomerenRoomsPicture.TabIndex = 2;
+            SomerenRoomsPicture.TabStop = false;
+            // 
+            // listViewRooms
+            // 
+            listViewRooms.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { KamerNummer, Aantalbedden, DocentORStudent });
+            listViewRooms.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1, listViewItem2 });
+            listViewRooms.Location = new System.Drawing.Point(18, 48);
+            listViewRooms.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            listViewRooms.Name = "listViewRooms";
+            listViewRooms.Size = new System.Drawing.Size(892, 564);
+            listViewRooms.TabIndex = 1;
+            listViewRooms.UseCompatibleStateImageBehavior = false;
+            listViewRooms.View = System.Windows.Forms.View.Details;
+            // 
+            // KamerNummer
+            // 
+            KamerNummer.Tag = "";
+            KamerNummer.Text = "KamerNummer";
+            KamerNummer.Width = 100;
+            // 
+            // Aantalbedden
+            // 
+            Aantalbedden.Tag = "";
+            Aantalbedden.Text = "Aantal Bedden";
+            Aantalbedden.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            Aantalbedden.Width = 120;
+            // 
+            // DocentORStudent
+            // 
+            DocentORStudent.Tag = "";
+            DocentORStudent.Text = "Docent?";
+            // 
+            // RoomLabel
+            // 
+            RoomLabel.AutoSize = true;
+            RoomLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            RoomLabel.Location = new System.Drawing.Point(15, 5);
+            RoomLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            RoomLabel.Name = "RoomLabel";
+            RoomLabel.Size = new System.Drawing.Size(110, 41);
+            RoomLabel.TabIndex = 0;
+            RoomLabel.Text = "Rooms";
+            // 
+            // pnlLecturer
+            // 
+            pnlLecturer.Controls.Add(pictureBox2);
+            pnlLecturer.Controls.Add(listViewLecturers);
+            pnlLecturer.Controls.Add(label2);
+            pnlLecturer.Location = new System.Drawing.Point(9, 32);
+            pnlLecturer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            pnlLecturer.Name = "pnlLecturer";
+            pnlLecturer.Size = new System.Drawing.Size(1077, 621);
+            pnlLecturer.TabIndex = 3;
+            // 
+            // listViewLecturers
+            // 
+            listViewLecturers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { DocentIDHeader, DocentNameHeader });
+            listViewLecturers.Location = new System.Drawing.Point(17, 56);
+            listViewLecturers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            listViewLecturers.Name = "listViewLecturers";
+            listViewLecturers.Size = new System.Drawing.Size(875, 408);
+            listViewLecturers.TabIndex = 1;
+            listViewLecturers.UseCompatibleStateImageBehavior = false;
+            listViewLecturers.View = System.Windows.Forms.View.Details;
+            // 
+            // DocentIDHeader
+            // 
+            DocentIDHeader.Text = "DocentID";
+            DocentIDHeader.Width = 150;
+            // 
+            // DocentNameHeader
+            // 
+            DocentNameHeader.Text = "DocentName";
+            DocentNameHeader.Width = 150;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label2.Location = new System.Drawing.Point(15, 9);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(138, 41);
+            label2.TabIndex = 0;
+            label2.Text = "Lecturers";
+            // 
+            // pnlActivities
+            // 
+            pnlActivities.Controls.Add(pictureBox3);
+            pnlActivities.Controls.Add(ActivityListView);
+            pnlActivities.Controls.Add(ActivityLabel);
+            pnlActivities.Location = new System.Drawing.Point(11, 25);
+            pnlActivities.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            pnlActivities.Name = "pnlActivities";
+            pnlActivities.Size = new System.Drawing.Size(1078, 621);
+            pnlActivities.TabIndex = 4;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (System.Drawing.Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new System.Drawing.Point(921, 52);
+            pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(144, 161);
+            pictureBox3.TabIndex = 3;
+            pictureBox3.TabStop = false;
+            // 
+            // ActivityListView
+            // 
+            ActivityListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { IdColumnHeader3, OmschrijvingcolumnHeader4, StartTijdcolumnHeader3, EindTijdcolumnHeader4 });
+            ActivityListView.Location = new System.Drawing.Point(15, 52);
+            ActivityListView.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            ActivityListView.Name = "ActivityListView";
+            ActivityListView.Size = new System.Drawing.Size(866, 565);
+            ActivityListView.TabIndex = 1;
+            ActivityListView.UseCompatibleStateImageBehavior = false;
+            ActivityListView.View = System.Windows.Forms.View.Details;
+            // 
+            // IdColumnHeader3
+            // 
+            IdColumnHeader3.Text = "ActiviteitId";
+            IdColumnHeader3.Width = 80;
+            // 
+            // OmschrijvingcolumnHeader4
+            // 
+            OmschrijvingcolumnHeader4.Text = "Omschrijving";
+            OmschrijvingcolumnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            OmschrijvingcolumnHeader4.Width = 150;
+            // 
+            // StartTijdcolumnHeader3
+            // 
+            StartTijdcolumnHeader3.Text = "StartTijd";
+            StartTijdcolumnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            StartTijdcolumnHeader3.Width = 100;
+            // 
+            // EindTijdcolumnHeader4
+            // 
+            EindTijdcolumnHeader4.Text = "EindTijd";
+            EindTijdcolumnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            EindTijdcolumnHeader4.Width = 100;
+            // 
+            // ActivityLabel
+            // 
+            ActivityLabel.AutoSize = true;
+            ActivityLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            ActivityLabel.Location = new System.Drawing.Point(15, 5);
+            ActivityLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            ActivityLabel.Name = "ActivityLabel";
+            ActivityLabel.Size = new System.Drawing.Size(165, 41);
+            ActivityLabel.TabIndex = 0;
+            ActivityLabel.Text = "Activiteiten";
+            // 
+            // pnlRevenueReport
+            // 
+            pnlRevenueReport.Controls.Add(endTimetxt);
+            pnlRevenueReport.Controls.Add(startTimetxt);
+            pnlRevenueReport.Controls.Add(monthCalendar1);
+            pnlRevenueReport.Controls.Add(RevenuePictureBox);
+            pnlRevenueReport.Controls.Add(listViewRevenueReport);
+            pnlRevenueReport.Controls.Add(RevenueLabel);
+            pnlRevenueReport.Location = new System.Drawing.Point(5, 26);
+            pnlRevenueReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            pnlRevenueReport.Name = "pnlRevenueReport";
+            pnlRevenueReport.Size = new System.Drawing.Size(1089, 621);
+            pnlRevenueReport.TabIndex = 5;
+            pnlRevenueReport.Visible = false;
+            // 
+            // endTimetxt
+            // 
+            endTimetxt.Location = new System.Drawing.Point(600, 127);
+            endTimetxt.Name = "endTimetxt";
+            endTimetxt.ReadOnly = true;
+            endTimetxt.Size = new System.Drawing.Size(182, 27);
+            endTimetxt.TabIndex = 7;
+            // 
+            // startTimetxt
+            // 
+            startTimetxt.Location = new System.Drawing.Point(600, 51);
+            startTimetxt.Name = "startTimetxt";
+            startTimetxt.ReadOnly = true;
+            startTimetxt.Size = new System.Drawing.Size(182, 27);
+            startTimetxt.TabIndex = 6;
+            // 
+            // monthCalendar1
+            // 
+            monthCalendar1.Location = new System.Drawing.Point(309, 48);
+            monthCalendar1.Name = "monthCalendar1";
+            monthCalendar1.TabIndex = 3;
+            monthCalendar1.DateChanged += monthCalendar1_DateChanged;
+            // 
+            // RevenuePictureBox
             // 
             // pictureBox2
             // 
@@ -698,12 +938,27 @@
             this.cashRegisterStudentColumnHeader1.Width = 80;
             // 
             // cashRegisterStudentColumnHeader2
-            // 
-            this.cashRegisterStudentColumnHeader2.Text = "Name";
-            this.cashRegisterStudentColumnHeader2.Width = 100;
-            // 
-            // cashRegisterLabel
-            // 
+             this.cashRegisterStudentColumnHeader2.Text = "Name";
+                this.cashRegisterStudentColumnHeader2.Width = 100;
+            //
+            RevenuePictureBox.Image = (System.Drawing.Image)resources.GetObject("RevenuePictureBox.Image");
+            RevenuePictureBox.Location = new System.Drawing.Point(944, 48);
+            RevenuePictureBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            RevenuePictureBox.Name = "RevenuePictureBox";
+            RevenuePictureBox.Size = new System.Drawing.Size(145, 157);
+            RevenuePictureBox.TabIndex = 2;
+            RevenuePictureBox.TabStop = false;
+            
+
+            listViewRevenueReport.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { salesColumHeader, TurnoverColumHeader, nCustomerColumHeader });
+            listViewRevenueReport.Location = new System.Drawing.Point(15, 48);
+            listViewRevenueReport.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            listViewRevenueReport.Name = "listViewRevenueReport";
+            listViewRevenueReport.Size = new System.Drawing.Size(243, 207);
+            listViewRevenueReport.TabIndex = 1;
+            listViewRevenueReport.UseCompatibleStateImageBehavior = false;
+            listViewRevenueReport.View = System.Windows.Forms.View.Details;
+
             this.cashRegisterLabel.AutoSize = true;
             this.cashRegisterLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cashRegisterLabel.Location = new System.Drawing.Point(13, 5);
@@ -711,6 +966,29 @@
             this.cashRegisterLabel.Size = new System.Drawing.Size(197, 41);
             this.cashRegisterLabel.TabIndex = 0;
             this.cashRegisterLabel.Text = "Cash Register";
+            // 
+            salesColumHeader.Text = "Sales";
+            salesColumHeader.Width = 50;
+            // 
+            // TurnoverColumHeader
+            // 
+            TurnoverColumHeader.Text = "Turnover";
+            TurnoverColumHeader.Width = 100;
+            // 
+            // RevenueLabel
+            // 
+            RevenueLabel.AutoSize = true;
+            RevenueLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            RevenueLabel.Location = new System.Drawing.Point(13, 5);
+            RevenueLabel.Name = "RevenueLabel";
+            RevenueLabel.Size = new System.Drawing.Size(221, 41);
+            RevenueLabel.TabIndex = 0;
+            RevenueLabel.Text = "Revenue report";
+            // 
+            // nCustomerColumHeader
+            // 
+            nCustomerColumHeader.Text = "nCustomer";
+            nCustomerColumHeader.Width = 90;
             // 
             // SomerenUI
             // 
@@ -753,6 +1031,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+            Controls.Add(pnlRevenueReport);
+            Controls.Add(menuStrip1);
+            pnlRevenueReport.ResumeLayout(false);
+            pnlRevenueReport.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)RevenuePictureBox).EndInit();
 
         }
 
@@ -829,5 +1112,17 @@
         private System.Windows.Forms.ColumnHeader cashRegisterDrankColumnHeader4;
         private System.Windows.Forms.ColumnHeader cashRegisterDrankColumnHeader5;
         private System.Windows.Forms.Button cashRegisterSubmitOrderButton;
+        private System.Windows.Forms.ToolStripMenuItem revenueToolStripMenuItem;
+        private System.Windows.Forms.Panel pnlRevenueReport;
+        private System.Windows.Forms.PictureBox RevenuePictureBox;
+        private System.Windows.Forms.ListView listViewRevenueReport;
+        private System.Windows.Forms.ColumnHeader salesColumHeader;
+        private System.Windows.Forms.ColumnHeader TurnoverColumHeader;
+        private System.Windows.Forms.Label RevenueLabel;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.TextBox endTimetxt;
+        private System.Windows.Forms.TextBox startTimetxt;
+        private System.Windows.Forms.ColumnHeader nCustomerColumHeader;
+        private System.Windows.Forms.ListView listView1;
     }
 }
