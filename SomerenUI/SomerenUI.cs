@@ -518,5 +518,21 @@ namespace SomerenUI
         {
             ShowRevenuePanel();
         }
+        
+        // fields so this works
+        private Student selectedStudent;
+        private Drinks selectedDrink;
+        private void cashRegisterSubmitOrderButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OrderService orderService = new OrderService();
+                orderService.Insert(selectedStudent.Name, selectedDrink.Naam, selectedDrink.Prijs, DateTime.Now);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Something went wrong!" + ex.Message);
+            }
+        }
     }
 }

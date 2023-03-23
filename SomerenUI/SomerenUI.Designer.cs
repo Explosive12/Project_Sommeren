@@ -724,6 +724,7 @@
             cashRegisterSubmitOrderButton.TabIndex = 6;
             cashRegisterSubmitOrderButton.Text = "Submit Order";
             cashRegisterSubmitOrderButton.UseVisualStyleBackColor = true;
+            cashRegisterSubmitOrderButton.Click += cashRegisterSubmitOrderButton_Click;
             // 
             // cashRegisterDrinksComboBox
             // 
@@ -842,14 +843,14 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(962, 505);
             Controls.Add(menuStrip1);
+            Controls.Add(pnlCashRegister);
+            Controls.Add(pnlStudents);
             Controls.Add(pnlRevenueReport);
             Controls.Add(pnlDashboard);
             Controls.Add(pnlActivities);
             Controls.Add(pnlRooms);
             Controls.Add(pnlLecturer);
             Controls.Add(pnlDrinkSupplies);
-            Controls.Add(pnlCashRegister);
-            Controls.Add(pnlStudents);
             MainMenuStrip = menuStrip1;
             Name = "SomerenUI";
             Text = "SomerenApp";
