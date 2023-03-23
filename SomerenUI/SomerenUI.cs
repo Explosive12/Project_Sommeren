@@ -1,9 +1,9 @@
-using SomerenService;
 using SomerenModel;
-using System.Windows.Forms;
-using System.Collections.Generic;
+using SomerenService;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace SomerenUI
 {
@@ -94,6 +94,7 @@ namespace SomerenUI
             pnlRooms.Hide();
             pnlDrinkSupplies.Hide();
             pnlCashRegister.Hide();
+            pnlRevenueReport.Hide();
 
             // show activity
             pnlActivities.Show();
@@ -140,6 +141,7 @@ namespace SomerenUI
             pnlActivities.Hide();
             pnlDrinkSupplies.Hide();
             pnlCashRegister.Hide();
+            pnlRevenueReport.Hide();
 
             // Hide all other Listviews?
 
@@ -217,6 +219,7 @@ namespace SomerenUI
             pnlRooms.Hide();
             pnlCashRegister.Hide();
             pnlDrinkSupplies.Hide();
+            pnlRevenueReport.Hide();
 
             // show lecturer
             pnlLecturer.Show();
@@ -263,6 +266,7 @@ namespace SomerenUI
             pnlDrinkSupplies.Hide();
             pnlRooms.Hide();
             pnlLecturer.Hide();
+            pnlRevenueReport.Hide();
 
             // show lecturer
             pnlCashRegister.Show();
@@ -362,6 +366,7 @@ namespace SomerenUI
             pnlActivities.Hide();
             pnlCashRegister.Hide();
             pnlRooms.Hide();
+            pnlRevenueReport.Hide();
 
             // show activity
             pnlDrinkSupplies.Show();
@@ -410,137 +415,6 @@ namespace SomerenUI
             VoorraadDrinkSupplies.Text = selectedDrink.Voorraad.ToString();
         }
 
-        private List<Activity> GetActivities()
-        {
-            ActivityService acitivtyService = new ActivityService();
-            List<Activity> activities = acitivtyService.GetActivity();
-            return activities;
-        }
-
-
-        // Rooms Section
-        private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowRoomsPannel();
-        }
-
-        private List<Room> GetRooms()
-        {
-            RoomService roomService = new RoomService();
-            List<Room> allRooms = roomService.GetRooms();
-            return allRooms;
-        }
-
-        private void ShowRoomsPannel()
-        {
-            //Hide all other pannels
-            pnlDashboard.Hide();
-            pnlStudents.Hide();
-            pnlLecturer.Hide();
-            pnlActivities.Hide();
-
-            // Hide all other Listviews?
-
-
-            //Show rooms
-            pnlRooms.Show();
-
-            try
-            {
-                // get and display all rooms
-                List<Room> rooms = GetRooms();
-                DisplayRooms(rooms);
-            }
-            catch (Exception message)
-            {
-                MessageBox.Show(message.Message);
-            }
-        }
-
-        private void DisplayRooms(List<Room> rooms)
-        {
-            // clear the listview before filling it
-            listViewRooms.Items.Clear();
-
-            foreach (Room room in rooms)
-            {
-                ListViewItem listItem = new(room.RoomNumber.ToString());
-                listItem.SubItems.Add(room.Capacity.ToString());
-
-                if (room.Type == false)
-                {
-                    listItem.SubItems.Add("Yes");
-                }
-                else
-                {
-                    listItem.SubItems.Add("No");
-
-                }
-                listViewRooms.Items.Add(listItem);
-            }
-        }
-
-        //nog een activity
-
-        private void DisplayActivity(List<Activity> activities)
-        {
-            // clear the listview before filling it
-            ActivityListView.Items.Clear();
-
-            foreach (Activity activity in activities)
-            {
-                ListViewItem li = new ListViewItem(activity.ActiviteitId.ToString());
-                li.Tag = activity;   // link student object to listview item
-                li.SubItems.Add(activity.Omschrijving);
-                li.SubItems.Add(activity.StartTijd.ToString(DateFormat));
-                li.SubItems.Add(activity.EindTijd.ToString(DateFormat));
-                ActivityListView.Items.Add(li);
-            }
-        }
-
-        // Lecturers beginnen hier
-
-        private List<Lecturer> GetLecturers()
-        {
-            LecturerService lecturerService = new LecturerService();
-            List<Lecturer> lecturers = lecturerService.GetLecturers();
-            return lecturers;
-        }
-        private void ShowLecturerPanel()
-        {
-            // hide all other panels
-            pnlDashboard.Hide();
-            pnlStudents.Hide();
-            pnlActivities.Hide();
-            pnlRooms.Hide();
-
-            // show lecturer
-            pnlLecturer.Show();
-
-            try
-            {
-                // get and display all students
-                List<Lecturer> lecturers = GetLecturers();
-                DisplayLecturers(lecturers);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Something went wrong while loading the lecturers: " + e.Message);
-            }
-        }
-        private void DisplayLecturers(List<Lecturer> lecturers)
-        {
-            // clear the listview before filling it
-            listViewLecturers.Items.Clear();
-
-            foreach (Lecturer lectuer in lecturers)
-            {
-                ListViewItem li = new ListViewItem(lectuer.Id.ToString());
-                li.Tag = lectuer;   // link lecturer object to listview item
-                li.SubItems.Add(lectuer.Name.ToString());
-                listViewLecturers.Items.Add(li);
-            }
-        }
 
         //Revenue report begint hier
 
@@ -552,6 +426,7 @@ namespace SomerenUI
             pnlActivities.Hide();
             pnlRooms.Hide();
             pnlLecturer.Hide();
+            pnlRevenueReport.Hide();
 
             // show Revenue
             pnlRevenueReport.Show();
@@ -641,8 +516,6 @@ namespace SomerenUI
             ShowLecturerPanel();
         }
 
-
-
         private void drinkSuppliesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowDashBoardDrinks();
@@ -651,6 +524,11 @@ namespace SomerenUI
         private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowCashRegisterPanel();
+        }
+
+        private void revenueReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowRevenuePanel();
         }
     }
 }
