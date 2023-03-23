@@ -101,6 +101,7 @@ namespace SomerenUI
             this.cashRegisterStudentColumnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.cashRegisterLabel = new System.Windows.Forms.Label();
             this.pnlRevenueReport = new System.Windows.Forms.Panel();
+            this.revenuebtn = new System.Windows.Forms.Button();
             this.endTimetxt = new System.Windows.Forms.TextBox();
             this.startTimetxt = new System.Windows.Forms.TextBox();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
@@ -750,6 +751,7 @@ namespace SomerenUI
             // 
             // pnlRevenueReport
             // 
+            this.pnlRevenueReport.Controls.Add(this.revenuebtn);
             this.pnlRevenueReport.Controls.Add(this.endTimetxt);
             this.pnlRevenueReport.Controls.Add(this.startTimetxt);
             this.pnlRevenueReport.Controls.Add(this.monthCalendar);
@@ -762,6 +764,16 @@ namespace SomerenUI
             this.pnlRevenueReport.Size = new System.Drawing.Size(1361, 776);
             this.pnlRevenueReport.TabIndex = 5;
             this.pnlRevenueReport.Visible = false;
+            // 
+            // revenuebtn
+            // 
+            this.revenuebtn.Location = new System.Drawing.Point(750, 259);
+            this.revenuebtn.Name = "revenuebtn";
+            this.revenuebtn.Size = new System.Drawing.Size(226, 54);
+            this.revenuebtn.TabIndex = 8;
+            this.revenuebtn.Text = "Calculate revenue";
+            this.revenuebtn.UseVisualStyleBackColor = true;
+            this.revenuebtn.Click += new System.EventHandler(this.revenuebtn_Click);
             // 
             // endTimetxt
             // 
@@ -815,7 +827,6 @@ namespace SomerenUI
             // salesColumHeader
             // 
             this.salesColumHeader.Text = "Sales";
-            this.salesColumHeader.Width = 50;
             // 
             // TurnoverColumHeader
             // 
@@ -824,8 +835,8 @@ namespace SomerenUI
             // 
             // nCustomerColumHeader
             // 
-            this.nCustomerColumHeader.Text = "nCustomer";
-            this.nCustomerColumHeader.Width = 90;
+            this.nCustomerColumHeader.Text = "nCustomers";
+            this.nCustomerColumHeader.Width = 115;
             // 
             // RevenueLabel
             // 
@@ -978,5 +989,6 @@ namespace SomerenUI
         private System.Windows.Forms.ColumnHeader nCustomerColumHeader;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ToolStripMenuItem revenueReportToolStripMenuItem;
+        private System.Windows.Forms.Button revenuebtn;
     }
 }

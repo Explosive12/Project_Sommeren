@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System;
 using System.Data.SqlClient;
+using static System.Windows.Forms.LinkLabel;
 
 namespace SomerenUI
 {
@@ -457,6 +458,29 @@ namespace SomerenUI
                 }
                 startTimetxt.Text = $"Start date: {startDate.ToString(DateFormat2)}";
                 start = true;
+            }
+        }
+
+        private void revenuebtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RevenueService revenueService = new RevenueService();
+                Revenue revenue = new Revenue();
+                revenue = revenueService.Select(startDate, endDate, revenue);
+
+                // add revenue data to listview
+
+                ListViewItem li = new ListViewItem(revenue.Sales.ToString());
+                li.Tag = revenue;   // link revenue object to listview items
+                li.SubItems.Add(revenue.Turnover.ToString());
+                li.SubItems.Add(revenue.NumberOfStudents.ToString());
+                listViewRevenueReport.Items.Add(li);
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Something went wrong!" + ex.Message);
             }
         }
 
