@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System;
 using System.Data.SqlClient;
+using static System.Windows.Forms.LinkLabel;
 
 namespace SomerenUI
 {
@@ -275,7 +276,6 @@ namespace SomerenUI
 
         private void ShowCashRegisterPanel()
         {
-            // hide all other panels
             pnlDashboard.Hide();
             pnlStudents.Hide();
             pnlActivities.Hide();
@@ -309,7 +309,6 @@ namespace SomerenUI
         {
             // clear the listview before filling it
             listViewStudentsCashRegister.Items.Clear();
-            cashRegisterStudentComboBox.Items.Clear();
 
             foreach (Student student in students)
             {
@@ -326,7 +325,6 @@ namespace SomerenUI
         {
             // clear the listview before filling it
             listViewDrankCashRegister.Items.Clear();
-            cashRegisterDrinksComboBox.Items.Clear();
 
             foreach (Drinks drink in drinks)
             {
@@ -417,6 +415,82 @@ namespace SomerenUI
             VoorraadDrinkSupplies.Text = selectedDrink.Voorraad.ToString();
         }
 
+        //Revenue report begint hier
+
+        private void ShowRevenuePanel()
+        {
+            // hide all other panels
+            pnlDashboard.Hide();
+            pnlStudents.Hide();
+            pnlActivities.Hide();
+            pnlRooms.Hide();
+            pnlLecturer.Hide();
+
+            // show Revenue
+            pnlRevenueReport.Show();
+        }
+
+        bool start = false;
+        DateTime startDate = new DateTime(1, 1, 1);
+        DateTime endDate = new DateTime(2050, 12, 30);
+        private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            if (monthCalendar.SelectionStart > DateTime.Now)
+            {
+                MessageBox.Show("cant select past current time, silly :3");
+                return;
+            }
+            if (start)
+            {
+                endDate = monthCalendar.SelectionStart;
+                if (endDate < startDate)
+                {
+                    startTimetxt.Text = $"Start date: {endDate.ToString(DateFormat2)}";
+                    start = false;
+                    return;
+                }
+                endTimetxt.Text = $"End date: {endDate.ToString(DateFormat2)}";
+                start = false;
+            }
+            else
+            {
+                startDate = monthCalendar.SelectionStart;
+                if (startDate > endDate)
+                {
+                    endTimetxt.Text = $"End date: {startDate.ToString(DateFormat2)}";
+                    start = true;
+                    return;
+                }
+                startTimetxt.Text = $"Start date: {startDate.ToString(DateFormat2)}";
+                start = true;
+            }
+        }
+
+        private void revenuebtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RevenueService revenueService = new RevenueService();
+                Revenue revenue = new Revenue();
+                revenue = revenueService.Select(startDate, endDate, revenue);
+
+                // add revenue data to listview
+
+                ListViewItem li = new ListViewItem(revenue.Sales.ToString());
+                li.Tag = revenue;   // link revenue object to listview items
+                li.SubItems.Add(revenue.Turnover.ToString());
+                li.SubItems.Add(revenue.NumberOfStudents.ToString());
+                listViewRevenueReport.Items.Add(li);
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Something went wrong!" + ex.Message);
+            }
+        }
+
+        // button prompts beginnen hier
+
         private void UpdateDrinkSupplies_Click(object sender, EventArgs e)
         {
 
@@ -475,63 +549,6 @@ namespace SomerenUI
             }
         }
 
-
-        //Revenue report begint hier
-
-        private void ShowRevenuePanel()
-        {
-            // hide all other panels
-            pnlDashboard.Hide();
-            pnlStudents.Hide();
-            pnlActivities.Hide();
-            pnlRooms.Hide();
-            pnlLecturer.Hide();
-            pnlCashRegister.Hide();
-            pnlDrinkSupplies.Hide();
-
-            // show Revenue
-            pnlRevenueReport.Show();
-
-
-        }
-        bool start = false;
-        DateTime startDate = new DateTime(1, 1, 1);
-        DateTime endDate = new DateTime(2050, 12, 30);
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            if (monthCalendar1.SelectionStart > DateTime.Now)
-            {
-                MessageBox.Show("cant select past current time, silly :3");
-                return;
-            }
-            if (start)
-            {
-                endDate = monthCalendar1.SelectionStart;
-                if (endDate < startDate)
-                {
-                    startTimetxt.Text = $" {endDate.ToString(DateFormat2)}";
-                    start = false;
-                    return;
-                }
-                endTimetxt.Text = $" {endDate.ToString(DateFormat2)}";
-                start = false;
-            }
-            else
-            {
-                startDate = monthCalendar1.SelectionStart;
-                if (startDate > endDate)
-                {
-                    endTimetxt.Text = $" {startDate.ToString(DateFormat2)}";
-                    start = true;
-                    return;
-                }
-                startTimetxt.Text = $" {startDate.ToString(DateFormat2)}";
-                start = true;
-            }
-        }
-
-
-
         private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
             ShowDashboardPanel();
@@ -588,9 +605,10 @@ namespace SomerenUI
         private void VATCalculationMenuItem_Click(object sender, EventArgs e)
         {
 
-            VATCalculationUI form =  new();
+            VATCalculationUI form = new();
             form.ShowDialog();
 
         }
+
     }
 }
