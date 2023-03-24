@@ -56,6 +56,7 @@ namespace SomerenUI
                 int startMonth = GetStartMonth();
                 int year = GetYear();
                 DateTime startDate = new DateTime(year, 1, 1).AddMonths(startMonth);
+                // quarter is 12 / 4 = 3 so 3 months and -1 because it ends a day before
                 DateTime endDate = new DateTime(year, 1, 1).AddMonths(startMonth + 3).AddDays(-1);
                 CalcVat(startDate, endDate);
                 DisplayDateRange(startDate, endDate);
@@ -67,6 +68,7 @@ namespace SomerenUI
             }
         }
 
+// Displays the begin and end date in the labels
         private void DisplayDateRange(DateTime startDate, DateTime endDate)
         {
             CalcVatTextBoxFrom.Text = startDate.ToString("dd-MM-yyyy");
@@ -121,7 +123,7 @@ namespace SomerenUI
             return int.Parse(CalcVatTextBoxYear.Text);
         }
 
-// Check which option is selected in the Combobox 
+// Check which option is selected in the Combobox and add amount of months to the quarter so it starts at the correct position
         private int QuarterToMonth(string selectedQuarter)
         {
             switch (selectedQuarter)
