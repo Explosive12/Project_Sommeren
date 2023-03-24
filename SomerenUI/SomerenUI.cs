@@ -602,13 +602,12 @@ namespace SomerenUI
 
         }
 
+
+// Make the VatCalculation form show up
         private void VATCalculationMenuItem_Click(object sender, EventArgs e)
         {
-
             VATCalculationUI form = new();
             form.ShowDialog();
-
         }
-
     }
 }
