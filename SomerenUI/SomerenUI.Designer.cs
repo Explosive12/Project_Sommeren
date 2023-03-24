@@ -85,7 +85,6 @@ namespace SomerenUI
             EindTijdLabel = new System.Windows.Forms.Label();
             BeginTijdLabel = new System.Windows.Forms.Label();
             pictureBox5 = new System.Windows.Forms.PictureBox();
-            monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             endTimetxt = new System.Windows.Forms.TextBox();
             startTimetxt = new System.Windows.Forms.TextBox();
             RevenuePictureBox = new System.Windows.Forms.PictureBox();
@@ -353,7 +352,7 @@ namespace SomerenUI
             // 
             // revenuebtn
             // 
-            revenuebtn.Location = new System.Drawing.Point(750, 259);
+            revenuebtn.Location = new System.Drawing.Point(634, 168);
             revenuebtn.Name = "revenuebtn";
             revenuebtn.Size = new System.Drawing.Size(226, 54);
             revenuebtn.TabIndex = 8;
@@ -533,7 +532,6 @@ namespace SomerenUI
             pnlRevenueReport.Controls.Add(EindTijdLabel);
             pnlRevenueReport.Controls.Add(BeginTijdLabel);
             pnlRevenueReport.Controls.Add(pictureBox5);
-            pnlRevenueReport.Controls.Add(monthCalendar1);
             pnlRevenueReport.Controls.Add(revenuebtn);
             pnlRevenueReport.Controls.Add(endTimetxt);
             pnlRevenueReport.Controls.Add(startTimetxt);
@@ -551,7 +549,7 @@ namespace SomerenUI
             // EindTijdLabel
             // 
             EindTijdLabel.AutoSize = true;
-            EindTijdLabel.Location = new System.Drawing.Point(13, 305);
+            EindTijdLabel.Location = new System.Drawing.Point(634, 128);
             EindTijdLabel.Name = "EindTijdLabel";
             EindTijdLabel.Size = new System.Drawing.Size(33, 15);
             EindTijdLabel.TabIndex = 9;
@@ -560,7 +558,7 @@ namespace SomerenUI
             // BeginTijdLabel
             // 
             BeginTijdLabel.AutoSize = true;
-            BeginTijdLabel.Location = new System.Drawing.Point(13, 261);
+            BeginTijdLabel.Location = new System.Drawing.Point(627, 72);
             BeginTijdLabel.Name = "BeginTijdLabel";
             BeginTijdLabel.Size = new System.Drawing.Size(40, 15);
             BeginTijdLabel.TabIndex = 8;
@@ -569,34 +567,28 @@ namespace SomerenUI
             // pictureBox5
             // 
             pictureBox5.Image = (System.Drawing.Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new System.Drawing.Point(767, 9);
+            pictureBox5.Location = new System.Drawing.Point(817, 7);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new System.Drawing.Size(150, 140);
+            pictureBox5.Size = new System.Drawing.Size(128, 121);
             pictureBox5.TabIndex = 6;
             pictureBox5.TabStop = false;
             // 
-            // monthCalendar1
-            // 
-            monthCalendar1.Location = new System.Drawing.Point(13, 70);
-            monthCalendar1.Name = "monthCalendar1";
-            monthCalendar1.TabIndex = 3;
-            // 
             // endTimetxt
             // 
-            endTimetxt.Location = new System.Drawing.Point(750, 159);
+            endTimetxt.Location = new System.Drawing.Point(674, 120);
             endTimetxt.Margin = new System.Windows.Forms.Padding(4);
             endTimetxt.Name = "endTimetxt";
             endTimetxt.ReadOnly = true;
-            endTimetxt.Size = new System.Drawing.Size(226, 23);
+            endTimetxt.Size = new System.Drawing.Size(125, 23);
             endTimetxt.TabIndex = 7;
             // 
             // startTimetxt
             // 
-            startTimetxt.Location = new System.Drawing.Point(750, 64);
+            startTimetxt.Location = new System.Drawing.Point(674, 69);
             startTimetxt.Margin = new System.Windows.Forms.Padding(4);
             startTimetxt.Name = "startTimetxt";
             startTimetxt.ReadOnly = true;
-            startTimetxt.Size = new System.Drawing.Size(226, 23);
+            startTimetxt.Size = new System.Drawing.Size(125, 23);
             startTimetxt.TabIndex = 6;
             // 
             // RevenuePictureBox
@@ -910,14 +902,14 @@ namespace SomerenUI
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(962, 505);
             Controls.Add(menuStrip1);
-            Controls.Add(pnlCashRegister);
-            Controls.Add(pnlStudents);
             Controls.Add(pnlRevenueReport);
             Controls.Add(pnlDashboard);
             Controls.Add(pnlActivities);
             Controls.Add(pnlRooms);
             Controls.Add(pnlLecturer);
             Controls.Add(pnlDrinkSupplies);
+            Controls.Add(pnlCashRegister);
+            Controls.Add(pnlStudents);
             MainMenuStrip = menuStrip1;
             Name = "SomerenUI";
             Text = "SomerenApp";
@@ -1031,7 +1023,6 @@ namespace SomerenUI
         private System.Windows.Forms.ColumnHeader salesColumHeader;
         private System.Windows.Forms.ColumnHeader TurnoverColumHeader;
         private System.Windows.Forms.Label RevenueLabel;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.TextBox endTimetxt;
         private System.Windows.Forms.TextBox startTimetxt;
         private System.Windows.Forms.ColumnHeader nCustomerColumHeader;
