@@ -30,8 +30,8 @@ namespace SomerenUI
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             menuStrip1 = new System.Windows.Forms.MenuStrip();
             dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,6 +74,7 @@ namespace SomerenUI
             DocentNameHeader = new System.Windows.Forms.ColumnHeader();
             label2 = new System.Windows.Forms.Label();
             pnlActivities = new System.Windows.Forms.Panel();
+            UpdateActivityButton = new System.Windows.Forms.Button();
             EindTijdActivityTextBox = new System.Windows.Forms.TextBox();
             StartTijdActivityTextBox = new System.Windows.Forms.TextBox();
             EindTijdActivityLabel = new System.Windows.Forms.Label();
@@ -394,7 +395,7 @@ namespace SomerenUI
             // listViewRooms
             // 
             listViewRooms.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { KamerNummer, Aantalbedden, DocentORStudent });
-            listViewRooms.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1, listViewItem2 });
+            listViewRooms.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem3, listViewItem4 });
             listViewRooms.Location = new System.Drawing.Point(16, 36);
             listViewRooms.Margin = new System.Windows.Forms.Padding(2);
             listViewRooms.Name = "listViewRooms";
@@ -439,7 +440,7 @@ namespace SomerenUI
             pnlLecturer.Controls.Add(label2);
             pnlLecturer.Location = new System.Drawing.Point(8, 22);
             pnlLecturer.Name = "pnlLecturer";
-            pnlLecturer.Size = new System.Drawing.Size(943, 471);
+            pnlLecturer.Size = new System.Drawing.Size(943, 711);
             pnlLecturer.TabIndex = 3;
             // 
             // listViewLecturers
@@ -474,6 +475,7 @@ namespace SomerenUI
             // 
             // pnlActivities
             // 
+            pnlActivities.Controls.Add(UpdateActivityButton);
             pnlActivities.Controls.Add(EindTijdActivityTextBox);
             pnlActivities.Controls.Add(StartTijdActivityTextBox);
             pnlActivities.Controls.Add(EindTijdActivityLabel);
@@ -492,6 +494,16 @@ namespace SomerenUI
             pnlActivities.Name = "pnlActivities";
             pnlActivities.Size = new System.Drawing.Size(943, 471);
             pnlActivities.TabIndex = 4;
+            // 
+            // UpdateActivityButton
+            // 
+            UpdateActivityButton.Location = new System.Drawing.Point(495, 134);
+            UpdateActivityButton.Name = "UpdateActivityButton";
+            UpdateActivityButton.Size = new System.Drawing.Size(168, 43);
+            UpdateActivityButton.TabIndex = 14;
+            UpdateActivityButton.Text = "&Update activity";
+            UpdateActivityButton.UseVisualStyleBackColor = true;
+            UpdateActivityButton.Click += UpdateActivityButton_Click;
             // 
             // EindTijdActivityTextBox
             // 
@@ -560,12 +572,13 @@ namespace SomerenUI
             // 
             // DeleteActivityButton
             // 
-            DeleteActivityButton.Location = new System.Drawing.Point(495, 406);
+            DeleteActivityButton.Location = new System.Drawing.Point(495, 230);
             DeleteActivityButton.Name = "DeleteActivityButton";
             DeleteActivityButton.Size = new System.Drawing.Size(168, 43);
             DeleteActivityButton.TabIndex = 5;
             DeleteActivityButton.Text = "&Delete activity";
             DeleteActivityButton.UseVisualStyleBackColor = true;
+            DeleteActivityButton.Click += DeleteActivityButton_Click;
             // 
             // AddActivityButton
             // 
@@ -589,6 +602,7 @@ namespace SomerenUI
             // ActivityListView
             // 
             ActivityListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { IdColumnHeader3, OmschrijvingcolumnHeader4, StartTijdcolumnHeader3, EindTijdcolumnHeader4 });
+            ActivityListView.FullRowSelect = true;
             ActivityListView.Location = new System.Drawing.Point(13, 39);
             ActivityListView.Margin = new System.Windows.Forms.Padding(2);
             ActivityListView.Name = "ActivityListView";
@@ -596,6 +610,7 @@ namespace SomerenUI
             ActivityListView.TabIndex = 1;
             ActivityListView.UseCompatibleStateImageBehavior = false;
             ActivityListView.View = System.Windows.Forms.View.Details;
+            ActivityListView.SelectedIndexChanged += ActivityListView_SelectedIndexChanged;
             // 
             // IdColumnHeader3
             // 
@@ -737,7 +752,7 @@ namespace SomerenUI
             // VoorraadDrinkLabel
             // 
             VoorraadDrinkLabel.AutoSize = true;
-            VoorraadDrinkLabel.Location = new System.Drawing.Point(364, 680);
+            VoorraadDrinkLabel.Location = new System.Drawing.Point(369, 395);
             VoorraadDrinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             VoorraadDrinkLabel.Name = "VoorraadDrinkLabel";
             VoorraadDrinkLabel.Size = new System.Drawing.Size(60, 15);
@@ -747,7 +762,7 @@ namespace SomerenUI
             // DrankNaamLabel
             // 
             DrankNaamLabel.AutoSize = true;
-            DrankNaamLabel.Location = new System.Drawing.Point(196, 680);
+            DrankNaamLabel.Location = new System.Drawing.Point(233, 395);
             DrankNaamLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             DrankNaamLabel.Name = "DrankNaamLabel";
             DrankNaamLabel.Size = new System.Drawing.Size(45, 15);
@@ -757,7 +772,7 @@ namespace SomerenUI
             // labelDrankNummer
             // 
             labelDrankNummer.AutoSize = true;
-            labelDrankNummer.Location = new System.Drawing.Point(24, 680);
+            labelDrankNummer.Location = new System.Drawing.Point(42, 393);
             labelDrankNummer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             labelDrankNummer.Name = "labelDrankNummer";
             labelDrankNummer.Size = new System.Drawing.Size(92, 15);
@@ -766,7 +781,7 @@ namespace SomerenUI
             // 
             // DranknrDrinkSupplies
             // 
-            DranknrDrinkSupplies.Location = new System.Drawing.Point(21, 729);
+            DranknrDrinkSupplies.Location = new System.Drawing.Point(42, 418);
             DranknrDrinkSupplies.Margin = new System.Windows.Forms.Padding(4);
             DranknrDrinkSupplies.Name = "DranknrDrinkSupplies";
             DranknrDrinkSupplies.ReadOnly = true;
@@ -775,7 +790,7 @@ namespace SomerenUI
             // 
             // UpdateDrinkSupplies
             // 
-            UpdateDrinkSupplies.Location = new System.Drawing.Point(1141, 694);
+            UpdateDrinkSupplies.Location = new System.Drawing.Point(724, 393);
             UpdateDrinkSupplies.Margin = new System.Windows.Forms.Padding(4);
             UpdateDrinkSupplies.Name = "UpdateDrinkSupplies";
             UpdateDrinkSupplies.Size = new System.Drawing.Size(199, 70);
@@ -786,7 +801,7 @@ namespace SomerenUI
             // 
             // VoorraadDrinkSupplies
             // 
-            VoorraadDrinkSupplies.Location = new System.Drawing.Point(364, 729);
+            VoorraadDrinkSupplies.Location = new System.Drawing.Point(345, 418);
             VoorraadDrinkSupplies.Margin = new System.Windows.Forms.Padding(4);
             VoorraadDrinkSupplies.Name = "VoorraadDrinkSupplies";
             VoorraadDrinkSupplies.Size = new System.Drawing.Size(124, 23);
@@ -794,7 +809,7 @@ namespace SomerenUI
             // 
             // NaamDrinkSupplies
             // 
-            NaamDrinkSupplies.Location = new System.Drawing.Point(196, 729);
+            NaamDrinkSupplies.Location = new System.Drawing.Point(198, 418);
             NaamDrinkSupplies.Margin = new System.Windows.Forms.Padding(4);
             NaamDrinkSupplies.Name = "NaamDrinkSupplies";
             NaamDrinkSupplies.Size = new System.Drawing.Size(124, 23);
@@ -803,10 +818,10 @@ namespace SomerenUI
             // pictureBoxDrinkSupplies
             // 
             pictureBoxDrinkSupplies.Image = (System.Drawing.Image)resources.GetObject("pictureBoxDrinkSupplies.Image");
-            pictureBoxDrinkSupplies.Location = new System.Drawing.Point(1160, 21);
+            pictureBoxDrinkSupplies.Location = new System.Drawing.Point(812, 13);
             pictureBoxDrinkSupplies.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             pictureBoxDrinkSupplies.Name = "pictureBoxDrinkSupplies";
-            pictureBoxDrinkSupplies.Size = new System.Drawing.Size(180, 191);
+            pictureBoxDrinkSupplies.Size = new System.Drawing.Size(128, 121);
             pictureBoxDrinkSupplies.TabIndex = 2;
             pictureBoxDrinkSupplies.TabStop = false;
             // 
@@ -817,7 +832,7 @@ namespace SomerenUI
             listViewDrinkSupplies.Location = new System.Drawing.Point(9, 54);
             listViewDrinkSupplies.Margin = new System.Windows.Forms.Padding(2);
             listViewDrinkSupplies.Name = "listViewDrinkSupplies";
-            listViewDrinkSupplies.Size = new System.Drawing.Size(787, 330);
+            listViewDrinkSupplies.Size = new System.Drawing.Size(513, 330);
             listViewDrinkSupplies.SmallImageList = ImageListDrinkSupplies;
             listViewDrinkSupplies.TabIndex = 1;
             listViewDrinkSupplies.UseCompatibleStateImageBehavior = false;
@@ -924,10 +939,10 @@ namespace SomerenUI
             // listViewDrankCashRegister
             // 
             listViewDrankCashRegister.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { cashRegisterDrankColumnHeader1, cashRegisterDrankColumnHeader2, cashRegisterDrankColumnHeader3, cashRegisterDrankColumnHeader4, cashRegisterDrankColumnHeader5 });
-            listViewDrankCashRegister.Location = new System.Drawing.Point(420, 64);
+            listViewDrankCashRegister.Location = new System.Drawing.Point(399, 64);
             listViewDrankCashRegister.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             listViewDrankCashRegister.Name = "listViewDrankCashRegister";
-            listViewDrankCashRegister.Size = new System.Drawing.Size(528, 327);
+            listViewDrankCashRegister.Size = new System.Drawing.Size(516, 327);
             listViewDrankCashRegister.TabIndex = 3;
             listViewDrankCashRegister.UseCompatibleStateImageBehavior = false;
             listViewDrankCashRegister.View = System.Windows.Forms.View.Details;
@@ -1006,14 +1021,14 @@ namespace SomerenUI
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(962, 505);
             Controls.Add(menuStrip1);
-            Controls.Add(pnlRevenueReport);
-            Controls.Add(pnlDashboard);
             Controls.Add(pnlActivities);
             Controls.Add(pnlRooms);
             Controls.Add(pnlLecturer);
             Controls.Add(pnlDrinkSupplies);
             Controls.Add(pnlCashRegister);
             Controls.Add(pnlStudents);
+            Controls.Add(pnlRevenueReport);
+            Controls.Add(pnlDashboard);
             MainMenuStrip = menuStrip1;
             Name = "SomerenUI";
             Text = "SomerenApp";
@@ -1153,5 +1168,6 @@ namespace SomerenUI
         private System.Windows.Forms.TextBox OmschrijvingActivityTextBox;
         private System.Windows.Forms.Label IdActivityLabel;
         private System.Windows.Forms.TextBox ActivityIdTextBox;
+        private System.Windows.Forms.Button UpdateActivityButton;
     }
 }

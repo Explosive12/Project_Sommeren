@@ -15,6 +15,7 @@ namespace SomerenUI
         const string DateFormat2 = "yyyy-MM-dd";
         public SomerenUI()
         {
+
             InitializeComponent();
         }
 
@@ -133,10 +134,106 @@ namespace SomerenUI
             return activities;
         }
 
+        private void DisplayActivity(List<Activity> activities)
+        {
+            // clear the listview before filling it
+            ActivityListView.Items.Clear();
+
+            foreach (Activity activity in activities)
+            {
+                ListViewItem li = new ListViewItem(activity.ActiviteitId.ToString());
+                li.Tag = activity;   // link student object to listview item
+                li.SubItems.Add(activity.Omschrijving);
+                li.SubItems.Add(activity.StartTijd.ToString(DateFormat));
+                li.SubItems.Add(activity.EindTijd.ToString(DateFormat));
+                ActivityListView.Items.Add(li);
+            }
+        }
+
 
         //
         // Activity buttons here
         //
+
+        private void DeleteActivity()
+        {
+
+            if (ActivityListView.SelectedItems.Count == 0)
+                return;
+            else if (ActivityListView.SelectedItems.Count > 1)
+            {
+                MessageBox.Show("Please select only 1 activity to delete");
+                return;
+            }
+            // have a yes no option, continue if yes is selected
+            DialogResult ActivityDeleteResult = MessageBox.Show("Are you sure you want to delete this activity?", "Delete activity", MessageBoxButtons.YesNo);
+            if (ActivityDeleteResult == DialogResult.No)
+                return;
+
+            // get the selected activity
+            ListViewItem selectedListViewItem = ActivityListView.SelectedItems[0];
+            Activity selectedActivity = (Activity)selectedListViewItem.Tag;
+
+            // delete the activity
+            ActivityService activityService = new();
+            activityService.DeleteActivity(selectedActivity);
+
+            MessageBox.Show($"Successfully deleted the activity {selectedActivity.Omschrijving}!");
+
+            // refresh the listview
+            DisplayActivity(GetActivities());
+
+        }
+
+        private void UpdateActivity()
+        {
+            if (ActivityListView.SelectedItems.Count != 1)
+            {
+                MessageBox.Show("Please select only 1 activity to update");
+                return;
+            }
+            // fill in activity
+            try
+            {
+                Activity editActivity = new()
+                {
+                    Omschrijving = OmschrijvingActivityTextBox.Text,
+                    StartTijd = DateTime.ParseExact(StartTijdActivityTextBox.Text, "dd-MM-yyyy HH:mm", null),
+                    EindTijd = DateTime.ParseExact(EindTijdActivityTextBox.Text, "dd-MM-yyyy HH:mm", null)
+                };
+
+                // update the activity
+                ActivityService activityService = new();
+                activityService.UpdateActivity(editActivity);
+                this.Close();
+                MessageBox.Show($"the Editing of the activity {editActivity.Omschrijving} went well!");
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show($"Oh no! :( \n Something went wrong: {exp.Message}");
+            }
+        }
+
+        // Load the activity info
+        private void LoadActivity()
+        {
+            if (ActivityListView.SelectedItems.Count == 0)
+            {
+                return;
+            }
+
+            ListViewItem selectedListViewItem = ActivityListView.SelectedItems[0];
+            Activity selectedActivity = (Activity)selectedListViewItem.Tag;
+
+            ActivityIdTextBox.Text = selectedActivity.ActiviteitId.ToString();
+            OmschrijvingActivityTextBox.Text = selectedActivity.Omschrijving;
+            StartTijdActivityTextBox.Text = selectedActivity.StartTijd.ToString(DateFormat);
+            EindTijdActivityTextBox.Text = selectedActivity.EindTijd.ToString(DateFormat);
+
+        }
+
+
+
         private void AddActivity()
         {
             // Check if everything is filled in
@@ -146,10 +243,9 @@ namespace SomerenUI
                 return;
             }
 
-
             try
             {
-                // Fill in the Activity
+                // Fill in the Activity (would work faster with constructor but okay)
                 Activity newActivity = new()
                 {
                     Omschrijving = OmschrijvingActivityTextBox.Text,
@@ -236,23 +332,8 @@ namespace SomerenUI
             }
         }
 
-        //nog een activity
 
-        private void DisplayActivity(List<Activity> activities)
-        {
-            // clear the listview before filling it
-            ActivityListView.Items.Clear();
 
-            foreach (Activity activity in activities)
-            {
-                ListViewItem li = new ListViewItem(activity.ActiviteitId.ToString());
-                li.Tag = activity;   // link student object to listview item
-                li.SubItems.Add(activity.Omschrijving);
-                li.SubItems.Add(activity.StartTijd.ToString(DateFormat));
-                li.SubItems.Add(activity.EindTijd.ToString(DateFormat));
-                ActivityListView.Items.Add(li);
-            }
-        }
 
         // Lecturers beginnen hier
 
@@ -461,6 +542,8 @@ namespace SomerenUI
             pnlActivities.Hide();
             pnlRooms.Hide();
             pnlLecturer.Hide();
+            pnlCashRegister.Hide();
+            pnlDrinkSupplies.Hide();
 
             // show Revenue
             pnlRevenueReport.Show();
@@ -639,7 +722,7 @@ namespace SomerenUI
         }
 
 
-// Make the VatCalculation form show up
+        // Make the VatCalculation form show up
         private void VATCalculationMenuItem_Click(object sender, EventArgs e)
         {
             VATCalculationUI form = new();
@@ -649,6 +732,21 @@ namespace SomerenUI
         private void AddActivityButton_Click(object sender, EventArgs e)
         {
             AddActivity();
+        }
+
+        private void DeleteActivityButton_Click(object sender, EventArgs e)
+        {
+            DeleteActivity();
+        }
+
+        private void UpdateActivityButton_Click(object sender, EventArgs e)
+        {
+            UpdateActivity();
+        }
+
+        private void ActivityListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadActivity();
         }
     }
 }

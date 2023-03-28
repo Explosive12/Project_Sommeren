@@ -28,5 +28,15 @@ namespace SomerenService
             activitydb.AddActivity(activity);
         }
 
+        public void UpdateActivity(Activity activity)
+        {
+            activitydb.UpdateActivity(activity);
+        }
+
+        public void DeleteActivity(Activity activity)
+        {
+            activitydb.DeleteActivity(activity);
+        }
+
     }
 }

@@ -45,5 +45,26 @@ namespace SomerenDAL
             command.Connection = OpenConnection();
             command.ExecuteNonQuery();
         }
+
+        public void UpdateActivity(Activity activity)
+        {
+            string query = "UPDATE Activiteit SET Omschrijving = @Omschrijving, StartTijd = @StartTijd, EindTijd = @EindTijd WHERE ActiviteitId = @ActiviteitId";
+            SqlCommand command = new(query);
+            command.Parameters.AddWithValue("@Omschrijving", activity.Omschrijving);
+            command.Parameters.AddWithValue("@StartTijd", activity.StartTijd);
+            command.Parameters.AddWithValue("@EindTijd", activity.EindTijd);
+            command.Connection = OpenConnection();
+            command.ExecuteNonQuery();
+        }
+
+        public void DeleteActivity(Activity activity)
+        {
+            string query = "DELETE FROM Activiteit WHERE ActiviteitId = @ActiviteitId";
+            SqlCommand command = new(query);
+            command.Parameters.AddWithValue("@ActiviteitId", activity.ActiviteitId);
+            command.Connection = OpenConnection();
+            command.ExecuteNonQuery();
+
+        }
     }
 }
