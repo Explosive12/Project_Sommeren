@@ -22,6 +22,7 @@ namespace SomerenUI
             vatOrders = service.GetAllVatOrders();
         }
 
+        // Fill Form when one of the 2 changeable things get changed
         private void QuarterSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             FillForm();
@@ -31,6 +32,7 @@ namespace SomerenUI
         {
             try
             {
+            // when it no number, show the error
                 if (!int.TryParse(CalcVatTextBoxYear.Text, out int year))
                 {
                     throw new ArgumentOutOfRangeException($"Invalid year:'{CalcVatTextBoxYear.Text}'");
@@ -44,6 +46,7 @@ namespace SomerenUI
         }
 
 
+// Here things for the Form gets calculated and filled in
         private void FillForm()
         {
             try
@@ -53,22 +56,26 @@ namespace SomerenUI
                 int startMonth = GetStartMonth();
                 int year = GetYear();
                 DateTime startDate = new DateTime(year, 1, 1).AddMonths(startMonth);
+                // quarter is 12 / 4 = 3 so 3 months and -1 because it ends a day before
                 DateTime endDate = new DateTime(year, 1, 1).AddMonths(startMonth + 3).AddDays(-1);
                 CalcVat(startDate, endDate);
                 DisplayDateRange(startDate, endDate);
             }
+            throw Exception when something goes wrong
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Hola some error");
             }
         }
 
+// Displays the begin and end date in the labels
         private void DisplayDateRange(DateTime startDate, DateTime endDate)
         {
             CalcVatTextBoxFrom.Text = startDate.ToString("dd-MM-yyyy");
             CalcVatTextboxTo.Text = endDate.ToString("dd-MM-yyyy");
         }
 
+// Calculate VAT of drinks
         private void CalcVat(DateTime startDate, DateTime endDate)
         {
             decimal totalVat6 = 0;
@@ -76,8 +83,10 @@ namespace SomerenUI
 
             foreach (VatOrder order in vatOrders)
             {
+            // make it so its only from the selected quarter
                 if (order.Date < startDate || order.Date > endDate)
                     continue;
+                    // check if the order has acohol in it (use bit to make it true or false in DB)
                 if (!order.IsAlcohol)
                     totalVat6 += order.Price - (order.Price / (1 + (decimal)0.06));
                 else
@@ -85,11 +94,14 @@ namespace SomerenUI
             }
             DisplayVat(RoundCurrency(totalVat6), RoundCurrency(totalVat21));
         }
+        
+        //Round the decimals up to 2 after dot / comma
         private decimal RoundCurrency(decimal value)
         {
             return Math.Round(value, 2);
         }
 
+// Display the Calculations of VAT
         private void DisplayVat(decimal totalVat6, decimal totalVat21)
         {
             textBox6Vat.Text = totalVat6.ToString("C");
@@ -97,6 +109,7 @@ namespace SomerenUI
             textBoxTotalVat.Text = (totalVat21 + totalVat6).ToString("C");
         }
 
+// get the starting month of the quarter
         private int GetStartMonth()
         {
             string selectedQuarter = QuarterSelectionComboBox.SelectedItem.ToString();
@@ -104,11 +117,13 @@ namespace SomerenUI
             return startMonth;
         }
 
+// Get Year in int form
         private int GetYear()
         {
             return int.Parse(CalcVatTextBoxYear.Text);
         }
 
+// Check which option is selected in the Combobox and add amount of months to the quarter so it starts at the correct position
         private int QuarterToMonth(string selectedQuarter)
         {
             switch (selectedQuarter)

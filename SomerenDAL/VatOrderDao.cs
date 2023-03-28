@@ -13,6 +13,7 @@ namespace SomerenDAL
     {
         public List<VatOrder> GetAllVatOrders()
         {
+        // SQL Querry right below!!
             string query = "SELECT O.price, O.date, D.IsAlcohol FROM Orders O JOIN drank D ON O.drinkId = D.Dranknr";
                 return ReadTables(ExecuteSelectQuery(query));
         }
