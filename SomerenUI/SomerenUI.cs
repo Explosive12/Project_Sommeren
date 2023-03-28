@@ -134,6 +134,42 @@ namespace SomerenUI
         }
 
 
+        //
+        // Activity buttons here
+        //
+        private void AddActivity()
+        {
+            // Check if everything is filled in
+            if (OmschrijvingActivityTextBox.Text == "" || StartTijdActivityTextBox.Text == "" || EindTijdActivityTextBox.Text == "")
+            {
+                MessageBox.Show("Please fill in all the boxes! <3");
+                return;
+            }
+
+
+            try
+            {
+                // Fill in the Activity
+                Activity newActivity = new()
+                {
+                    Omschrijving = OmschrijvingActivityTextBox.Text,
+                    StartTijd = DateTime.ParseExact(StartTijdActivityTextBox.Text, "dd-MM-yyyy HH:mm", null),
+                    EindTijd = DateTime.ParseExact(EindTijdActivityTextBox.Text, "dd-MM-yyyy HH:mm", null)
+                };
+
+                // Add the activiity
+                ActivityService activityService = new();
+                activityService.AddActivity(newActivity);
+                this.Close();
+                MessageBox.Show("The activity has been added!");
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show($"Oh no! :( \n Something went wrong: {exp.Message}");
+            }
+
+        }
+
         // Rooms Section
         private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -610,5 +646,9 @@ namespace SomerenUI
 
         }
 
+        private void AddActivityButton_Click(object sender, EventArgs e)
+        {
+            AddActivity();
+        }
     }
 }

@@ -34,5 +34,16 @@ namespace SomerenDAL
             }
             return activiteiten;
         }
+
+        public void AddActivity(Activity activity)
+        {
+            string query = "INSERT INTO Activiteit (Omschrijving, StartTijd, EindTijd) VALUES (@Omschrijving, @StartTijd, @EindTijd)";
+            SqlCommand command = new(query);
+            command.Parameters.AddWithValue("@Omschrijving", activity.Omschrijving);
+            command.Parameters.AddWithValue("@StartTijd", activity.StartTijd);
+            command.Parameters.AddWithValue("@EindTijd", activity.EindTijd);
+            command.Connection = OpenConnection();
+            command.ExecuteNonQuery();
+        }
     }
 }

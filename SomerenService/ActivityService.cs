@@ -22,5 +22,11 @@ namespace SomerenService
             List<Activity> activities = activitydb.GetAllActivities();
             return activities;
         }
+
+        public void AddActivity(Activity activity)
+        {
+            activitydb.AddActivity(activity);
+        }
+
     }
 }
