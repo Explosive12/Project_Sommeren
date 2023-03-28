@@ -50,6 +50,7 @@ namespace SomerenDAL
         {
             string query = "UPDATE Activiteit SET Omschrijving = @Omschrijving, StartTijd = @StartTijd, EindTijd = @EindTijd WHERE ActiviteitId = @ActiviteitId";
             SqlCommand command = new(query);
+            command.Parameters.AddWithValue("@ActiviteitId", activity.ActiviteitId);
             command.Parameters.AddWithValue("@Omschrijving", activity.Omschrijving);
             command.Parameters.AddWithValue("@StartTijd", activity.StartTijd);
             command.Parameters.AddWithValue("@EindTijd", activity.EindTijd);

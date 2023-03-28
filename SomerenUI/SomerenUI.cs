@@ -5,12 +5,14 @@ using System.Collections.Generic;
 using System;
 using System.Data.SqlClient;
 using static System.Windows.Forms.LinkLabel;
+using System.Globalization;
 
 namespace SomerenUI
 {
 
     public partial class SomerenUI : Form
     {
+        CultureInfo provider = new CultureInfo("nl-NL");
         const string DateFormat = "yyyy-MM-dd HH:mm";
         const string DateFormat2 = "yyyy-MM-dd";
         public SomerenUI()
@@ -197,21 +199,24 @@ namespace SomerenUI
             {
                 Activity editActivity = new()
                 {
+                    ActiviteitId = int.Parse(ActivityIdTextBox.Text),
                     Omschrijving = OmschrijvingActivityTextBox.Text,
-                    StartTijd = DateTime.ParseExact(StartTijdActivityTextBox.Text, "dd-MM-yyyy HH:mm", null),
-                    EindTijd = DateTime.ParseExact(EindTijdActivityTextBox.Text, "dd-MM-yyyy HH:mm", null)
+                    StartTijd = DateTime.ParseExact(StartTijdActivityTextBox.Text, DateFormat, provider),
+                    EindTijd = DateTime.ParseExact(EindTijdActivityTextBox.Text, DateFormat, provider)
                 };
 
                 // update the activity
                 ActivityService activityService = new();
                 activityService.UpdateActivity(editActivity);
-                this.Close();
                 MessageBox.Show($"the Editing of the activity {editActivity.Omschrijving} went well!");
             }
             catch (Exception exp)
             {
                 MessageBox.Show($"Oh no! :( \n Something went wrong: {exp.Message}");
             }
+            //Refresh activity list
+            DisplayActivity(GetActivities());
+            
         }
 
         // Load the activity info
@@ -249,20 +254,21 @@ namespace SomerenUI
                 Activity newActivity = new()
                 {
                     Omschrijving = OmschrijvingActivityTextBox.Text,
-                    StartTijd = DateTime.ParseExact(StartTijdActivityTextBox.Text, "dd-MM-yyyy HH:mm", null),
-                    EindTijd = DateTime.ParseExact(EindTijdActivityTextBox.Text, "dd-MM-yyyy HH:mm", null)
+                    StartTijd = DateTime.ParseExact(StartTijdActivityTextBox.Text, DateFormat, provider),
+                    EindTijd = DateTime.ParseExact(EindTijdActivityTextBox.Text, DateFormat, provider)
                 };
 
                 // Add the activiity
                 ActivityService activityService = new();
                 activityService.AddActivity(newActivity);
-                this.Close();
                 MessageBox.Show("The activity has been added!");
             }
             catch (Exception exp)
             {
                 MessageBox.Show($"Oh no! :( \n Something went wrong: {exp.Message}");
             }
+            // refresh activity list
+            DisplayActivity(GetActivities());
 
         }
 
