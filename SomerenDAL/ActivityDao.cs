@@ -67,5 +67,25 @@ namespace SomerenDAL
             command.ExecuteNonQuery();
 
         }
+
+        public void AddStudentToActivity(Activity activity, Student student)
+        {
+            SqlParameter[] sqlParameters = new SqlParameter[]{
+                new SqlParameter("@StudentId", student.Id),
+                new SqlParameter( "@ActiviteitId", activity.ActiviteitId),
+            };
+
+            ExecuteEditQuery("INSERT INTO [ActiviteitStudent] (StudentID, ActiviteitID) VALUES (@StudentId, @ActiviteitId)", sqlParameters);
+        }
+
+        public void RemoveStudentFromActivity(Activity activity, Student student)
+        {
+            SqlParameter[] sqlParameters = new SqlParameter[]{
+                new SqlParameter("@StudentId", student.Id),
+                new SqlParameter( "@ActiviteitId", activity.ActiviteitId),
+            };
+
+            ExecuteEditQuery("DELETE FROM [ActiviteitStudent] WHERE StudentID = @StudentId AND ActiviteitID = @ActiviteitId", sqlParameters);
+        }
     }
 }
