@@ -84,7 +84,7 @@ namespace SomerenDAL
                 ActivitySupervisor activiteit = new ActivitySupervisor();
                 if (Convert.IsDBNull(dr["supervisor"]))
                 {
-                    activiteit.supervisor = string.Empty;
+                    activiteit.supervisor = "unsupervised";
                 }
                 else
                 {

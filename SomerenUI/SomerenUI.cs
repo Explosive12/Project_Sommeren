@@ -658,6 +658,22 @@ namespace SomerenUI
                     monactivitytxt.Text = activity.activityName;
                     monSuptxt.Text += $"{activity.supervisor} \n";
                     break;
+                case (DayOfWeek.Tuesday):
+                    tueActivitytxt.Text = activity.activityName;
+                    tueSuptxt.Text += $"{activity.supervisor} \n";
+                    break;
+                case (DayOfWeek.Wednesday):
+                    wedActivitytxt.Text = activity.activityName;
+                    wedSuptxt.Text += $"{activity.supervisor} \n";
+                    break;
+                case (DayOfWeek.Thursday):
+                    thuActivitytxt.Text = activity.activityName;
+                    thuSuptxt.Text += $"{activity.supervisor} \n";
+                    break;
+                case (DayOfWeek.Friday):
+                    friActivitytxt.Text = activity.activityName;
+                    friSuptxt.Text += $"{activity.supervisor} \n";
+                    break;
             }
 
         }
