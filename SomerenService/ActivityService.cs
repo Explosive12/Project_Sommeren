@@ -38,5 +38,10 @@ namespace SomerenService
             activitydb.DeleteActivity(activity);
         }
 
+        public List<ActivitySupervisor> GetActivitySupervisors(List<ActivitySupervisor> activitySupervisors)
+        {
+            activitySupervisors = activitydb.GetActivitySupervisor();
+            return activitySupervisors;
+        }
     }
 }

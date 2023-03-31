@@ -26,12 +26,20 @@ namespace SomerenDAL
             foreach (DataRow dr in dataTable.Rows)
             {
                 {
-                    Revenue revenue = new Revenue()
+                    Revenue revenue = new Revenue();
+
+                    if (Convert.IsDBNull(dr["turnover"]))
                     {
-                        Sales = (int)dr["sales"],
-                        Turnover = (decimal)dr["turnover"],
-                        NumberOfStudents = (int)dr["nCustomers"],
-                    };
+                        revenue.Turnover = 0;
+                    }
+                    else
+                    {
+                        revenue.Turnover = (decimal)dr["turnover"];
+                    }
+                    revenue.Sales = (int)dr["sales"];
+
+                    revenue.NumberOfStudents = (int)dr["nCustomers"];
+
                     revenues.Add(revenue);
                 }
             }

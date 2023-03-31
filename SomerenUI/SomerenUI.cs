@@ -24,13 +24,7 @@ namespace SomerenUI
         private void ShowDashboardPanel()
         {
             // hide all other panels
-            pnlStudents.Hide();
-            pnlActivities.Hide();
-            pnlRooms.Hide();
-            pnlLecturer.Hide();
-            pnlDrinkSupplies.Hide();
-            pnlCashRegister.Hide();
-            pnlRevenueReport.Hide();
+            HideAllPanels();
 
 
             // show dashboard
@@ -42,13 +36,7 @@ namespace SomerenUI
         private void ShowStudentsPanel()
         {
             // hide all other panels
-            pnlDashboard.Hide();
-            pnlLecturer.Hide();
-            pnlActivities.Hide();
-            pnlRooms.Hide();
-            pnlDrinkSupplies.Hide();
-            pnlCashRegister.Hide();
-            pnlRevenueReport.Hide();
+            HideAllPanels();
 
 
             // show students
@@ -105,13 +93,7 @@ namespace SomerenUI
         private void ShowDashBoardActivities()
         {
             // hide all other panels
-            pnlDashboard.Hide();
-            pnlStudents.Hide();
-            pnlLecturer.Hide();
-            pnlRooms.Hide();
-            pnlDrinkSupplies.Hide();
-            pnlCashRegister.Hide();
-            pnlRevenueReport.Hide();
+            HideAllPanels();
 
 
             // show activity
@@ -216,7 +198,7 @@ namespace SomerenUI
             }
             //Refresh activity list
             DisplayActivity(GetActivities());
-            
+
         }
 
         // Load the activity info
@@ -288,13 +270,7 @@ namespace SomerenUI
         private void ShowRoomsPannel()
         {
             //Hide all other pannels
-            pnlDashboard.Hide();
-            pnlStudents.Hide();
-            pnlLecturer.Hide();
-            pnlActivities.Hide();
-            pnlDrinkSupplies.Hide();
-            pnlCashRegister.Hide();
-            pnlRevenueReport.Hide();
+            HideAllPanels();
 
 
             // Hide all other Listviews?
@@ -352,13 +328,7 @@ namespace SomerenUI
         private void ShowLecturerPanel()
         {
             // hide all other panels
-            pnlDashboard.Hide();
-            pnlStudents.Hide();
-            pnlActivities.Hide();
-            pnlRooms.Hide();
-            pnlCashRegister.Hide();
-            pnlDrinkSupplies.Hide();
-            pnlRevenueReport.Hide();
+            HideAllPanels();
 
 
             // show lecturer
@@ -399,13 +369,7 @@ namespace SomerenUI
 
         private void ShowCashRegisterPanel()
         {
-            pnlDashboard.Hide();
-            pnlStudents.Hide();
-            pnlActivities.Hide();
-            pnlDrinkSupplies.Hide();
-            pnlRooms.Hide();
-            pnlLecturer.Hide();
-            pnlRevenueReport.Hide();
+            HideAllPanels();
 
 
             // show Cash Register
@@ -470,14 +434,7 @@ namespace SomerenUI
         private void ShowDashBoardDrinks()
         {
             // hide all other panels
-            pnlDashboard.Hide();
-            pnlLecturer.Hide();
-            pnlStudents.Hide();
-            pnlActivities.Hide();
-            pnlCashRegister.Hide();
-            pnlRooms.Hide();
-            pnlRevenueReport.Hide();
-
+            HideAllPanels();
 
             // show activity
             pnlDrinkSupplies.Show();
@@ -543,13 +500,7 @@ namespace SomerenUI
         private void ShowRevenuePanel()
         {
             // hide all other panels
-            pnlDashboard.Hide();
-            pnlStudents.Hide();
-            pnlActivities.Hide();
-            pnlRooms.Hide();
-            pnlLecturer.Hide();
-            pnlCashRegister.Hide();
-            pnlDrinkSupplies.Hide();
+            HideAllPanels();
 
             // show Revenue
             pnlRevenueReport.Show();
@@ -673,6 +624,56 @@ namespace SomerenUI
                 MessageBox.Show("Something went wrong!" + ex.Message);
             }
         }
+        private void showTimeTablePanel()
+        {
+            // hide all other panels
+            HideAllPanels();
+
+
+            // show TimeTable
+            pnlTimeTable.Show();
+
+            try
+            {
+                ActivityService activityService = new ActivityService();
+                //get and display all activities
+                List<ActivitySupervisor> activities = new List<ActivitySupervisor>();
+                activities = activityService.GetActivitySupervisors(activities);
+                foreach (ActivitySupervisor activitySupervisor in activities)
+                {
+                    FillSupervisorLables(activitySupervisor);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the students: " + e.Message);
+            }
+        }
+
+        public void FillSupervisorLables(ActivitySupervisor activity)
+        {
+            switch (activity.starttijd.DayOfWeek)
+            {
+                case (DayOfWeek.Monday):
+                    monactivitytxt.Text = activity.activityName;
+                    monSuptxt.Text += $"{activity.supervisor} \n";
+                    break;
+            }
+
+        }
+
+        private void HideAllPanels()
+        {
+            pnlDashboard.Hide();
+            pnlStudents.Hide();
+            pnlActivities.Hide();
+            pnlRooms.Hide();
+            pnlLecturer.Hide();
+            pnlCashRegister.Hide();
+            pnlDrinkSupplies.Hide();
+            pnlRevenueReport.Hide();
+            pnlTimeTable.Hide();
+        }
 
         private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
@@ -714,6 +715,10 @@ namespace SomerenUI
         private void RevenueReportButtonn_Click(object sender, EventArgs e)
         {
             ShowRevenuePanel();
+        }
+        private void timeTableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showTimeTablePanel();
         }
 
         private void cashRegisterStudentComboBox_SelectedIndexChanged(object sender, EventArgs e)

@@ -67,5 +67,35 @@ namespace SomerenDAL
             command.ExecuteNonQuery();
 
         }
+
+        public List<ActivitySupervisor> GetActivitySupervisor()
+        {
+            string query = "select d.[name] as 'supervisor', omschrijving as 'activity name', ac.starttijd from activiteitsupervisor a left join docent d on d.docentID = a.docentID join activiteit ac on ac.activiteitID = a.activiteitID";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTablesSuperviser(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        private List<ActivitySupervisor> ReadTablesSuperviser(DataTable dataTable)
+        {
+            List<ActivitySupervisor> activiteiten = new List<ActivitySupervisor>();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                ActivitySupervisor activiteit = new ActivitySupervisor();
+                if (Convert.IsDBNull(dr["supervisor"]))
+                {
+                    activiteit.supervisor = string.Empty;
+                }
+                else
+                {
+                    activiteit.supervisor = (string)dr["supervisor"];
+                }; 
+                activiteit.activityName = (string)dr["activity name"];
+                activiteit.starttijd = (DateTime)dr["starttijd"];
+
+                activiteiten.Add(activiteit);
+            }
+            return activiteiten;
+        }
     }
 }
