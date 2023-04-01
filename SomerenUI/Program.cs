@@ -15,7 +15,7 @@ namespace SomerenUI
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new SomerenUI());
-            Application.Run(new ActivityStudentUI());
+            Application.Run(new SomerenUI());
         }
     }
 }
