@@ -97,5 +97,48 @@ namespace SomerenDAL
             }
             return activiteiten;
         }
+
+        public void AddStudentToActivity(Activity activity, Student student)
+        {
+            SqlParameter[] sqlParameters = new SqlParameter[]{
+                new SqlParameter("@StudentId", student.Id),
+                new SqlParameter( "@ActiviteitId", activity.ActiviteitId),
+            };
+
+            ExecuteEditQuery("INSERT INTO [ActiviteitStudent] (StudentID, ActiviteitID) VALUES (@StudentId, @ActiviteitId)", sqlParameters);
+        }
+
+        public void RemoveStudentFromActivity(Activity activity, Student student)
+        {
+            SqlParameter[] sqlParameters = new SqlParameter[]{
+                new SqlParameter("@StudentId", student.Id),
+                new SqlParameter( "@ActiviteitId", activity.ActiviteitId),
+            };
+
+            ExecuteEditQuery("DELETE FROM [ActiviteitStudent] WHERE StudentID = @StudentId AND ActiviteitID = @ActiviteitId", sqlParameters);
+        }
+
+        public List<Student> GetAllStudentsFromActivity(int activityID)
+        {
+            string query = $"SELECT [Name] FROM Student JOIN ActiviteitStudent ON Student.StudentId = ActiviteitStudent.StudentID WHERE ActiviteitStudent.ActiviteitID = {activityID}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTablesForStudent(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        private List<Student> ReadTablesForStudent(DataTable dataTable)
+        {
+            List<Student> students = new List<Student>();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Student student = new Student()
+                {
+                    Id = 0,
+                    Name = dr["Name"].ToString()
+                };
+                students.Add(student);
+            }
+            return students;
+        }
     }
 }

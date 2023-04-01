@@ -775,5 +775,12 @@ namespace SomerenUI
         {
             LoadActivity();
         }
+
+        private void activityStudentsButton_Click(object sender, EventArgs e)
+        {
+            ActivityStudentUI activityStudent = new ActivityStudentUI();
+            activityStudent.ShowDialog();
+
+        }
     }
 }

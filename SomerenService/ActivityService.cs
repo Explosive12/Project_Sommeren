@@ -2,6 +2,7 @@
 using SomerenModel;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,21 @@ namespace SomerenService
             activitydb.DeleteActivity(activity);
         }
 
+        public void AddStudentToActivity(Activity activity, Student student)
+        {
+            activitydb.AddStudentToActivity(activity, student);
+        }
+
+        public void RemoveStudentFromActivity(Activity activity, Student student)
+        {
+            activitydb.RemoveStudentFromActivity(activity, student);
+        }
+
+        public List<Student> GetAllStudentsFromActivity(int activityID)
+        {
+            List<Student> students = activitydb.GetAllStudentsFromActivity(activityID);
+            return students;
+        }
         public List<ActivitySupervisor> GetActivitySupervisors(List<ActivitySupervisor> activitySupervisors)
         {
             activitySupervisors = activitydb.GetActivitySupervisor();
