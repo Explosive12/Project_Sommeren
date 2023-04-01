@@ -2,6 +2,7 @@
 using SomerenModel;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +47,12 @@ namespace SomerenService
         public void RemoveStudentFromActivity(Activity activity, Student student)
         {
             activitydb.RemoveStudentFromActivity(activity, student);
+        }
+
+        public List<Student> GetAllStudentsFromActivity(int activityID)
+        {
+            List<Student> students = activitydb.GetAllStudentsFromActivity(activityID);
+            return students;
         }
     }
 }

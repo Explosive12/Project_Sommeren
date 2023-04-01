@@ -36,6 +36,9 @@
             this.naamcolumnHeader = new System.Windows.Forms.ColumnHeader();
             this.addStudentButton = new System.Windows.Forms.Button();
             this.removeStudentButton = new System.Windows.Forms.Button();
+            this.StudentsinActivitylistView = new System.Windows.Forms.ListView();
+            this.studentNameColumnHeader = new System.Windows.Forms.ColumnHeader();
+            this.studentInActivityLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ActivitylistView
@@ -106,11 +109,38 @@
             this.removeStudentButton.UseVisualStyleBackColor = true;
             this.removeStudentButton.Click += new System.EventHandler(this.removeStudentButton_Click);
             // 
+            // StudentsinActivitylistView
+            // 
+            this.StudentsinActivitylistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.studentNameColumnHeader});
+            this.StudentsinActivitylistView.Location = new System.Drawing.Point(472, 253);
+            this.StudentsinActivitylistView.Name = "StudentsinActivitylistView";
+            this.StudentsinActivitylistView.Size = new System.Drawing.Size(299, 185);
+            this.StudentsinActivitylistView.TabIndex = 4;
+            this.StudentsinActivitylistView.UseCompatibleStateImageBehavior = false;
+            this.StudentsinActivitylistView.View = System.Windows.Forms.View.Details;
+            // 
+            // studentNameColumnHeader
+            // 
+            this.studentNameColumnHeader.Text = "Naam";
+            this.studentNameColumnHeader.Width = 100;
+            // 
+            // studentInActivityLabel
+            // 
+            this.studentInActivityLabel.AutoSize = true;
+            this.studentInActivityLabel.Location = new System.Drawing.Point(472, 230);
+            this.studentInActivityLabel.Name = "studentInActivityLabel";
+            this.studentInActivityLabel.Size = new System.Drawing.Size(136, 20);
+            this.studentInActivityLabel.TabIndex = 5;
+            this.studentInActivityLabel.Text = "Student in Activity: ";
+            // 
             // ActivityStudentUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.studentInActivityLabel);
+            this.Controls.Add(this.StudentsinActivitylistView);
             this.Controls.Add(this.removeStudentButton);
             this.Controls.Add(this.addStudentButton);
             this.Controls.Add(this.StudentlistView);
@@ -119,6 +149,7 @@
             this.Text = "ActivityStudentUI";
             this.Load += new System.EventHandler(this.ActivityStudentUI_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -132,5 +163,8 @@
         private System.Windows.Forms.ColumnHeader naamcolumnHeader;
         private System.Windows.Forms.Button addStudentButton;
         private System.Windows.Forms.Button removeStudentButton;
+        private System.Windows.Forms.ListView StudentsinActivitylistView;
+        private System.Windows.Forms.ColumnHeader studentNameColumnHeader;
+        private System.Windows.Forms.Label studentInActivityLabel;
     }
 }

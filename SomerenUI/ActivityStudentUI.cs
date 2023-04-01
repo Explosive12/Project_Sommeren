@@ -74,6 +74,30 @@ namespace SomerenUI
             }
         }
 
+        private void DisplayStudentsInActivity(int activityID)
+        {
+            //Making a list with all the activities
+            List<Student> students = activityService.GetAllStudentsFromActivity(activityID);
+
+            // clear the listview before filling it
+            StudentsinActivitylistView.Items.Clear();
+
+            try
+            {
+                foreach (Student student in students)
+                {
+                    ListViewItem li = new ListViewItem(student.Name);
+                    li.Tag = student;   // link student object to listview item
+                    StudentsinActivitylistView.Items.Add(li);
+                }
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the StudentsInActivity listview: " + e.Message);
+            }
+        }
+
         private void ActivityStudentUI_Load(object sender, EventArgs e)
         {
             DisplayActivity();
@@ -90,6 +114,8 @@ namespace SomerenUI
             }
             ListViewItem selectedListViewItem = ActivitylistView.SelectedItems[0];
             selectedActivity = (Activity)selectedListViewItem.Tag;
+            studentInActivityLabel.Text = $"Student in Activity: {selectedActivity.Omschrijving}";
+            DisplayStudentsInActivity(selectedActivity.ActiviteitId);
         }
 
         Student selectedStudent;
@@ -110,7 +136,17 @@ namespace SomerenUI
 
         private void removeStudentButton_Click(object sender, EventArgs e)
         {
-            activityService.RemoveStudentFromActivity(selectedActivity, selectedStudent);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete student from activity?", "Confirmation", MessageBoxButtons.YesNo);
+
+            if(dialogResult == DialogResult.Yes)
+            {
+                activityService.RemoveStudentFromActivity(selectedActivity, selectedStudent);
+            }
+            else
+            {
+                return;
+            }
+            
         }
     }
 }
