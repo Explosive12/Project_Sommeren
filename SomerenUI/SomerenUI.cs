@@ -790,7 +790,7 @@ namespace SomerenUI
 
         private void activitySupervisor_Click(object sender, EventArgs e)
         {
-           ActiviteitSupervisors activiteitSupervisor = new();
+            ActiviteitSupervisors activiteitSupervisor = new();
             activiteitSupervisor.ShowDialog();
 
         }
