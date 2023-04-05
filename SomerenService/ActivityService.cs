@@ -38,6 +38,20 @@ namespace SomerenService
         {
             activitydb.DeleteActivity(activity);
         }
+        public void AddSuperVisorActivity(Activity activity, Lecturer lecturer)
+        {
+            activitydb.AddSuperVisorActivity(activity, lecturer);
+        }
+        public void DeleteSupervisor(Activity activity, Lecturer lecturer)
+        {
+            activitydb.DeleteSupervisor(activity, lecturer);
+        }
+
+        public List<Lecturer> GetAllSupervisorsActivity(int activityID)
+        {
+            List<Lecturer> lecturer = activitydb.GetAllSupervisorsActivity(activityID);
+            return lecturer;
+        }
 
         public void AddStudentToActivity(Activity activity, Student student)
         {

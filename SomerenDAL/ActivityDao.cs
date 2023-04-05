@@ -140,5 +140,50 @@ namespace SomerenDAL
             }
             return students;
         }
+
+        public void DeleteSupervisor(Activity activity, Lecturer lecturer)
+        {
+            string query = "DELETE FROM ActiviteitSupervisor WHERE ActiviteitId = @ActiviteitId AND DocentId = @DocentId"; 
+            SqlCommand command = new(query);
+            command.Parameters.AddWithValue("@ActiviteitId", activity.ActiviteitId);
+            command.Parameters.AddWithValue("@DocentId", lecturer.Id);
+            command.Connection = OpenConnection();
+            command.ExecuteNonQuery();
+        }
+
+        
+
+        public void AddSuperVisorActivity(Activity activity, Lecturer lecturer)
+        {
+            SqlParameter[] sqlParameters = new SqlParameter[]{
+                new SqlParameter("@DocentID", lecturer.Id),
+                new SqlParameter( "@ActiviteitId", activity.ActiviteitId),
+            };
+
+            ExecuteEditQuery("INSERT INTO [ActiviteitSupervisor] (DocentID, ActiviteitID) VALUES (@DocentID, @ActiviteitId)", sqlParameters);
+        }
+
+        public List<Lecturer> GetAllSupervisorsActivity(int activityId)
+        {
+            string query = $"SELECT [Name] FROM docent JOIN ActiviteitSupervisor ON docent.DocentId = ActiviteitSupervisor.DocentID WHERE ActiviteitSupervisor.ActiviteitID = {activityId}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTablesForLecturers(ExecuteSelectQuery(query, sqlParameters));
+        }
+        private List<Lecturer> ReadTablesForLecturers(DataTable dataTable)
+        {
+            List<Lecturer> lecturers = new List<Lecturer>();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Lecturer lecturer = new Lecturer()
+                {
+                    Id = 0,
+                    Name = dr["Name"].ToString()
+                };
+                lecturers.Add(lecturer);
+            }
+            return lecturers;
+        }
+
     }
 }

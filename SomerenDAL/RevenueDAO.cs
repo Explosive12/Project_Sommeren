@@ -21,7 +21,7 @@ namespace SomerenDAL
         }
 
         private List<Revenue> ReadTables(DataTable dataTable)
-        {
+        {   
             List<Revenue> revenues = new List<Revenue>();
             foreach (DataRow dr in dataTable.Rows)
             {
