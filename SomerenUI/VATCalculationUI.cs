@@ -61,7 +61,7 @@ namespace SomerenUI
                 CalcVat(startDate, endDate);
                 DisplayDateRange(startDate, endDate);
             }
-            //hrow Exception when something goes wrong
+            //throw Exception when something goes wrong
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Hola some error");
