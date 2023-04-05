@@ -754,5 +754,17 @@ namespace SomerenUI
         {
             LoadActivity();
         }
+
+        private void ActivityListView_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void activitySupervisor_Click(object sender, EventArgs e)
+        {
+           ActiviteitSupervisors activiteitSupervisor = new();
+            activiteitSupervisor.ShowDialog();
+
+        }
     }
 }
