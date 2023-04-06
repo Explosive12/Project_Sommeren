@@ -482,17 +482,7 @@ namespace SomerenUI
 
         private void listViewDrinkSupplies_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listViewDrinkSupplies.SelectedItems.Count == 0)
-            {
-                return;
-            }
-            /*listViewDrinkSupplies.FullRowSelect = true;*/
-            ListViewItem selectedListViewItem = listViewDrinkSupplies.SelectedItems[0];
-            Drinks selectedDrink = (Drinks)selectedListViewItem.Tag;
 
-            DranknrDrinkSupplies.Text = selectedDrink.Dranknr.ToString();
-            NaamDrinkSupplies.Text = selectedDrink.Naam;
-            VoorraadDrinkSupplies.Text = selectedDrink.Voorraad.ToString();
         }
 
         //Revenue report begint hier
@@ -544,25 +534,7 @@ namespace SomerenUI
 
         private void revenuebtn_Click(object sender, EventArgs e)
         {
-            try
-            {
-                RevenueService revenueService = new RevenueService();
-                Revenue revenue = new Revenue();
-                revenue = revenueService.Select(startDate, endDate, revenue);
 
-                // add revenue data to listview
-
-                ListViewItem li = new ListViewItem(revenue.Sales.ToString());
-                li.Tag = revenue;   // link revenue object to listview items
-                li.SubItems.Add(revenue.Turnover.ToString());
-                li.SubItems.Add(revenue.NumberOfStudents.ToString());
-                listViewRevenueReport.Items.Add(li);
-
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Something went wrong!" + ex.Message);
-            }
         }
 
         // button prompts beginnen hier
@@ -602,27 +574,13 @@ namespace SomerenUI
         public Drinks selectedDrink;
         private void listViewDrankCashRegister_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listViewDrankCashRegister.SelectedItems.Count == 0)
-            {
-                return;
-            }
-            ListViewItem selectedListViewDrank = listViewDrankCashRegister.SelectedItems[0];
-            selectedDrink = (Drinks)selectedListViewDrank.Tag;
+
         }
 
 
         private void cashRegisterSubmitOrderButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                OrderService orderService = new OrderService();
 
-                orderService.Insert(selectedStudent.Id, selectedDrink.Dranknr, selectedDrink.Prijs, DateTime.Now);
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Something went wrong!" + ex.Message);
-            }
         }
         private void showTimeTablePanel()
         {
@@ -793,6 +751,106 @@ namespace SomerenUI
             ActiviteitSupervisors activiteitSupervisor = new();
             activiteitSupervisor.ShowDialog();
 
+        }
+
+        private void cashRegisterStudentComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cashRegisterSubmitOrderButton_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                OrderService orderService = new OrderService();
+
+                orderService.Insert(selectedStudent.Id, selectedDrink.Dranknr, selectedDrink.Prijs, DateTime.Now);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Something went wrong!" + ex.Message);
+            }
+        }
+
+        private void listViewDrankCashRegister_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (listViewDrankCashRegister.SelectedItems.Count == 0)
+            {
+                return;
+            }
+            ListViewItem selectedListViewDrank = listViewDrankCashRegister.SelectedItems[0];
+            selectedDrink = (Drinks)selectedListViewDrank.Tag;
+        }
+
+        private void listViewDrinkSupplies_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (listViewDrinkSupplies.SelectedItems.Count == 0)
+            {
+                return;
+            }
+            /*listViewDrinkSupplies.FullRowSelect = true;*/
+            ListViewItem selectedListViewItem = listViewDrinkSupplies.SelectedItems[0];
+            Drinks selectedDrink = (Drinks)selectedListViewItem.Tag;
+
+            DranknrDrinkSupplies.Text = selectedDrink.Dranknr.ToString();
+            NaamDrinkSupplies.Text = selectedDrink.Naam;
+            VoorraadDrinkSupplies.Text = selectedDrink.Voorraad.ToString();
+        }
+
+        private void revenuebtn_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                RevenueService revenueService = new RevenueService();
+                Revenue revenue = new Revenue();
+                revenue = revenueService.Select(startDate, endDate, revenue);
+
+                // add revenue data to listview
+
+                ListViewItem li = new ListViewItem(revenue.Sales.ToString());
+                li.Tag = revenue;   // link revenue object to listview items
+                li.SubItems.Add(revenue.Turnover.ToString());
+                li.SubItems.Add(revenue.NumberOfStudents.ToString());
+                listViewRevenueReport.Items.Add(li);
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Something went wrong!" + ex.Message);
+            }
+        }
+
+        private void monthCalendar_DateChanged_1(object sender, DateRangeEventArgs e)
+        {
+            if (monthCalendar.SelectionStart > DateTime.Now)
+            {
+                MessageBox.Show("cant select past current time, silly :3");
+                return;
+            }
+            if (start)
+            {
+                endDate = monthCalendar.SelectionStart;
+                if (endDate < startDate)
+                {
+                    startTimetxt.Text = $"Start date: {endDate.ToString(DateFormat2)}";
+                    start = false;
+                    return;
+                }
+                endTimetxt.Text = $"End date: {endDate.ToString(DateFormat2)}";
+                start = false;
+            }
+            else
+            {
+                startDate = monthCalendar.SelectionStart;
+                if (startDate > endDate)
+                {
+                    endTimetxt.Text = $"End date: {startDate.ToString(DateFormat2)}";
+                    start = true;
+                    return;
+                }
+                startTimetxt.Text = $"Start date: {startDate.ToString(DateFormat2)}";
+                start = true;
+            }
         }
     }
 }
