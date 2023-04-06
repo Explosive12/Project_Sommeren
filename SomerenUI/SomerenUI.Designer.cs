@@ -752,7 +752,7 @@ namespace SomerenUI
             // EindTijdLabel
             // 
             EindTijdLabel.AutoSize = true;
-            EindTijdLabel.Location = new System.Drawing.Point(683, 329);
+            EindTijdLabel.Location = new System.Drawing.Point(593, 252);
             EindTijdLabel.Name = "EindTijdLabel";
             EindTijdLabel.Size = new System.Drawing.Size(33, 15);
             EindTijdLabel.TabIndex = 9;
@@ -761,7 +761,7 @@ namespace SomerenUI
             // BeginTijdLabel
             // 
             BeginTijdLabel.AutoSize = true;
-            BeginTijdLabel.Location = new System.Drawing.Point(683, 216);
+            BeginTijdLabel.Location = new System.Drawing.Point(598, 165);
             BeginTijdLabel.Name = "BeginTijdLabel";
             BeginTijdLabel.Size = new System.Drawing.Size(40, 15);
             BeginTijdLabel.TabIndex = 8;
